@@ -2,7 +2,7 @@
 
 class ActionResult {
     public:
-        State* observation;
+        State* state;
         float reward;
         bool done;
 

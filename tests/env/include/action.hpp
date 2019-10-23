@@ -1,5 +1,6 @@
 class Action {
     public:
-        Action();
+        int value;
+        Action(int);
         ~Action();
 };

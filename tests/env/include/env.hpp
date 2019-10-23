@@ -26,6 +26,5 @@ class Env {
 };
 
 /*  TODO: write sample env class in C++, indicate its location
-          write Python wrapper for C++ env and Python implementation of OpenAI Gym env
-          write tests
-          implement QTree in C++ */
+          write implementation of OpenAI Gym env
+          write tests */
