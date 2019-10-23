@@ -1,0 +1,6 @@
+gamma: 0.99
+alpha: 0.01
+visitDecay: 0.999
+splitThreshMax: 0.1
+splitThreshDecay: 0.99
+defaultQValue: 5
