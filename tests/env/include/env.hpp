@@ -2,8 +2,8 @@
 #define MIN_REWARD -2147483648
 
 #include <vector> 
-#include "action.hpp"
-#include "action_result.hpp"
+#include "../../../cqi_cpp/include/action.hpp"
+#include "../../../cqi_cpp/include/action_result.hpp"
 
 using namespace std;
 

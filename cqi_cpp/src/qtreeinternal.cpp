@@ -24,11 +24,11 @@ class QTreeInternal: public QTreeNode {
             // TODO
         }
 
-        void update(State* s, Action* a, int target, QTreeParamStore* params) {
+        void update(State* s, Action* a, int target, unordered_map<string, float>* params) {
             // TODO
         }
 
-        void split(State* s, vector<int>* boxLow, vector<int>* boxHigh, QTreeParamStore* params) {
+        void split(State* s, vector<int>* boxLow, vector<int>* boxHigh, unordered_map<string, float>* params) {
             // TODO
         }
 

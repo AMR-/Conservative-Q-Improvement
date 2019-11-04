@@ -8,8 +8,8 @@ class QTree: public QFunc {
 
         int numSplits;
 
-        vector<State*> stateSpace;
-        vector<Action*> actionSpace;
+        vector<State*>* stateSpace;
+        vector<Action*>* actionSpace;
 
         QTree() : super(stateSpace, actionSpace) {
             // TODO

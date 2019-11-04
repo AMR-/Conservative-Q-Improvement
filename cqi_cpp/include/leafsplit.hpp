@@ -1,6 +1,6 @@
-#include "../../tests/env/include/state.hpp"
-#include "../../tests/env/include/action.hpp"
-#include "qtreeparamstore.hpp"
+#include "state.hpp"
+#include "action.hpp"
+#include <unordered_map>
 #include <vector>
 
 using namespace std;
@@ -16,10 +16,10 @@ class LeafSplit {
         int leftVisits;
         int rightVisits;
 
-        LeafSplit(int, int, vector<float>, vector<float>, int, int);
+        LeafSplit(int, int, vector<float>*, vector<float>*, int, int);
         ~LeafSplit();
 
-        void update(State*, Action*, int, QTreeParamStore*);
+        void update(State*, Action*, int, unordered_map<string, float>*);
 
-        void evalUtility(vector<float>);
+        float evalUtility(vector<float>*);
 }; 

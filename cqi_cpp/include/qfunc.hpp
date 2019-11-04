@@ -1,5 +1,5 @@
-#include "../../tests/env/include/state.hpp"
-#include "../../tests/env/include/action.hpp"
+#include "state.hpp"
+#include "action.hpp"
 
 class QFunc {
     public:
