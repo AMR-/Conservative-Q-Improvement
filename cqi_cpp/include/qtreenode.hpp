@@ -1,7 +1,4 @@
-#include "../../tests/env/include/state.hpp"
-#include "../../tests/env/include/action.hpp"
-#include "qtreeparamstore.hpp"
-#include "../include/leafsplit.hpp"
+#include "leafsplit.hpp"
 #include <string>
 
 using namespace std;
@@ -19,15 +16,15 @@ class QTreeNode {
         bool isLeaf();
         vector<float> getQS(State*);
 
-        void update(State* s, Action* a, int target, QTreeParamStore* params) {
-            this->visits = this->visits * params->val("visitDecay") + (1 - params->val("visitDecay"));
+        void update(State* s, Action* a, int target, unordered_map<string, float>* params) {
+            this->visits = this->visits * params->at("visitDecay") + (1 - params->at("visitDecay"));
         }
 
-        void noVisitUpdate(QTreeParamStore* params) {
-            this->visits = this->visits * params->val("visitDecay");
+        void noVisitUpdate(unordered_map<string, float>* params) {
+            this->visits = this->visits * params->at("visitDecay");
         }
 
-        void split(State*, vector<int>*, vector<int>*, QTreeParamStore*);
+        void split(State*, vector<int>*, vector<int>*, unordered_map<string, float>*);
 
         void maxSplitUntil(State*);
 
