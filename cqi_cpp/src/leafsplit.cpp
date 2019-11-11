@@ -1,6 +1,7 @@
 #include "../include/leafsplit.hpp"
+#include "../include/utils.hpp"
 
-LeafSplit::LeafSplit(int feature, int value, vector<float>* leftQS, vector<float>* rightQS, int leftVisits, int rightVisits) {
+LeafSplit::LeafSplit(int feature, float value, vector<float>* leftQS, vector<float>* rightQS, float leftVisits, float rightVisits) {
     this->feature = feature;
     this->value = value;
     this->leftQS = leftQS;
@@ -22,31 +23,11 @@ void LeafSplit::update(State* s, Action* a, int target, unordered_map<string, fl
     }
 }
 
-float vectorMax(vector<float>* vec) {
-    float max = vec->at(0);
-
-    for (auto& elem: *vec) {
-        if (elem > max) max = elem;
-    }
-
-    return max;
-}
-
-int vectorArgmax(vector<float>* vec) {
-    float max = vectorMax(vec);
-
-    for (int i = 0; i < (int) vec->size(); i++) {
-        if (vec->at(i) == max) return i;
-    }
-
-    return -1;
-}
-
 float LeafSplit::evalUtility(vector<float>* polQVals) {
-    int actionChosen = vectorArgmax(polQVals);
+    int actionChosen = Utils::vectorArgmax(polQVals);
 
-    float leftPotUtil = vectorMax(this->leftQS) - this->leftQS->at(actionChosen);
-    float rightPotUtil = vectorMax(this->rightQS) - this->rightQS->at(actionChosen);
+    float leftPotUtil = Utils::vectorMax(this->leftQS) - this->leftQS->at(actionChosen);
+    float rightPotUtil = Utils::vectorMax(this->rightQS) - this->rightQS->at(actionChosen);
     
     return leftPotUtil * this->leftVisits + rightPotUtil * this->rightVisits;
 }
