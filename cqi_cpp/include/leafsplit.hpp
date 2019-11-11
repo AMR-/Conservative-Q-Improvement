@@ -8,15 +8,15 @@ using namespace std;
 class LeafSplit {
     public:
         int feature;
-        int value;
+        float value;
 
         vector<float>* leftQS; 
         vector<float>* rightQS; 
         
-        int leftVisits;
-        int rightVisits;
+        float leftVisits;
+        float rightVisits;
 
-        LeafSplit(int, int, vector<float>*, vector<float>*, int, int);
+        LeafSplit(int, float, vector<float>*, vector<float>*, float, float);
         ~LeafSplit();
 
         void update(State*, Action*, int, unordered_map<string, float>*);
