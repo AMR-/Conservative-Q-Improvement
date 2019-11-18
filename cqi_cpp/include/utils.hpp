@@ -4,23 +4,27 @@ using namespace std;
 
 class Utils {
     public:
-        static float vectorMax(vector<float>* vec) {
-            float max = vec->at(0);
-
-            for (auto& elem: *vec) {
-                if (elem > max) max = elem;
-            }   
-
-            return max;
-        }
-
         static int vectorArgmax(vector<float>* vec) {
-            float max = vectorMax(vec);
+            float max = vec->at(0);
+            int argmax = 0;
 
-            for (int i = 0; i < (int) vec->size(); i++) {
-                if (vec->at(i) == max) return i;
+            for (int i = 1; i < (int) vec->size(); i++) {
+                if (vec->at(i) > max) {
+                    max = vec->at(i);
+                    argmax = i;
+                }
             }
 
-            return -1;
+            return argmax;
+        }
+
+        static vector<float>* zeros(int length) {
+            vector<float>* zeros;
+
+            for (int i = 0; i < length; i++) {
+                zeros->push_back(0.0);
+            }
+
+            return zeros;
         }
 };
