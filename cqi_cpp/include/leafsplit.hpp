@@ -1,9 +1,8 @@
 #include "state.hpp"
 #include "action.hpp"
+#include "utils.hpp"
 #include <unordered_map>
-#include <vector>
-
-using namespace std;
+#include <algorithm>
 
 class LeafSplit {
     public:
