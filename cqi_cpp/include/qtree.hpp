@@ -10,7 +10,8 @@ class QTree: public QFunc {
 
         unordered_map<string, float>* params;
 
-        QTree(vector<State*>*, vector<Action*>*, QTreeNode*, float, float, float, float, float, int);
+        QTree(vector<State*>*, vector<Action*>*, QTreeNode*, float, float, float, float, 
+            float, int);
        
         QTree(const QTree &obj);
 

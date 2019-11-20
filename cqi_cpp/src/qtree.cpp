@@ -1,6 +1,9 @@
 #include "../include/qtree.hpp"
 
-QTree::QTree(vector<State*>* stateSpace, vector<Action*>* actionSpace, QTreeNode* root=NULL, float gamma=0.99, float alpha=0.1, float visitDecay=0.99, float splitThreshMax=1, float splitThreshDecay=0.99, int numSplits=2) : QFunc(stateSpace, actionSpace) {
+QTree::QTree(vector<State*>* stateSpace, vector<Action*>* actionSpace, QTreeNode* root=NULL, 
+    float gamma=0.99, float alpha=0.1, float visitDecay=0.99, float splitThreshMax=1, float 
+    splitThreshDecay=0.99, int numSplits=2) : QFunc(stateSpace, actionSpace) {
+    
     if (!root) {
         vector<float>* low = this->getLow(this->stateSpace);
         vector<float>* high = this->getHigh(this->stateSpace);
@@ -8,7 +11,9 @@ QTree::QTree(vector<State*>* stateSpace, vector<Action*>* actionSpace, QTreeNode
                
         for (int f = 0; f < low->size(); f++) {
             for (int i = 0; i < numSplits; i++) {
-                LeafSplit* toAdd = new LeafSplit(f, low->at(f) + (high->at(f) - low->at(f))/(numSplits+1)*(i+1), Utils::zeros(actionSpace->size()), Utils::zeros(actionSpace->size()), 0.5, 0.5);
+                LeafSplit* toAdd = new LeafSplit(f, low->at(f) + 
+                    (high->at(f) - low->at(f))/(numSplits+1)*(i+1), Utils::zeros(actionSpace->size()), Utils::zeros(actionSpace->size()), 0.5, 0.5);
+                
                 splits->push_back(toAdd);
             }
         }

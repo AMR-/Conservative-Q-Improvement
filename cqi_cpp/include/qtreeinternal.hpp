@@ -10,23 +10,23 @@ class QTreeInternal: public QTreeNode {
         float value;
         float visits;
        
-        QTreeInternal(QTreeNode* leftChild, QTreeNode* rightChild, int feature, float value, float visits); 
+        QTreeInternal(QTreeNode*, QTreeNode*, int, float, float); 
 
         ~QTreeInternal();
 
         bool isLeaf();
 
-        vector<float>* getQS(State* s); 
+        vector<float>* getQS(State*); 
 
-        void update(State* s, Action* a, int target, unordered_map<string, float>* params); 
+        void update(State*, Action*, int, unordered_map<string, float>*); 
 
-        QTreeInternal* split(State* s, vector<float>* boxLow, vector<float>* boxHigh, unordered_map<string, float>* params); 
+        QTreeInternal* split(State*, vector<float>*, vector<float>*, unordered_map<string, float>*); 
 
-        pair<QTreeNode*, QTreeNode*> selectChild(State* s); 
+        pair<QTreeNode*, QTreeNode*> selectChild(State*); 
 
-        float maxSplitUntil(State* s); 
+        float maxSplitUntil(State*); 
 
         int numNodes(); 
 
-        void printStructure(string prefixHead, string prefixTail); 
+        void printStructure(string, string); 
 };

@@ -5,21 +5,21 @@ class QTreeLeaf : public QTreeNode {
         vector<float>* qs;
         vector<LeafSplit*>* splits;  
 
-        QTreeLeaf(vector<float>* qs, float visits, vector<LeafSplit*>* splits);
+        QTreeLeaf(vector<float>*, float, vector<LeafSplit*>*);
         
         ~QTreeLeaf();
         
         bool isLeaf();
 
-        vector<float>* getQS(State* s); 
+        vector<float>* getQS(State*); 
         
-        void update(State* s, Action* a, int target, unordered_map<string, float>* params); 
+        void update(State*, Action*, int, unordered_map<string, float>*); 
         
-        QTreeInternal* split(State* s, vector<float>* boxLow, vector<float>* boxHigh, unordered_map<string, float>* params); 
+        QTreeInternal* split(State*, vector<float>*, vector<float>*, unordered_map<string, float>*); 
 
         float maxSplitUntil(State* s); 
 
         int numNodes(); 
 
-        void printStructure(string prefixHead, string prefixTail); 
+        void printStructure(string, string); 
 };

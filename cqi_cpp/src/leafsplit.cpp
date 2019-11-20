@@ -1,6 +1,8 @@
 #include "../include/leafsplit.hpp"
 
-LeafSplit::LeafSplit(int feature, float value, vector<float>* leftQS, vector<float>* rightQS, float leftVisits, float rightVisits) {
+LeafSplit::LeafSplit(int feature, float value, vector<float>* leftQS, 
+    vector<float>* rightQS, float leftVisits, float rightVisits) {
+    
     this->feature = feature;
     this->value = value;
     this->leftQS = leftQS;
@@ -9,16 +11,21 @@ LeafSplit::LeafSplit(int feature, float value, vector<float>* leftQS, vector<flo
     this->rightVisits = rightVisits;
 }
 
-void LeafSplit::update(State* s, Action* a, int target, unordered_map<string, float>* params) {
-    this->leftVisits = this->leftVisits * params->at("visitDecay");
-    this->rightVisits = this->rightVisits * params->at("visitDecay");
+void LeafSplit::update(State* s, Action* a, int target, unordered_map<string, 
+    float>* params) {
+
+    float visitDecay = params->at("visitDecay");
+    float alpha = params->at("alpha");
+    
+    this->leftVisits = this->leftVisits * visitDecay;
+    this->rightVisits = this->rightVisits * visitDecay;
 
     if (s->state->at(this->feature) < this->value) {
-        this->leftQS->at(a->value) = (1 - params->at("alpha")) * this->leftQS->at(a->value) + params->at("alpha") * target;
-        this->leftVisits = this->leftVisits + (1 - params->at("visitDecay"));
+        this->leftQS->at(a->value) = (1 - alpha) * this->leftQS->at(a->value) + alpha * target;
+        this->leftVisits = this->leftVisits + (1 - visitDecay);
     } else {
-        this->rightQS->at(a->value) = (1 - params->at("alpha")) * this->rightQS->at(a->value) + params->at("alpha") * target;
-        this->rightVisits = this->rightVisits + (1 - params->at("visitDecay"));
+        this->rightQS->at(a->value) = (1 - alpha) * this->rightQS->at(a->value) + alpha * target;
+        this->rightVisits = this->rightVisits + (1 - visitDecay);
     }
 }
 
