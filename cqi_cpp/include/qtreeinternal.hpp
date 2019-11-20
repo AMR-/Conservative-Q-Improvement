@@ -12,6 +12,8 @@ class QTreeInternal: public QTreeNode {
        
         QTreeInternal(QTreeNode* leftChild, QTreeNode* rightChild, int feature, float value, float visits); 
 
+        ~QTreeInternal();
+
         bool isLeaf();
 
         vector<float>* getQS(State* s); 
