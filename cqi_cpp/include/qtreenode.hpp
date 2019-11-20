@@ -13,7 +13,7 @@ class QTreeNode {
 
         virtual bool isLeaf() = 0;
         
-        virtual vector<float>* getQS(State* s) = 0;
+        virtual vector<float>* getQS(State*) = 0;
 
         void update(State* s, Action* a, int target, unordered_map<string, float>* params) {
             this->visits = this->visits * params->at("visitDecay") + (1 - params->at("visitDecay"));
