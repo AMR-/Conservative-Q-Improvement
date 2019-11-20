@@ -23,7 +23,7 @@ void LeafSplit::update(State* s, Action* a, int target, unordered_map<string, fl
 }
 
 float LeafSplit::evalUtility(vector<float>* polQVals) {
-    int actionChosen = Utils::vectorArgmax(polQVals);
+    int actionChosen = Utils::argmax(polQVals);
 
     auto leftQSMax = max_element(begin(*this->leftQS), end(*this->leftQS));
     auto rightQSMax = max_element(begin(*this->rightQS), end(*this->rightQS));

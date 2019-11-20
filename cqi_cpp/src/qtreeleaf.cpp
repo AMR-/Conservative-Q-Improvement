@@ -27,7 +27,7 @@ QTreeInternal* QTreeLeaf::split(State* s, vector<float>* boxLow, vector<float>* 
     for (auto& sp: *(this->splits))
         splitUtils.push_back(sp->evalUtility(this->qs));
 
-    int splitIndex = Utils::vectorArgmax(&splitUtils);
+    int splitIndex = Utils::argmax(&splitUtils);
 
     LeafSplit* sfSplit = this->splits->at(splitIndex);
     int splitFeature = sfSplit->feature;

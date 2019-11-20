@@ -4,11 +4,11 @@ using namespace std;
 
 class Utils {
     public:
-        static int vectorArgmax(vector<float>* vec) {
+        static int argmax(vector<float>* vec) {
             float max = vec->at(0);
             int argmax = 0;
 
-            for (int i = 1; i < (int) vec->size(); i++) {
+            for (int i = 1; i < vec->size(); i++) {
                 if (vec->at(i) > max) {
                     max = vec->at(i);
                     argmax = i;

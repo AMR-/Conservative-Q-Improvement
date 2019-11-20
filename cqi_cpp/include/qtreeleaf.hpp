@@ -6,7 +6,9 @@ class QTreeLeaf : public QTreeNode {
         vector<LeafSplit*>* splits;  
 
         QTreeLeaf(vector<float>* qs, float visits, vector<LeafSplit*>* splits);
-
+        
+        ~QTreeLeaf();
+        
         bool isLeaf();
 
         vector<float>* getQS(State* s); 

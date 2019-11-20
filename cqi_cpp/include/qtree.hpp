@@ -14,6 +14,8 @@ class QTree: public QFunc {
        
         QTree(const QTree &obj);
 
+        ~QTree();
+
         vector<float>* getLow(vector<State*>*);
 
         vector<float>* getHigh(vector<State*>*);

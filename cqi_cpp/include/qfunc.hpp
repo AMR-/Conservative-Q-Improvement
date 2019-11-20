@@ -16,7 +16,6 @@ class QFunc {
             this->makeCopies = false;
         }
 
-
         virtual int selectA(State*) = 0;
         virtual void takeTuple(State*, Action*, float, State*, bool) = 0;
         virtual bool justSplit() = 0;
@@ -25,7 +24,7 @@ class QFunc {
             if (this->selfCopy != NULL) {
                 return this->selfCopy;
             } else {
-               throw std::runtime_error("selfCopy is NULL");
+               throw runtime_error("selfCopy is NULL");
             }
         }
 

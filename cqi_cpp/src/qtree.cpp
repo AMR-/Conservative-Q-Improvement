@@ -3,7 +3,7 @@
 QTree::QTree(vector<State*>* stateSpace, vector<Action*>* actionSpace, QTreeNode* root=NULL, float gamma=0.99, float alpha=0.1, float visitDecay=0.99, float splitThreshMax=1, float splitThreshDecay=0.99, int numSplits=2) : QFunc(stateSpace, actionSpace) {
     if (!root) {
         vector<float>* low = this->getLow(this->stateSpace);
-        vector<float> * high = this->getHigh(this->stateSpace);
+        vector<float>* high = this->getHigh(this->stateSpace);
         vector<LeafSplit*>* splits;
                
         for (int f = 0; f < low->size(); f++) {
@@ -16,16 +16,17 @@ QTree::QTree(vector<State*>* stateSpace, vector<Action*>* actionSpace, QTreeNode
         this->root = new QTreeLeaf(Utils::zeros(actionSpace->size()), 1, splits);
     } else {
         this->root = root;
-        this->params = new unordered_map<string, float>(); 
-        this->params->at("gamma") = gamma;
-        this->params->at("alpha") = alpha;
-        this->params->at("visitDecay") = visitDecay;
-        this->params->at("numSplits") = numSplits;
-        this->splitThreshMax = splitThreshMax;
-        this->splitThreshDecay = splitThreshDecay;
-        this->splitThresh = this->splitThreshMax;
-        this->_justSplit = false;  // True if the most recent action resulted in a split
     }
+
+    this->params = new unordered_map<string, float>(); 
+    this->params->at("gamma") = gamma;
+    this->params->at("alpha") = alpha;
+    this->params->at("visitDecay") = visitDecay;
+    this->params->at("numSplits") = numSplits;
+    this->splitThreshMax = splitThreshMax;
+    this->splitThreshDecay = splitThreshDecay;
+    this->splitThresh = this->splitThreshMax;
+    this->_justSplit = false;  // True if the most recent action resulted in a split
 }
        
 QTree::QTree(const QTree &obj) : QFunc(stateSpace, actionSpace) {
@@ -48,7 +49,7 @@ vector<float>* QTree::getHigh(vector<State*>* stateSpace) {
 }
 
 int QTree::selectA(State* s) {
-    return Utils::vectorArgmax(this->root->getQS(s));
+    return Utils::argmax(this->root->getQS(s));
 }
 
 void QTree::takeTuple(State* s, Action* a, float r, State* s2, bool done) {
