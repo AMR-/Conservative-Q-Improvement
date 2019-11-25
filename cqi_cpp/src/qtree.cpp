@@ -1,18 +1,22 @@
 #include "../include/qtree.hpp"
 
-QTree::QTree(vector<State*>* stateSpace, vector<Action*>* actionSpace, QTreeNode* root=NULL, 
+// TODO
+QTree::QTree(Box<State*>* stateSpace, vector<Action*>* actionSpace, QTreeNode* root=NULL, 
     float gamma=0.99, float alpha=0.1, float visitDecay=0.99, float splitThreshMax=1, float 
     splitThreshDecay=0.99, int numSplits=2) : QFunc(stateSpace, actionSpace) {
     
     if (!root) {
-        vector<float>* low = this->getLow(this->stateSpace);
-        vector<float>* high = this->getHigh(this->stateSpace);
-        vector<LeafSplit*>* splits;
-               
+        vector<float>* low = this->stateSpace->low;
+        vector<float>* high = this->stateSpace->high;
+        vector<LeafSplit*>* splits; 
+
         for (int f = 0; f < low->size(); f++) {
             for (int i = 0; i < numSplits; i++) {
+                vector<float>* zerosVector = Utils::zeros(actionSpace->size());
+
                 LeafSplit* toAdd = new LeafSplit(f, low->at(f) + 
-                    (high->at(f) - low->at(f))/(numSplits+1)*(i+1), Utils::zeros(actionSpace->size()), Utils::zeros(actionSpace->size()), 0.5, 0.5);
+                    (high->at(f) - low->at(f))/(numSplits + 1) * (i + 1), zerosVector, 
+                    zerosVector, 0.5, 0.5);
                 
                 splits->push_back(toAdd);
             }
@@ -43,15 +47,6 @@ QTree::QTree(const QTree &obj) : QFunc(stateSpace, actionSpace) {
     this->_justSplit = obj._justSplit;
 }
 
-// TODO
-vector<float>* QTree::getLow(vector<State*>* stateSpace) {
-    return NULL;
-}
-
-// TODO
-vector<float>* QTree::getHigh(vector<State*>* stateSpace) {
-    return NULL;
-}
 
 int QTree::selectA(State* s) {
     return Utils::argmax(this->root->getQS(s));
@@ -69,7 +64,7 @@ void QTree::takeTuple(State* s, Action* a, float r, State* s2, bool done) {
         this->_justSplit = true;
 
         if (this->makeCopies) {
-            this->selfCopy = this; 
+            this->selfCopy = this; // TODO: not a real deep copy
         }
 
         this->root = this->root->split(s, this->getLow(this->stateSpace), this->getHigh(this->stateSpace), this->params);

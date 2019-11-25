@@ -33,7 +33,6 @@ QTreeInternal* QTreeInternal::split(State* s, vector<float>* boxLow, vector<floa
     
     if (s->state->at(this->feature) < this->value) {
         boxHigh->at(this->feature) = this->value;
-        this->leftChild = (QTreeInternal *) this->leftChild;
         this->leftChild = this->leftChild->split(s, boxLow, boxHigh, params);
     } else {
         boxLow->at(this->feature) = this->value;
