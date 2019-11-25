@@ -1,6 +1,6 @@
 class Action {
     public:
-        float value;
-        Action(float);
+        int value;
+        Action(int);
         ~Action();
 };

@@ -20,10 +20,10 @@ class Utils {
 
         static vector<float>* zeros(int length) {
             vector<float>* zeros;
+            zeros->reserve(length);
 
-            for (int i = 0; i < length; i++) {
-                zeros->push_back(0.0);
-            }
+            for (int i = 0; i < length; i++) 
+                zeros->at(i) = 0.0;
 
             return zeros;
         }
