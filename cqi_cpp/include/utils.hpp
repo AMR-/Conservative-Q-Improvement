@@ -27,4 +27,20 @@ class Utils {
 
             return zeros;
         }
+
+        static bool all(vector<float>* first, vector<float>* second, bool atLeast) {
+            if (atLeast) {
+                for (int i = 0; i < first->size(); i++) {
+                    if (first->at(i) < second->at(i))
+                        return false;
+                }
+            } else {
+                for (i = 0; i < first->size(); i++) {
+                    if (first->at(i) > second->at(i))
+                        return false;
+                }
+            }
+
+            return true;
+        }
 };

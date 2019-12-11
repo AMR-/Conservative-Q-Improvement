@@ -1,21 +1,14 @@
 #include "utils.hpp"
 #include "space.hpp"
 
-// TODO
-class Box : public Space {
+class Box : public Space<vector<float>> {
     public:
-        ? low;
-        ? high;
+        vector<float> low;
+        vector<float> high;
 
-        Box(?, ?, ?);
+        Box(vector<float>, vector<float>, tuple<int, int>);
 
-        bool isBounded(string);
-
-        ? sample();
+        vector<float> sample();
         
-        bool contains(?);
-
-        void print();
-
-        bool equals(Box);
+        bool contains(vector<float>);
 };

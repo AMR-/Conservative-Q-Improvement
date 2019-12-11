@@ -1,11 +1,17 @@
-template<typename T, typename U>
+#include <tuple>
+
+using namespace std; 
+
+template<typename T>
 class Space {
     public:
-        T shape;
+        tuple<int, int> shape;
 
-        Space(T);
+        Space<T>(tuple<int, int> shape) {
+            this->shape = shape;
+        }
 
-        virtual U sample() = 0;
+        virtual T sample() = 0;
 
-        virtual bool contains(U) = 0;
+        virtual bool contains(T) = 0;
 };
