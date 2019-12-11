@@ -1,3 +1,3 @@
-#include "../include/space.hpp"
+#include "../include/discrete.hpp"
 
 int main() {return 0;}

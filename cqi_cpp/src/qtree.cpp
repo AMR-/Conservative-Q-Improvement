@@ -1,6 +1,7 @@
 #include "../include/qtree.hpp"
+#include "../include/box.hpp"
 
-// TODO
+// TODO: include Box, Discrete classes
 QTree::QTree(Box<State*>* stateSpace, vector<Action*>* actionSpace, QTreeNode* root=NULL, 
     float gamma=0.99, float alpha=0.1, float visitDecay=0.99, float splitThreshMax=1, float 
     splitThreshDecay=0.99, int numSplits=2) : QFunc(stateSpace, actionSpace) {
