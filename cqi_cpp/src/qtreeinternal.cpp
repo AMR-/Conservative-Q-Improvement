@@ -62,7 +62,7 @@ int QTreeInternal::numNodes() {
 }
 
 void QTreeInternal::printStructure(string prefixHead, string prefixTail) {
-    printf("%s (vis: %1.2f) if f[%d] ? %f:", prefixHead, this->visits, this->feature, 
+    printf("%s (vis: %1.2f) if f[%d] ? %f:", prefixHead.c_str(), this->visits, this->feature, 
         this->value); 
 
     string leftChildFirst = prefixTail + "  ├<";

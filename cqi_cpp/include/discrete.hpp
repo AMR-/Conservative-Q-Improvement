@@ -1,6 +1,7 @@
+#include "space.hpp"
+#include "action.hpp"
 #include <cstdlib>
 #include <iostream>
-#include "space.hpp"
 
 class Discrete : public Space<int> {
     public:
@@ -9,6 +10,8 @@ class Discrete : public Space<int> {
         Discrete(int);
 
         int sample();
+
+        int size();
 
         bool contains(int);
 };

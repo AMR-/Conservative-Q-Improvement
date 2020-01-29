@@ -39,8 +39,8 @@ QTreeInternal* QTreeLeaf::split(State* s, vector<float>* boxLow, vector<float>*
 
     LeafSplit* sfSplit = this->splits->at(splitIndex);
     int splitFeature = sfSplit->feature;
-    vector<LeafSplit*>* LSplits; 
-    vector<LeafSplit*>* RSplits;
+    vector<LeafSplit*>* LSplits = new vector<LeafSplit*>(); 
+    vector<LeafSplit*>* RSplits = new vector<LeafSplit*>(); 
 
     for (auto& sp: *(this->splits)) {
         if (sp->feature != splitFeature) {
@@ -88,5 +88,7 @@ int QTreeLeaf::numNodes() {
 }
 
 void QTreeLeaf::printStructure(string prefixHead, string prefixTail) {
-    printf("%s (vis: 1.2%f) qvals: %s\n", prefixHead, this->qs);
+	string QString = Utils::vecToString(this->qs);
+
+    printf("%s (vis: 1.2%f) qvals: %s\n", prefixHead.c_str(), this->visits, QString.c_str());
 }

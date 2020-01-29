@@ -1,4 +1,4 @@
-#include "../include/qfunc.hpp"
+#include "qfunc.hpp"
 
 class QTree: public QFunc {
     public:
@@ -10,16 +10,14 @@ class QTree: public QFunc {
 
         unordered_map<string, float>* params;
 
-        QTree(vector<State*>*, vector<Action*>*, QTreeNode*, float, float, float, float, 
+        QTree(Box*, Discrete*, QTreeNode*, float, float, float, float, 
             float, int);
        
-        QTree(const QTree &obj);
-
         ~QTree();
 
-        vector<float>* getLow(vector<State*>*);
+        vector<float>* getLow(Box*);
 
-        vector<float>* getHigh(vector<State*>*);
+        vector<float>* getHigh(Box*);
 
         int selectA(State*);
 
