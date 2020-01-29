@@ -1,6 +1,6 @@
 #include "../include/discrete.hpp"
 
-Discrete::Discrete(int n) : Space(make_tuple(n, 1)) {
+Discrete::Discrete(int n) : Space(new tuple<int, int>(n, 1)) {
     this->n = n; 
 }
 

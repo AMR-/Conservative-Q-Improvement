@@ -1,14 +1,24 @@
 #include "../include/qtree.hpp"
 
 int main() {
-	vector<float>* vec = new vector<float>();
+	vector<float>* low = new vector<float>();
+	low->push_back(1.0);
+	low->push_back(5.0);
 
-	for (int i = 0; i < 4; i++)
-		vec->push_back(1.5);
-	
-	string s = Utils::vecToString(vec);
+	vector<float>* high = new vector<float>();
+	high->push_back(3.0);
+	high->push_back(6.0);
 
-	printf("%s\n", s.c_str());
+	// sample \in [1.0, 3.0] \times [5.0, 6.0]
+
+	Box* box = new Box(low, high, nullptr);
+
+	vector<float>* res = new vector<float>();
+
+	res->push_back(1.0);
+	res->push_back(5.0);
+
+	cout << box->contains(res)  << endl;
 
 	return 0;
 }

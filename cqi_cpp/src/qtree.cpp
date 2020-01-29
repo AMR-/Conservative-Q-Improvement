@@ -1,13 +1,12 @@
 #include "../include/qtree.hpp"
 
-// TODO: include Box, Discrete classes and implement methods
 QTree::QTree(Box* stateSpace, Discrete* actionSpace, QTreeNode* root=nullptr, 
     float gamma=0.99, float alpha=0.1, float visitDecay=0.99, float splitThreshMax=1, float 
     splitThreshDecay=0.99, int numSplits=2) : QFunc(stateSpace, actionSpace) {
     
     if (!root) {
-        vector<float>* low = this->getLow(this->stateSpace);
-        vector<float>* high = this->getHigh(this->stateSpace);
+        vector<float>* low = this->stateSpace->low;
+        vector<float>* high = this->stateSpace->high;
         vector<LeafSplit*>* splits = new vector<LeafSplit*>(); 
 
         for (int f = 0; f < (int) low->size(); f++) {
@@ -38,16 +37,6 @@ QTree::QTree(Box* stateSpace, Discrete* actionSpace, QTreeNode* root=nullptr,
     this->_justSplit = false;  // True if the most recent action resulted in a split
 }
 
-// TODO
-vector<float>* QTree::getLow(Box* space) {
-    return nullptr;
-}
-
-// TODO
-vector<float>* QTree::getHigh(Box* space) {
-    return nullptr;
-}  
-
 int QTree::selectA(State* s) {
     return Utils::argmax(this->root->getQS(s));
 }
@@ -55,9 +44,11 @@ int QTree::selectA(State* s) {
 void QTree::takeTuple(State* s, Action* a, float r, State* s2, bool done) {
     this->_justSplit = false;
     this->selfCopy = NULL;
-    // update a leaf directly
+    
+	// update a leaf directly
     this->update(s, a, r, s2, done);
-    // modify tree
+    
+	// modify tree
     if (this->root->maxSplitUntil(s) > this->splitThresh) {
         printf("split\n");
 
@@ -70,7 +61,7 @@ void QTree::takeTuple(State* s, Action* a, float r, State* s2, bool done) {
                 this->splitThreshDecay, this->params->at("numSplits"));
         }
 
-        this->root = this->root->split(s, this->getLow(this->stateSpace), this->getHigh(this->stateSpace), this->params);
+        this->root = this->root->split(s, this->stateSpace->low, this->stateSpace->high, this->params);
         this->splitThresh = this->splitThreshMax;
     } else {
         this->splitThresh = this->splitThresh * this->splitThreshDecay;
