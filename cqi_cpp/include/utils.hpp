@@ -31,12 +31,12 @@ class Utils {
 
         static bool all(vector<float>* first, vector<float>* second, bool atLeast) {
             if (atLeast) {
-                for (int i = 0; i < (int) first->size(); i++) {
+                for (size_t i = 0; i < first->size(); i++) {
                     if (first->at(i) < second->at(i))
                         return false;
                 }
             } else {
-                for (int i = 0; i < (int) first->size(); i++) {
+                for (size_t i = 0; i <  first->size(); i++) {
                     if (first->at(i) > second->at(i))
                         return false;
                 }
