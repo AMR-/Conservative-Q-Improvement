@@ -1,17 +1,16 @@
 #include "../include/qtree.hpp"
-#include "../include/box.hpp"
 
-// TODO: include Box, Discrete classes
-QTree::QTree(Box<State*>* stateSpace, vector<Action*>* actionSpace, QTreeNode* root=NULL, 
+// TODO: include Box, Discrete classes and implement methods
+QTree::QTree(Box* stateSpace, Discrete* actionSpace, QTreeNode* root=nullptr, 
     float gamma=0.99, float alpha=0.1, float visitDecay=0.99, float splitThreshMax=1, float 
     splitThreshDecay=0.99, int numSplits=2) : QFunc(stateSpace, actionSpace) {
     
     if (!root) {
-        vector<float>* low = this->stateSpace->low;
-        vector<float>* high = this->stateSpace->high;
-        vector<LeafSplit*>* splits; 
+        vector<float>* low = this->getLow(this->stateSpace);
+        vector<float>* high = this->getHigh(this->stateSpace);
+        vector<LeafSplit*>* splits = new vector<LeafSplit*>(); 
 
-        for (int f = 0; f < low->size(); f++) {
+        for (int f = 0; f < (int) low->size(); f++) {
             for (int i = 0; i < numSplits; i++) {
                 vector<float>* zerosVector = Utils::zeros(actionSpace->size());
 
@@ -38,16 +37,16 @@ QTree::QTree(Box<State*>* stateSpace, vector<Action*>* actionSpace, QTreeNode* r
     this->splitThresh = this->splitThreshMax;
     this->_justSplit = false;  // True if the most recent action resulted in a split
 }
-       
-QTree::QTree(const QTree &obj) : QFunc(stateSpace, actionSpace) {
-    this->root = obj.root;
-    this->params = obj.params;
-    this->splitThreshMax = obj.splitThreshMax;
-    this->splitThreshDecay = obj.splitThreshDecay;
-    this->splitThresh = obj.splitThresh;
-    this->_justSplit = obj._justSplit;
+
+// TODO
+vector<float>* QTree::getLow(Box* space) {
+    return nullptr;
 }
 
+// TODO
+vector<float>* QTree::getHigh(Box* space) {
+    return nullptr;
+}  
 
 int QTree::selectA(State* s) {
     return Utils::argmax(this->root->getQS(s));
@@ -65,7 +64,10 @@ void QTree::takeTuple(State* s, Action* a, float r, State* s2, bool done) {
         this->_justSplit = true;
 
         if (this->makeCopies) {
-            this->selfCopy = this; // TODO: not a real deep copy
+            this->selfCopy = new QTree(this->stateSpace, this->actionSpace, 
+                this->root, this->params->at("gamma"), this->params->at("alpha"), 
+                this->params->at("visitDecay"), this->splitThreshMax, 
+                this->splitThreshDecay, this->params->at("numSplits"));
         }
 
         this->root = this->root->split(s, this->getLow(this->stateSpace), this->getHigh(this->stateSpace), this->params);

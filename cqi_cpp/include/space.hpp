@@ -1,4 +1,7 @@
+#ifndef SPACE_H
+#define SPACE_H
 #include <tuple>
+#include <vector>
 
 using namespace std; 
 
@@ -15,3 +18,4 @@ class Space {
 
         virtual bool contains(T) = 0;
 };
+#endif

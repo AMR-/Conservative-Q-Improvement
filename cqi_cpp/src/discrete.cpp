@@ -8,6 +8,10 @@ int Discrete::sample() {
     return rand() % this->n;
 }
 
+int Discrete::size() {
+    return this->n;
+}
+
 bool Discrete::contains(int elem) {
     return elem >= 0 and elem <= this->n - 1;
 }

@@ -1,14 +1,13 @@
 #include "../include/box.hpp"
 
-Box::Box(vector<float> low, vector<float> high, tuple<int, int> shape) : Space(shape) {
+Box::Box(vector<float>* low, vector<float>* high, tuple<int, int> shape) : Space(shape) {
     this->low = low;
     this->high = high;
+	this->shape = shape;
 }
 
 // TODO
-vector<float> Box::sample() {
-    
-
+vector<float>* Box::sample() {
     /* Python code
     sample = np.empty(self.shape)
 
@@ -33,8 +32,10 @@ vector<float> Box::sample() {
 
     return sample.astype(self.dtype)
     */
+
+    return nullptr;
 }
 
-bool Box::contains(vector<float> x) {
+bool Box::contains(vector<float>* x) {
     return Utils::all(x, this->low, true) and Utils::all(x, this->high, false); 
 }

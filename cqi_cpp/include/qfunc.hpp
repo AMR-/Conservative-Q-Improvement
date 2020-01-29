@@ -1,18 +1,20 @@
 #include "qtreeleaf.hpp"
+#include "box.hpp"
+#include "discrete.hpp"
 #include <stdexcept>
 
 class QFunc {
     public:
-        vector<State*>* stateSpace;         
-        vector<Action*>* actionSpace;         
+        Box* stateSpace;         
+        Discrete* actionSpace;         
        
         QFunc* selfCopy;
         bool makeCopies;
 
-        QFunc(vector<State*>* stateSpace , vector<Action*>* actionSpace) {
+        QFunc(Box* stateSpace , Discrete* actionSpace) {
             this->stateSpace = stateSpace;
             this->actionSpace = actionSpace;
-            this->selfCopy = NULL;
+            this->selfCopy = nullptr;
             this->makeCopies = false;
         }
 
@@ -21,7 +23,7 @@ class QFunc {
         virtual bool justSplit() = 0;
         
         QFunc* getPreSplit() {
-            if (this->selfCopy != NULL) {
+            if (this->selfCopy != nullptr) {
                 return this->selfCopy;
             } else {
                throw runtime_error("selfCopy is NULL");
