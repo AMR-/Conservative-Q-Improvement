@@ -10,9 +10,9 @@ class Space {
     public:
         tuple<int, int>* shape;
 
-        Space<T>(tuple<int, int>* shape) {
-            this->shape = shape;
-        }
+		Space<T>(tuple<int, int>* shape) {
+    		this->shape = shape;
+		}
 
         virtual T sample() = 0;
 

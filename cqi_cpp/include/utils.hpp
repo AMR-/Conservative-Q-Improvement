@@ -10,7 +10,7 @@ class Utils {
             float max = vec->at(0);
             int argmax = 0;
 
-            for (int i = 1; i < (int) vec->size(); i++) {
+            for (size_t i = 1; i < vec->size(); i++) {
                 if (vec->at(i) > max) {
                     max = vec->at(i);
                     argmax = i;

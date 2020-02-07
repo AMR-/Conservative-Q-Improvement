@@ -90,5 +90,5 @@ int QTreeLeaf::numNodes() {
 void QTreeLeaf::printStructure(string prefixHead, string prefixTail) {
 	string QString = Utils::vecToString(this->qs);
 
-    printf("%s (vis: 1.2%f) qvals: %s\n", prefixHead.c_str(), this->visits, QString.c_str());
+    printf("%s (vis: %1.2f) qvals: %s\n", prefixHead.c_str(), this->visits, QString.c_str());
 }

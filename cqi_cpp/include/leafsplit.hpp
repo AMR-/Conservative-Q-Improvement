@@ -1,3 +1,5 @@
+#ifndef LEAFSPLIT_H
+#define LEAFSPLIT_H
 #include "state.hpp"
 #include "action.hpp"
 #include "utils.hpp"
@@ -8,10 +10,8 @@ class LeafSplit {
     public:
         int feature;
         float value;
-
         vector<float>* leftQS; 
         vector<float>* rightQS; 
-        
         float leftVisits;
         float rightVisits;
 
@@ -19,6 +19,6 @@ class LeafSplit {
         ~LeafSplit();
 
         void update(State*, Action*, int, unordered_map<string, float>*);
-
         float evalUtility(vector<float>*);
-}; 
+};
+#endif

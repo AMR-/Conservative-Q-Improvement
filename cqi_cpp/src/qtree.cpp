@@ -1,21 +1,21 @@
 #include "../include/qtree.hpp"
 
+typedef unordered_map<string, float> map;
+
 QTree::QTree(Box* stateSpace, Discrete* actionSpace, QTreeNode* root=nullptr, 
     float gamma=0.99, float alpha=0.1, float visitDecay=0.99, float splitThreshMax=1, float 
     splitThreshDecay=0.99, int numSplits=2) : QFunc(stateSpace, actionSpace) {
-    
+   
     if (!root) {
         vector<float>* low = this->stateSpace->low;
         vector<float>* high = this->stateSpace->high;
         vector<LeafSplit*>* splits = new vector<LeafSplit*>(); 
 
-        for (int f = 0; f < (int) low->size(); f++) {
+        for (size_t f = 0; f < low->size(); f++) {
             for (int i = 0; i < numSplits; i++) {
                 vector<float>* zerosVector = Utils::zeros(actionSpace->size());
-
-                LeafSplit* toAdd = new LeafSplit(f, low->at(f) + 
-                    (high->at(f) - low->at(f))/(numSplits + 1) * (i + 1), zerosVector, 
-                    zerosVector, 0.5, 0.5);
+                int value = low->at(f) + (high->at(f) - low->at(f))/(numSplits + 1) * (i + 1);
+                LeafSplit* toAdd = new LeafSplit(f, value, zerosVector, zerosVector, 0.5, 0.5);
                 
                 splits->push_back(toAdd);
             }
@@ -26,11 +26,12 @@ QTree::QTree(Box* stateSpace, Discrete* actionSpace, QTreeNode* root=nullptr,
         this->root = root;
     }
 
-    this->params = new unordered_map<string, float>(); 
-    this->params->at("gamma") = gamma;
-    this->params->at("alpha") = alpha;
-    this->params->at("visitDecay") = visitDecay;
-    this->params->at("numSplits") = numSplits;
+    this->params = new map();
+    this->params->insert(map::value_type("gamma", gamma));
+    this->params->insert(map::value_type("alpha", alpha));
+    this->params->insert(map::value_type("visitDecay", visitDecay));
+    this->params->insert(map::value_type("numSplits", numSplits));
+    
     this->splitThreshMax = splitThreshMax;
     this->splitThreshDecay = splitThreshDecay;
     this->splitThresh = this->splitThreshMax;
