@@ -1,3 +1,6 @@
+#ifndef QTREENODE_H
+#define QTREENODE_H
+
 #include "../include/leafsplit.hpp"
 #include <string>
 
@@ -12,9 +15,8 @@ class QTreeNode {
         ~QTreeNode();
 
         virtual bool isLeaf() = 0;
-        
         virtual vector<float>* getQS(State*) = 0;
-
+        
         void update(State* s, Action* a, int target, unordered_map<string, float>* params) {
             this->visits = this->visits * params->at("visitDecay") + (1 - params->at("visitDecay"));
         }
@@ -24,10 +26,8 @@ class QTreeNode {
         }
 
         virtual QTreeNode* split(State*, vector<float>*, vector<float>*, unordered_map<string, float>*) = 0;
-        
         virtual float maxSplitUntil(State*) = 0;
-
         virtual int numNodes() = 0;
-
         virtual void printStructure(string, string) = 0;
 };
+#endif

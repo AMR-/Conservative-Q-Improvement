@@ -6,8 +6,8 @@ I = ../include
 # Targets needed to bring the executable up to date
 all: test
 
-test: test.o qtree.o qtreeleaf.o qtreeinternal.o leafsplit.o box.o discrete.o 
-	$(CC) $(CFLAGS) -o test test.o qtree.o qtreeleaf.o qtreeinternal.o leafsplit.o box.o discrete.o 
+test: test.o qtree.o qtreeleaf.o qtreeinternal.o leafsplit.o box.o discrete.o
+	$(CC) $(CFLAGS) -o test test.o qtree.o qtreeleaf.o qtreeinternal.o leafsplit.o box.o discrete.o
 
 test.o: test.cpp $(I)/qtree.hpp 
 	$(CC) $(CFLAGS) -c test.cpp

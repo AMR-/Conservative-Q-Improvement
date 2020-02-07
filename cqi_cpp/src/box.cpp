@@ -1,9 +1,8 @@
 #include "../include/box.hpp"
 
-Box::Box(vector<float>* low, vector<float>* high, tuple<int, int>* shape) : Space(shape) {
+Box::Box(vector<float>* low, vector<float>* high) : Space(nullptr) {
     this->low = low;
     this->high = high;
-	this->shape = shape;
 }
 
 vector<float>* Box::sample() {

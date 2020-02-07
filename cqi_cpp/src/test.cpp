@@ -11,7 +11,7 @@ int main() {
 
 	// sample \in [1.0, 3.0] \times [5.0, 6.0]
 
-	Box* box = new Box(low, high, nullptr);
+	Box* box = new Box(low, high);
 
 	vector<float>* res = new vector<float>();
 
