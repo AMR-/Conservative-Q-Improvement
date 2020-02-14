@@ -1,7 +1,7 @@
 import qtree_wrapper as qtree
 
 # Simple usage of QTree ported from C++
-# Need to run './cython_wrapper.sh' after writing to qtree_wrapper.pyx or any of the C++ files
+# Need to run './cython_build_wrapper.sh' after writing to qtree_wrapper.pyx or any of the C++ files
 
 # Getting the constructors
 Vector = qtree.PyVector

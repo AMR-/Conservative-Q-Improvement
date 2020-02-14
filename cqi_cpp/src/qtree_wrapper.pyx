@@ -104,11 +104,11 @@ cdef class PyAction:
 cdef class PyQTree:
     cdef QTree* thisptr
 
-    def __cinit__(self, PyBox stateSpace, PyDiscrete actionSpace, None, float \
-        gamma=0.99, float alpha=0.1, float visitDecay=0.99, float splitThresh=1,\
-        float splitThreshDecay=0.99, int numSplits=2):
-        self.thisptr = new QTree(stateSpace.thisptr, actionSpace.thisptr, NULL, \
-        gamma, alpha, visitDecay, splitThresh, splitThreshDecay, numSplits)
+    def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, float \
+        gamma=0.99, float alpha=0.1, float visit_decay=0.99, float split_thresh=1,\
+        float split_thresh_decay=0.99, int num_splits=2):
+        self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \
+        gamma, alpha, visit_decay, split_thresh, split_thresh_decay, num_splits)
     def select_a(self, PyState s):
         return self.thisptr.selectA(s.thisptr)
     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
