@@ -1,6 +1,6 @@
 #include "../include/box.hpp"
 
-Box::Box(vector<float>* low, vector<float>* high) : Space(nullptr) {
+Box::Box(vector<float>* low, vector<float>* high) : Space(new tuple<int, int>(low->size(), high->size())) {
     this->low = low;
     this->high = high;
 }
@@ -20,5 +20,6 @@ vector<float>* Box::sample() {
 }
 
 bool Box::contains(vector<float>* x) {
-    return Utils::all(x, this->low, true) and Utils::all(x, this->high, false); 
+    return Utils::all(x, this->low, true) and Utils::all(x, this->high, false);
 }
+
