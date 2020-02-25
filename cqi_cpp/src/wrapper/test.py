@@ -20,6 +20,6 @@ high.add(4.0)
 states = Box(low, high)
 actions = Discrete(4)
 
-qtree = QTree(states, actions, None)
+# qtree = QTree(states, actions, None)
 
-print(qtree.print_structure())
+# print(qtree.print_structure())

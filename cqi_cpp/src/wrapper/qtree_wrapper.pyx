@@ -1,6 +1,6 @@
+from libcpp.string cimport string
 from libcpp.unordered_map cimport unordered_map
 from libcpp.vector cimport vector
-from libcpp.string cimport string
 
 cdef extern from "../../include/state.hpp":
     cdef cppclass State:
@@ -105,8 +105,8 @@ cdef class PyQTree:
     cdef QTree* thisptr
 
     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, float \
-        gamma=0.99, float alpha=0.1, float visit_decay=0.99, float split_thresh=1,\
-        float split_thresh_decay=0.99, int num_splits=2):
+        gamma, float alpha, float visit_decay, float split_thresh, float \
+        split_thresh_decay, int num_splits):
         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \
         gamma, alpha, visit_decay, split_thresh, split_thresh_decay, num_splits)
     def select_a(self, PyState s):
