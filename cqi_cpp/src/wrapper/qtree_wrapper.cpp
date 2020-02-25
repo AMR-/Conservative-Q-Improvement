@@ -607,15 +607,15 @@ static CYTHON_INLINE float __PYX_NAN() {
 #define __PYX_HAVE__qtree_wrapper
 #define __PYX_HAVE_API__qtree_wrapper
 /* Early includes */
+#include <string.h>
 #include "ios"
 #include "new"
 #include "stdexcept"
 #include "typeinfo"
+#include <string>
 #include <utility>
 #include <unordered_map>
 #include <vector>
-#include <string.h>
-#include <string>
 #include "../../include/state.hpp"
 #include "../../include/action.hpp"
 #include "../../include/discrete.hpp"
@@ -1204,15 +1204,15 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
+/* Module declarations from 'libc.string' */
+
+/* Module declarations from 'libcpp.string' */
+
 /* Module declarations from 'libcpp.utility' */
 
 /* Module declarations from 'libcpp.unordered_map' */
 
 /* Module declarations from 'libcpp.vector' */
-
-/* Module declarations from 'libc.string' */
-
-/* Module declarations from 'libcpp.string' */
 
 /* Module declarations from 'qtree_wrapper' */
 static PyTypeObject *__pyx_ptype_13qtree_wrapper_PyVector = 0;
@@ -2644,8 +2644,8 @@ static PyObject *__pyx_pf_13qtree_wrapper_8PyAction_4__setstate_cython__(CYTHON_
  *     cdef QTree* thisptr
  * 
  *     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, float \             # <<<<<<<<<<<<<<
- *         gamma=0.99, float alpha=0.1, float visit_decay=0.99, float split_thresh=1,\
- *         float split_thresh_decay=0.99, int num_splits=2):
+ *         gamma, float alpha, float visit_decay, float split_thresh, float \
+ *         split_thresh_decay, int num_splits):
  */
 
 /* Python wrapper */
@@ -2700,112 +2700,80 @@ static int __pyx_pw_13qtree_wrapper_7PyQTree_1__cinit__(PyObject *__pyx_v_self, 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_action_space)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 3, 9, 1); __PYX_ERR(1, 107, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 9, 9, 1); __PYX_ERR(1, 107, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_None)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 3, 9, 2); __PYX_ERR(1, 107, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 9, 9, 2); __PYX_ERR(1, 107, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
-        if (kw_args > 0) {
-          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_gamma);
-          if (value) { values[3] = value; kw_args--; }
+        if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_gamma)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 9, 9, 3); __PYX_ERR(1, 107, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
-        if (kw_args > 0) {
-          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_alpha);
-          if (value) { values[4] = value; kw_args--; }
+        if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_alpha)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 9, 9, 4); __PYX_ERR(1, 107, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
-        if (kw_args > 0) {
-          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_visit_decay);
-          if (value) { values[5] = value; kw_args--; }
+        if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_visit_decay)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 9, 9, 5); __PYX_ERR(1, 107, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
-        if (kw_args > 0) {
-          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_split_thresh);
-          if (value) { values[6] = value; kw_args--; }
+        if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_split_thresh)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 9, 9, 6); __PYX_ERR(1, 107, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
-        if (kw_args > 0) {
-          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_split_thresh_decay);
-          if (value) { values[7] = value; kw_args--; }
+        if (likely((values[7] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_split_thresh_decay)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 9, 9, 7); __PYX_ERR(1, 107, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  8:
-        if (kw_args > 0) {
-          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_num_splits);
-          if (value) { values[8] = value; kw_args--; }
+        if (likely((values[8] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_num_splits)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 9, 9, 8); __PYX_ERR(1, 107, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 107, __pyx_L3_error)
       }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 9) {
+      goto __pyx_L5_argtuple_error;
     } else {
-      switch (PyTuple_GET_SIZE(__pyx_args)) {
-        case  9: values[8] = PyTuple_GET_ITEM(__pyx_args, 8);
-        CYTHON_FALLTHROUGH;
-        case  8: values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
-        CYTHON_FALLTHROUGH;
-        case  7: values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
-        CYTHON_FALLTHROUGH;
-        case  6: values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
-        CYTHON_FALLTHROUGH;
-        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
-        CYTHON_FALLTHROUGH;
-        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
-        CYTHON_FALLTHROUGH;
-        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-        values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        break;
-        default: goto __pyx_L5_argtuple_error;
-      }
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+      values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+      values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+      values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
+      values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
+      values[7] = PyTuple_GET_ITEM(__pyx_args, 7);
+      values[8] = PyTuple_GET_ITEM(__pyx_args, 8);
     }
     __pyx_v_state_space = ((struct __pyx_obj_13qtree_wrapper_PyBox *)values[0]);
     __pyx_v_action_space = ((struct __pyx_obj_13qtree_wrapper_PyDiscrete *)values[1]);
     __pyx_v_None = values[2];
-    if (values[3]) {
-      __pyx_v_gamma = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_gamma == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 107, __pyx_L3_error)
-    } else {
-      __pyx_v_gamma = ((float)0.99);
-    }
-    if (values[4]) {
-      __pyx_v_alpha = __pyx_PyFloat_AsFloat(values[4]); if (unlikely((__pyx_v_alpha == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
-    } else {
-      __pyx_v_alpha = ((float)0.1);
-    }
-    if (values[5]) {
-      __pyx_v_visit_decay = __pyx_PyFloat_AsFloat(values[5]); if (unlikely((__pyx_v_visit_decay == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
-    } else {
-      __pyx_v_visit_decay = ((float)0.99);
-    }
-    if (values[6]) {
-      __pyx_v_split_thresh = __pyx_PyFloat_AsFloat(values[6]); if (unlikely((__pyx_v_split_thresh == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
-    } else {
-      __pyx_v_split_thresh = ((float)1.0);
-    }
-    if (values[7]) {
-      __pyx_v_split_thresh_decay = __pyx_PyFloat_AsFloat(values[7]); if (unlikely((__pyx_v_split_thresh_decay == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 109, __pyx_L3_error)
-    } else {
-      __pyx_v_split_thresh_decay = ((float)0.99);
-    }
-    if (values[8]) {
-      __pyx_v_num_splits = __Pyx_PyInt_As_int(values[8]); if (unlikely((__pyx_v_num_splits == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 109, __pyx_L3_error)
-    } else {
-      __pyx_v_num_splits = ((int)2);
-    }
+    __pyx_v_gamma = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_gamma == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 107, __pyx_L3_error)
+    __pyx_v_alpha = __pyx_PyFloat_AsFloat(values[4]); if (unlikely((__pyx_v_alpha == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
+    __pyx_v_visit_decay = __pyx_PyFloat_AsFloat(values[5]); if (unlikely((__pyx_v_visit_decay == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
+    __pyx_v_split_thresh = __pyx_PyFloat_AsFloat(values[6]); if (unlikely((__pyx_v_split_thresh == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
+    __pyx_v_split_thresh_decay = __pyx_PyFloat_AsFloat(values[7]); if (unlikely((__pyx_v_split_thresh_decay == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
+    __pyx_v_num_splits = __Pyx_PyInt_As_int(values[8]); if (unlikely((__pyx_v_num_splits == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 109, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 3, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 107, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 9, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 107, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("qtree_wrapper.PyQTree.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2830,8 +2798,8 @@ static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
   /* "qtree_wrapper.pyx":110
- *         gamma=0.99, float alpha=0.1, float visit_decay=0.99, float split_thresh=1,\
- *         float split_thresh_decay=0.99, int num_splits=2):
+ *         gamma, float alpha, float visit_decay, float split_thresh, float \
+ *         split_thresh_decay, int num_splits):
  *         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \             # <<<<<<<<<<<<<<
  *         gamma, alpha, visit_decay, split_thresh, split_thresh_decay, num_splits)
  *     def select_a(self, PyState s):
@@ -2842,8 +2810,8 @@ static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_
  *     cdef QTree* thisptr
  * 
  *     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, float \             # <<<<<<<<<<<<<<
- *         gamma=0.99, float alpha=0.1, float visit_decay=0.99, float split_thresh=1,\
- *         float split_thresh_decay=0.99, int num_splits=2):
+ *         gamma, float alpha, float visit_decay, float split_thresh, float \
+ *         split_thresh_decay, int num_splits):
  */
 
   /* function exit code */
@@ -4649,9 +4617,9 @@ if (!__Pyx_RefNanny) {
   #endif
 
   /* "qtree_wrapper.pyx":1
- * from libcpp.unordered_map cimport unordered_map             # <<<<<<<<<<<<<<
+ * from libcpp.string cimport string             # <<<<<<<<<<<<<<
+ * from libcpp.unordered_map cimport unordered_map
  * from libcpp.vector cimport vector
- * from libcpp.string cimport string
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);

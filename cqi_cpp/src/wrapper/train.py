@@ -6,13 +6,13 @@ from collections import defaultdict
 
 from utils import convert_to_pystate
 
-from qtree_wrapper import PyAction as Action
+from qtree_wrapper import PyAction
 
 class StateChangeTracker(object):
     def __init__(self, init_states):
         self.init_states = init_states
         self.final_states = init_states
-        self.single_change = ([False] * len(init_states))
+        self.single_change = [False] * len(init_states)
 
     def new_states(self, s):
         # Capture First Change True, Second+ Change False, No change - keep same
@@ -90,11 +90,12 @@ class Train(object):
                 s = convert_to_pystate(s)
                 a = self.qfunc.select_a(s)
             s2, r, done, _ = self.env.step(a)
+            # self.env.render()
             if while_watch:
                 sct.new_states(s2)
             if not eval_only:
                 s, s2 = convert_to_pystate(s), convert_to_pystate(s2)
-                a = Action(a)
+                a = PyAction(a)
 
                 self.qfunc.take_tuple(s, a, r, s2, done)
                 if qfunc_hist is not None and self.qfunc.just_split():
