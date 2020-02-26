@@ -5,7 +5,7 @@ from stable_baselines.deepq.policies import MlpPolicy
 from stable_baselines.common.policies import MlpPolicy
 from stable_baselines import PPO1, DQN
 
-env = gym.make('CartPole-v1')
+env = gym.make('CartPole-v0')
 
 # model = DQN(MlpPolicy, env, verbose=1)
 model = PPO1(MlpPolicy, env, verbose=1)

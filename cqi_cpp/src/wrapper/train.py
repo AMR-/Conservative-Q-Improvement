@@ -90,7 +90,6 @@ class Train(object):
                 s = convert_to_pystate(s)
                 a = self.qfunc.select_a(s)
             s2, r, done, _ = self.env.step(a)
-            # self.env.render()
             if while_watch:
                 sct.new_states(s2)
             if not eval_only:
