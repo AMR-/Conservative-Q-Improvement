@@ -1258,9 +1258,9 @@ static const char __pyx_k_num_splits[] = "num_splits";
 static const char __pyx_k_state_space[] = "state_space";
 static const char __pyx_k_visit_decay[] = "visit_decay";
 static const char __pyx_k_action_space[] = "action_space";
-static const char __pyx_k_split_thresh[] = "split_thresh";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
+static const char __pyx_k_split_thresh_max[] = "split_thresh_max";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_split_thresh_decay[] = "split_thresh_decay";
 static const char __pyx_k_no_default___reduce___due_to_non[] = "no default __reduce__ due to non-trivial __cinit__";
@@ -1294,8 +1294,8 @@ static PyObject *__pyx_n_s_s;
 static PyObject *__pyx_n_s_s2;
 static PyObject *__pyx_n_s_setstate;
 static PyObject *__pyx_n_s_setstate_cython;
-static PyObject *__pyx_n_s_split_thresh;
 static PyObject *__pyx_n_s_split_thresh_decay;
+static PyObject *__pyx_n_s_split_thresh_max;
 static PyObject *__pyx_n_s_state;
 static PyObject *__pyx_n_s_state_space;
 static PyObject *__pyx_n_s_test;
@@ -1321,7 +1321,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyState_4__setstate_cython__(CYTHON_U
 static int __pyx_pf_13qtree_wrapper_8PyAction___cinit__(struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_self, int __pyx_v_value); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_8PyAction_2__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_8PyAction_4__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyBox *__pyx_v_state_space, struct __pyx_obj_13qtree_wrapper_PyDiscrete *__pyx_v_action_space, CYTHON_UNUSED PyObject *__pyx_v_None, float __pyx_v_gamma, float __pyx_v_alpha, float __pyx_v_visit_decay, float __pyx_v_split_thresh, float __pyx_v_split_thresh_decay, int __pyx_v_num_splits); /* proto */
+static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyBox *__pyx_v_state_space, struct __pyx_obj_13qtree_wrapper_PyDiscrete *__pyx_v_action_space, CYTHON_UNUSED PyObject *__pyx_v_None, float __pyx_v_gamma, float __pyx_v_alpha, float __pyx_v_visit_decay, float __pyx_v_split_thresh_max, float __pyx_v_split_thresh_decay, int __pyx_v_num_splits); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_2select_a(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_4take_tuple(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, float __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_6update(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, float __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done); /* proto */
@@ -2644,7 +2644,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_8PyAction_4__setstate_cython__(CYTHON_
  *     cdef QTree* thisptr
  * 
  *     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, float \             # <<<<<<<<<<<<<<
- *         gamma, float alpha, float visit_decay, float split_thresh, float \
+ *         gamma, float alpha, float visit_decay, float split_thresh_max, float \
  *         split_thresh_decay, int num_splits):
  */
 
@@ -2657,14 +2657,14 @@ static int __pyx_pw_13qtree_wrapper_7PyQTree_1__cinit__(PyObject *__pyx_v_self, 
   float __pyx_v_gamma;
   float __pyx_v_alpha;
   float __pyx_v_visit_decay;
-  float __pyx_v_split_thresh;
+  float __pyx_v_split_thresh_max;
   float __pyx_v_split_thresh_decay;
   int __pyx_v_num_splits;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_state_space,&__pyx_n_s_action_space,&__pyx_n_s_None,&__pyx_n_s_gamma,&__pyx_n_s_alpha,&__pyx_n_s_visit_decay,&__pyx_n_s_split_thresh,&__pyx_n_s_split_thresh_decay,&__pyx_n_s_num_splits,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_state_space,&__pyx_n_s_action_space,&__pyx_n_s_None,&__pyx_n_s_gamma,&__pyx_n_s_alpha,&__pyx_n_s_visit_decay,&__pyx_n_s_split_thresh_max,&__pyx_n_s_split_thresh_decay,&__pyx_n_s_num_splits,0};
     PyObject* values[9] = {0,0,0,0,0,0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
@@ -2728,7 +2728,7 @@ static int __pyx_pw_13qtree_wrapper_7PyQTree_1__cinit__(PyObject *__pyx_v_self, 
         }
         CYTHON_FALLTHROUGH;
         case  6:
-        if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_split_thresh)) != 0)) kw_args--;
+        if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_split_thresh_max)) != 0)) kw_args--;
         else {
           __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 9, 9, 6); __PYX_ERR(1, 107, __pyx_L3_error)
         }
@@ -2767,7 +2767,7 @@ static int __pyx_pw_13qtree_wrapper_7PyQTree_1__cinit__(PyObject *__pyx_v_self, 
     __pyx_v_gamma = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_gamma == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 107, __pyx_L3_error)
     __pyx_v_alpha = __pyx_PyFloat_AsFloat(values[4]); if (unlikely((__pyx_v_alpha == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
     __pyx_v_visit_decay = __pyx_PyFloat_AsFloat(values[5]); if (unlikely((__pyx_v_visit_decay == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
-    __pyx_v_split_thresh = __pyx_PyFloat_AsFloat(values[6]); if (unlikely((__pyx_v_split_thresh == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
+    __pyx_v_split_thresh_max = __pyx_PyFloat_AsFloat(values[6]); if (unlikely((__pyx_v_split_thresh_max == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
     __pyx_v_split_thresh_decay = __pyx_PyFloat_AsFloat(values[7]); if (unlikely((__pyx_v_split_thresh_decay == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
     __pyx_v_num_splits = __Pyx_PyInt_As_int(values[8]); if (unlikely((__pyx_v_num_splits == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 109, __pyx_L3_error)
   }
@@ -2781,7 +2781,7 @@ static int __pyx_pw_13qtree_wrapper_7PyQTree_1__cinit__(PyObject *__pyx_v_self, 
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_state_space), __pyx_ptype_13qtree_wrapper_PyBox, 1, "state_space", 0))) __PYX_ERR(1, 107, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_action_space), __pyx_ptype_13qtree_wrapper_PyDiscrete, 1, "action_space", 0))) __PYX_ERR(1, 107, __pyx_L1_error)
-  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), __pyx_v_state_space, __pyx_v_action_space, __pyx_v_None, __pyx_v_gamma, __pyx_v_alpha, __pyx_v_visit_decay, __pyx_v_split_thresh, __pyx_v_split_thresh_decay, __pyx_v_num_splits);
+  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), __pyx_v_state_space, __pyx_v_action_space, __pyx_v_None, __pyx_v_gamma, __pyx_v_alpha, __pyx_v_visit_decay, __pyx_v_split_thresh_max, __pyx_v_split_thresh_decay, __pyx_v_num_splits);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2792,25 +2792,25 @@ static int __pyx_pw_13qtree_wrapper_7PyQTree_1__cinit__(PyObject *__pyx_v_self, 
   return __pyx_r;
 }
 
-static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyBox *__pyx_v_state_space, struct __pyx_obj_13qtree_wrapper_PyDiscrete *__pyx_v_action_space, CYTHON_UNUSED PyObject *__pyx_v_None, float __pyx_v_gamma, float __pyx_v_alpha, float __pyx_v_visit_decay, float __pyx_v_split_thresh, float __pyx_v_split_thresh_decay, int __pyx_v_num_splits) {
+static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyBox *__pyx_v_state_space, struct __pyx_obj_13qtree_wrapper_PyDiscrete *__pyx_v_action_space, CYTHON_UNUSED PyObject *__pyx_v_None, float __pyx_v_gamma, float __pyx_v_alpha, float __pyx_v_visit_decay, float __pyx_v_split_thresh_max, float __pyx_v_split_thresh_decay, int __pyx_v_num_splits) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
   /* "qtree_wrapper.pyx":110
- *         gamma, float alpha, float visit_decay, float split_thresh, float \
+ *         gamma, float alpha, float visit_decay, float split_thresh_max, float \
  *         split_thresh_decay, int num_splits):
  *         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \             # <<<<<<<<<<<<<<
- *         gamma, alpha, visit_decay, split_thresh, split_thresh_decay, num_splits)
+ *         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits)
  *     def select_a(self, PyState s):
  */
-  __pyx_v_self->thisptr = new QTree(__pyx_v_state_space->thisptr, __pyx_v_action_space->thisptr, NULL, __pyx_v_gamma, __pyx_v_alpha, __pyx_v_visit_decay, __pyx_v_split_thresh, __pyx_v_split_thresh_decay, __pyx_v_num_splits);
+  __pyx_v_self->thisptr = new QTree(__pyx_v_state_space->thisptr, __pyx_v_action_space->thisptr, NULL, __pyx_v_gamma, __pyx_v_alpha, __pyx_v_visit_decay, __pyx_v_split_thresh_max, __pyx_v_split_thresh_decay, __pyx_v_num_splits);
 
   /* "qtree_wrapper.pyx":107
  *     cdef QTree* thisptr
  * 
  *     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, float \             # <<<<<<<<<<<<<<
- *         gamma, float alpha, float visit_decay, float split_thresh, float \
+ *         gamma, float alpha, float visit_decay, float split_thresh_max, float \
  *         split_thresh_decay, int num_splits):
  */
 
@@ -2822,7 +2822,7 @@ static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_
 
 /* "qtree_wrapper.pyx":112
  *         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \
- *         gamma, alpha, visit_decay, split_thresh, split_thresh_decay, num_splits)
+ *         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits)
  *     def select_a(self, PyState s):             # <<<<<<<<<<<<<<
  *         return self.thisptr.selectA(s.thisptr)
  *     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
@@ -2853,7 +2853,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_2select_a(struct __pyx_obj_13
   __Pyx_RefNannySetupContext("select_a", 0);
 
   /* "qtree_wrapper.pyx":113
- *         gamma, alpha, visit_decay, split_thresh, split_thresh_decay, num_splits)
+ *         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits)
  *     def select_a(self, PyState s):
  *         return self.thisptr.selectA(s.thisptr)             # <<<<<<<<<<<<<<
  *     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
@@ -2868,7 +2868,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_2select_a(struct __pyx_obj_13
 
   /* "qtree_wrapper.pyx":112
  *         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \
- *         gamma, alpha, visit_decay, split_thresh, split_thresh_decay, num_splits)
+ *         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits)
  *     def select_a(self, PyState s):             # <<<<<<<<<<<<<<
  *         return self.thisptr.selectA(s.thisptr)
  *     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
@@ -4145,8 +4145,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_s2, __pyx_k_s2, sizeof(__pyx_k_s2), 0, 0, 1, 1},
   {&__pyx_n_s_setstate, __pyx_k_setstate, sizeof(__pyx_k_setstate), 0, 0, 1, 1},
   {&__pyx_n_s_setstate_cython, __pyx_k_setstate_cython, sizeof(__pyx_k_setstate_cython), 0, 0, 1, 1},
-  {&__pyx_n_s_split_thresh, __pyx_k_split_thresh, sizeof(__pyx_k_split_thresh), 0, 0, 1, 1},
   {&__pyx_n_s_split_thresh_decay, __pyx_k_split_thresh_decay, sizeof(__pyx_k_split_thresh_decay), 0, 0, 1, 1},
+  {&__pyx_n_s_split_thresh_max, __pyx_k_split_thresh_max, sizeof(__pyx_k_split_thresh_max), 0, 0, 1, 1},
   {&__pyx_n_s_state, __pyx_k_state, sizeof(__pyx_k_state), 0, 0, 1, 1},
   {&__pyx_n_s_state_space, __pyx_k_state_space, sizeof(__pyx_k_state_space), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
