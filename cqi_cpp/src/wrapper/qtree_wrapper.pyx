@@ -48,7 +48,7 @@ cdef extern from "../../include/qtree.hpp":
     cdef cppclass QTree:
         float splitThreshMax
         float splitThreshDecay
-        float splitThresh
+        int numSplits 
         QTreeNode* root
         bint _justSplit
         unordered_map[string, float]* params
@@ -75,7 +75,7 @@ cdef class PyBox:
     def __cinit__(self, PyVector low, PyVector high):
         self.thisptr = new Box(low.thisptr, high.thisptr)
     def contains(self, PyVector vec):
-        return self.thisptr.contains(vec.thisptr) 
+        return self.thisptr.contains(vec.thisptr)
 
 cdef class PyDiscrete:
     cdef Discrete* thisptr
@@ -105,10 +105,10 @@ cdef class PyQTree:
     cdef QTree* thisptr
 
     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, float \
-        gamma, float alpha, float visit_decay, float split_thresh, float \
+        gamma, float alpha, float visit_decay, float split_thresh_max, float \
         split_thresh_decay, int num_splits):
         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \
-        gamma, alpha, visit_decay, split_thresh, split_thresh_decay, num_splits)
+        gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits)
     def select_a(self, PyState s):
         return self.thisptr.selectA(s.thisptr)
     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
