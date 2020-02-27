@@ -1,4 +1,5 @@
 #include "../include/qtreeleaf.hpp"
+#include <iostream>
 
 QTreeLeaf::QTreeLeaf(vector<float>* qs, float visits, vector<LeafSplit*>* splits) 
     : QTreeNode(visits) {
@@ -15,14 +16,13 @@ vector<float>* QTreeLeaf::getQS(State* s) {
     return this->qs;
 }
         
-void QTreeLeaf::update(State* s, Action* a, int target, unordered_map<string, 
-    float>* params) {
-    
-    QTreeNode::update(s, a, target, params);
-    
+void QTreeLeaf::update(State* s, Action* a, float target, unordered_map<string, float>* params) {
+    /* QTreeNode::update(s, a, target, params); */
+   
+    this->visits = this->visits * params->at("visitDecay") + (1 - params->at("visitDecay"));
     float alpha = params->at("alpha");
     this->qs->at(a->value) = (1 - alpha) * this->qs->at(a->value) + alpha * target;
-
+   
     for (auto& split : *(this->splits))
         split->update(s, a, target, params);
 }
@@ -72,7 +72,7 @@ QTreeInternal* QTreeLeaf::split(State* s, vector<float>* boxLow, vector<float>*
     return new QTreeInternal(leftChild, rightChild, splitFeature, val, visits);
 }
 
-float QTreeLeaf::maxSplitUntil(State* s) {
+float QTreeLeaf::maxSplitUtil(State* s) {
     vector<float> evalUtilities;
 
     for (auto& sp: *(this->splits))
@@ -81,6 +81,10 @@ float QTreeLeaf::maxSplitUntil(State* s) {
     auto vectorMax = max_element(begin(evalUtilities), end(evalUtilities));
 
     return this->visits * *vectorMax; 
+}
+
+void QTreeLeaf::noVisitUpdate(unordered_map<string, float>* params) {
+    return;
 }
 
 int QTreeLeaf::numNodes() {
