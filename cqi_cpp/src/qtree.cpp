@@ -1,5 +1,5 @@
 #include "../include/qtree.hpp"
-
+#include <iostream>
 typedef unordered_map<string, float> map;
 
 QTree::QTree(Box* stateSpace, Discrete* actionSpace, QTreeNode* root=nullptr, 
@@ -48,9 +48,9 @@ void QTree::takeTuple(State* s, Action* a, float r, State* s2, bool done) {
     
 	// update a leaf directly
     this->update(s, a, r, s2, done);
-    
-	// modify tree
-    if (this->root->maxSplitUntil(s) > this->splitThresh) {
+	
+    // modify tree
+    if (this->root->maxSplitUtil(s) > this->splitThresh) {
         printf("split\n");
 
         this->_justSplit = true;
@@ -70,7 +70,7 @@ void QTree::takeTuple(State* s, Action* a, float r, State* s2, bool done) {
 }
 
 void QTree::update(State* s, Action* a, float r, State* s2, bool done) {
-    float target;
+    float target = 0;
 
     if (done) {
         target = r;
@@ -78,6 +78,7 @@ void QTree::update(State* s, Action* a, float r, State* s2, bool done) {
         vector<float>* QVals = this->root->getQS(s2);
         auto QValsMax = max_element(begin(*QVals), end(*QVals));
         target = r + this->params->at("gamma") * *QValsMax;
+
         this->root->update(s, a, target, this->params);
     }
 }

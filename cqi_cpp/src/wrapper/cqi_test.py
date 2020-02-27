@@ -14,13 +14,13 @@ env = gym.make('CartPole-v0')
 box = convert_to_pybox(env.observation_space)
 
 discrete = Discrete(env.action_space.n)
-qfunc = QTree(box, discrete, None, gamma=0.99, alpha=0.1, visit_decay=0.99, \
+qfunc = QTree(box, discrete, None, gamma=0.99, alpha=0.01, visit_decay=0.999, \
         split_thresh_max=0.1, split_thresh_decay=0.99, num_splits=2)
 
 t = Train(qfunc, env)
 
 eps_func = (lambda step: max(0.05, 1 - step/1e5))
-train_steps = int(5e5)
+train_steps = int(5e3)
 
 # Training
 history = t.train(train_steps, eps_func, verbose=True, qfunc_hist=None)
