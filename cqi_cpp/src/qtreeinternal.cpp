@@ -1,4 +1,5 @@
 #include "../include/qtreeinternal.hpp"
+#include <iostream>
 
 QTreeInternal::QTreeInternal(QTreeNode* leftChild, QTreeNode* rightChild, int feature, 
     float value, float visits) : QTreeNode(visits) {
@@ -17,10 +18,12 @@ vector<float>* QTreeInternal::getQS(State* s) {
     return this->selectChild(s).first->getQS(s); 
 }
 
-void QTreeInternal::update(State* s, Action* a, int target, unordered_map<string, float>* 
+void QTreeInternal::update(State* s, Action* a, float target, unordered_map<string, float>* 
     params) {
     
-    QTreeNode::update(s, a, target, params);
+    /* QTreeNode::update(s, a, target, params); */
+    
+    this->visits = this->visits * params->at("visitDecay") + (1 - params->at("visitDecay"));
     pair<QTreeNode*, QTreeNode*> selectPair = this->selectChild(s);
     QTreeNode* it = selectPair.first;
     QTreeNode* notIt = selectPair.second;
@@ -42,6 +45,12 @@ QTreeInternal* QTreeInternal::split(State* s, vector<float>* boxLow, vector<floa
     return this;
 }
 
+// This never runs
+void QTreeInternal::noVisitUpdate(unordered_map<string, float>* params) {
+   cout << "THIS RUNS" << endl; 
+        this->visits = this->visits * params->at("visitDecay");
+}
+
 pair<QTreeNode*, QTreeNode*> QTreeInternal::selectChild(State* s) {
     pair<QTreeNode*, QTreeNode*> selectPair(this->leftChild, this->rightChild); 
             
@@ -53,8 +62,8 @@ pair<QTreeNode*, QTreeNode*> QTreeInternal::selectChild(State* s) {
     return selectPair;
 }
 
-float QTreeInternal::maxSplitUntil(State* s) {
-    return this->visits * this->selectChild(s).first->maxSplitUntil(s);
+float QTreeInternal::maxSplitUtil(State* s) {
+    return this->visits * this->selectChild(s).first->maxSplitUtil(s);
 }
 
 int QTreeInternal::numNodes() {
@@ -62,10 +71,10 @@ int QTreeInternal::numNodes() {
 }
 
 void QTreeInternal::printStructure(string prefixHead, string prefixTail) {
-    printf("%s (vis: %1.2f) if f[%d] ? %f:", prefixHead.c_str(), this->visits, this->feature, 
+    printf("%s (vis: %1.2f) if f[%d] ? %f:\n", prefixHead.c_str(), this->visits, this->feature, 
         this->value); 
 
-    string leftChildFirst = prefixTail + "  ├<";
+    string leftChildFirst = prefixTail + " ├<";
     string leftChildSecond = prefixTail + " │";
     string rightChildFirst = prefixTail + " └>";
     string rightChildSecond = prefixTail + "  ";

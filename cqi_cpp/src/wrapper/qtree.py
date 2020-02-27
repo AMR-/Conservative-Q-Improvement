@@ -88,9 +88,7 @@ class QTreeNode(ABC):
         pass
 
     def update(self, s, a, target, params):
-        self.visits = self.visits * params.val('visit_decay') \
-                      + (1 - params.val('visit_decay'))
-
+        self.visits = self.visits * params.val('visit_decay') + (1 - params.val('visit_decay'))
     def no_visit_update(self, params):
         self.visits = self.visits * params.val('visit_decay')
 
@@ -158,8 +156,8 @@ class QTreeLeaf(QTreeNode):
 
     def update(self, s, a, target, params):
         super().update(s, a, target, params)
-        self.qs[a] = (1 - params.val('alpha')) * self.qs[a] \
-                     + params.val('alpha') * target
+        self.qs[a] = (1 - params.val('alpha')) * self.qs[a] + params.val('alpha') * target
+
         for split in self.splits:
             split.update(s, a, target, params)
 
@@ -204,8 +202,7 @@ class QTreeLeaf(QTreeNode):
         return 1
 
     def print_structure(self, prefix_head, prefix_tail):
-        print(prefix_head + '(vis: ' + "{:1.2f}".format(self.visits) \
-              + ') qvals: ' + str(self.qs))
+        print(prefix_head + '(vis: ' + "{:1.2f}".format(self.visits) + ') qvals: ' + str(self.qs))
 
 
 class QTreeInternal(QTreeNode):
@@ -250,9 +247,7 @@ class QTreeInternal(QTreeNode):
         return 1 + self.left_child.num_nodes() + self.right_child.num_nodes()
 
     def print_structure(self, prefix_head, prefix_tail):
-        print(prefix_head + '(vis: ' + "{:1.2f}".format(self.visits) \
-              + ') if f[' + str(self.feature) +'] ? ' \
-              + str(self.value) + ':')
+        print(prefix_head + '(vis: ' + "{:1.2f}".format(self.visits) + ') if f[' + str(self.feature) +'] ? ' + str(self.value) + ':')
         self.left_child.print_structure(prefix_tail + ' ├<', prefix_tail + ' │')
         self.right_child.print_structure(prefix_tail + ' └>', prefix_tail + '  ')
 

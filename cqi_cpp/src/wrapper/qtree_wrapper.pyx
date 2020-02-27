@@ -40,7 +40,7 @@ cdef extern from "../../include/qtreenode.hpp":
         void update(State* s, Action* a, int target, unordered_map[string, float]* params)
         void noVisitUpdate(unordered_map[string, float]* params)
         QTreeNode* split(State*, vector[float]*, vector[float]*, unordered_map[string, float]*)
-        float maxSplitUntil(State*)
+        float maxSplitUtil(State*)
         int numNodes()
         void printStructure(string, string)
 
