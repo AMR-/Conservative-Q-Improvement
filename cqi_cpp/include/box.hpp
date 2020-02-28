@@ -4,13 +4,13 @@
 #include "utils.hpp"
 #include <random>
 
-class Box : public Space<vector<float>*> {
+class Box : public Space<vector<double>*> {
     public:
-        vector<float>* low;
-        vector<float>* high;
+        vector<double>* low;
+        vector<double>* high;
 
-        Box(vector<float>*, vector<float>*);
-        vector<float>* sample();
-        bool contains(vector<float>*);
+        Box(vector<double>*, vector<double>*);
+        vector<double>* sample();
+        bool contains(vector<double>*);
 };
 #endif

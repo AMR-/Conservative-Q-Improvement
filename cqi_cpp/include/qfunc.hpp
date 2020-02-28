@@ -19,7 +19,7 @@ class QFunc {
         }
 
         virtual int selectA(State*) = 0;
-        virtual void takeTuple(State*, Action*, float, State*, bool) = 0;
+        virtual void takeTuple(State*, Action*, double, State*, bool) = 0;
         virtual bool justSplit() = 0;
         
         QFunc* getPreSplit() {

@@ -4,8 +4,8 @@ from libcpp.vector cimport vector
 
 cdef extern from "../../include/state.hpp":
     cdef cppclass State:
-        vector[float]* state
-        State(vector[float]*)
+        vector[double]* state
+        State(vector[double]*)
 
 cdef extern from "../../include/action.hpp":
     cdef cppclass Action:
@@ -23,50 +23,50 @@ cdef extern from "../../include/discrete.hpp":
 
 cdef extern from "../../include/box.hpp":
     cdef cppclass Box:
-        vector[float]* low
-        vector[float]* high
+        vector[double]* low
+        vector[double]* high
 
-        Box(vector[float]*, vector[float]*)
-        vector[float]* sample()
-        bint contains(vector[float]*)
+        Box(vector[double]*, vector[double]*)
+        vector[double]* sample()
+        bint contains(vector[double]*)
 
 cdef extern from "../../include/qtreenode.hpp":
     cdef cppclass QTreeNode:
-        float visits
+        double visits
 
-        QTreeNode(float visits)
+        QTreeNode(double visits)
         bint isLeaf()
-        vector[float]* getQS(State*)
-        void update(State* s, Action* a, int target, unordered_map[string, float]* params)
-        void noVisitUpdate(unordered_map[string, float]* params)
-        QTreeNode* split(State*, vector[float]*, vector[float]*, unordered_map[string, float]*)
-        float maxSplitUtil(State*)
+        vector[double]* getQS(State*)
+        void update(State* s, Action* a, int target, unordered_map[string, double]* params)
+        void noVisitUpdate(unordered_map[string, double]* params)
+        QTreeNode* split(State*, vector[double]*, vector[double]*, unordered_map[string, double]*)
+        double maxSplitUtil(State*)
         int numNodes()
         void printStructure(string, string)
 
 cdef extern from "../../include/qtree.hpp":
     cdef cppclass QTree:
-        float splitThreshMax
-        float splitThreshDecay
+        double splitThreshMax
+        double splitThreshDecay
         int numSplits 
         QTreeNode* root
         bint _justSplit
-        unordered_map[string, float]* params
+        unordered_map[string, double]* params
 
-        QTree(Box*, Discrete*, QTreeNode*, float, float, float, float, float, int)
+        QTree(Box*, Discrete*, QTreeNode*, double, double, double, double, double, int)
         int selectA(State*)
-        void takeTuple(State*, Action*, float, State*, bint)
-        void update(State*, Action*, float, State*, bint)
+        void takeTuple(State*, Action*, double, State*, bint)
+        void update(State*, Action*, double, State*, bint)
         int numNodes()
         void printStructure()
         bint justSplit()
 
 cdef class PyVector:
-    cdef vector[float]* thisptr
+    cdef vector[double]* thisptr
 
     def __cinit__(self):
-        self.thisptr = new vector[float]()
-    def add(self, float f):
+        self.thisptr = new vector[double]()
+    def add(self, double f):
         self.thisptr.push_back(f)
 
 cdef class PyBox:
@@ -104,16 +104,16 @@ cdef class PyAction:
 cdef class PyQTree:
     cdef QTree* thisptr
 
-    def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, float \
-        gamma, float alpha, float visit_decay, float split_thresh_max, float \
+    def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, double \
+        gamma, double alpha, double visit_decay, double split_thresh_max, double \
         split_thresh_decay, int num_splits):
         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \
         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits)
     def select_a(self, PyState s):
         return self.thisptr.selectA(s.thisptr)
-    def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
+    def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):
         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
-    def update(self, PyState s, PyAction a, float r, PyState s2, bint done):
+    def update(self, PyState s, PyAction a, double r, PyState s2, bint done):
         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)
     def num_nodes(self):
         return self.thisptr.numNodes()

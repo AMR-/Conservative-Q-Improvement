@@ -1,30 +1,30 @@
 #include "qtreenode.hpp"
 #include <iostream>
-#include <utility> 
+#include <tuple> 
 
 class QTreeInternal: public QTreeNode { 
     public:
         QTreeNode* leftChild;
         QTreeNode* rightChild;
         int feature;
-        float value;
-        float visits;
+        double value;
+        double visits;
        
-        QTreeInternal(QTreeNode*, QTreeNode*, int, float, float); 
-
-        ~QTreeInternal();
+        QTreeInternal(QTreeNode*, QTreeNode*, int, double, double); 
 
         bool isLeaf();
 
-        vector<float>* getQS(State*); 
+        vector<double>* getQS(State*); 
 
-        void update(State*, Action*, int, unordered_map<string, float>*); 
+        void update(State*, Action*, double, unordered_map<string, double>*); 
 
-        QTreeInternal* split(State*, vector<float>*, vector<float>*, unordered_map<string, float>*); 
+        QTreeInternal* split(State*, vector<double>*, vector<double>*, unordered_map<string, double>*); 
 
-        pair<QTreeNode*, QTreeNode*> selectChild(State*); 
+        void noVisitUpdate(unordered_map<string, double>*);
+        
+        tuple<QTreeNode*, QTreeNode*> selectChild(State*); 
 
-        float maxSplitUntil(State*); 
+        double maxSplitUtil(State*); 
 
         int numNodes(); 
 

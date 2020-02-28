@@ -1,19 +1,19 @@
 #include "../include/qtree.hpp"
 #include <iostream>
-typedef unordered_map<string, float> map;
+typedef unordered_map<string, double> map;
 
 QTree::QTree(Box* stateSpace, Discrete* actionSpace, QTreeNode* root=nullptr, 
-    float gamma=0.99, float alpha=0.1, float visitDecay=0.99, float splitThreshMax=1, float 
+    double gamma=0.99, double alpha=0.1, double visitDecay=0.99, double splitThreshMax=1, double 
     splitThreshDecay=0.99, int numSplits=2) : QFunc(stateSpace, actionSpace) {
    
     if (!root) {
-        vector<float>* low = this->stateSpace->low;
-        vector<float>* high = this->stateSpace->high;
+        vector<double>* low = this->stateSpace->low;
+        vector<double>* high = this->stateSpace->high;
         vector<LeafSplit*>* splits = new vector<LeafSplit*>(); 
 
         for (size_t f = 0; f < low->size(); f++) {
             for (int i = 0; i < numSplits; i++) {
-                vector<float>* zerosVector = Utils::zeros(actionSpace->size());
+                vector<double>* zerosVector = Utils::zeros(actionSpace->size());
                 int value = low->at(f) + (high->at(f) - low->at(f))/(numSplits + 1) * (i + 1);
                 LeafSplit* toAdd = new LeafSplit(f, value, zerosVector, zerosVector, 0.5, 0.5);
                 
@@ -42,10 +42,10 @@ int QTree::selectA(State* s) {
     return Utils::argmax(this->root->getQS(s));
 }
 
-void QTree::takeTuple(State* s, Action* a, float r, State* s2, bool done) {
+void QTree::takeTuple(State* s, Action* a, double r, State* s2, bool done) {
     this->_justSplit = false;
     this->selfCopy = NULL;
-    
+
 	// update a leaf directly
     this->update(s, a, r, s2, done);
 	
@@ -69,18 +69,19 @@ void QTree::takeTuple(State* s, Action* a, float r, State* s2, bool done) {
     }
 }
 
-void QTree::update(State* s, Action* a, float r, State* s2, bool done) {
-    float target = 0;
+void QTree::update(State* s, Action* a, double r, State* s2, bool done) {
+    double target = 0;
 
     if (done) {
         target = r;
     } else {
-        vector<float>* QVals = this->root->getQS(s2);
-        auto QValsMax = max_element(begin(*QVals), end(*QVals));
-        target = r + this->params->at("gamma") * *QValsMax;
+        vector<double>* QVals = this->root->getQS(s2);
+        double QValsMax = Utils::max(QVals);
 
-        this->root->update(s, a, target, this->params);
+        target = r + this->params->at("gamma") * QValsMax;
     }
+
+    this->root->update(s, a, target, this->params);
 }
 
 int QTree::numNodes() {

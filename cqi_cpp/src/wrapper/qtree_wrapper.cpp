@@ -576,10 +576,10 @@ static CYTHON_INLINE void * PyThread_tss_get(Py_tss_t *key) {
 #endif
 #include <math.h>
 #ifdef NAN
-#define __PYX_NAN() ((float) NAN)
+#define __PYX_NAN() ((double) NAN)
 #else
-static CYTHON_INLINE float __PYX_NAN() {
-  float value;
+static CYTHON_INLINE double __PYX_NAN() {
+  double value;
   memset(&value, 0xFF, sizeof(value));
   return value;
 }
@@ -723,7 +723,7 @@ static CYTHON_INLINE PyObject * __Pyx_PyInt_FromSize_t(size_t);
 #else
 #define __pyx_PyFloat_AsDouble(x) PyFloat_AsDouble(x)
 #endif
-#define __pyx_PyFloat_AsFloat(x) ((float) __pyx_PyFloat_AsDouble(x))
+#define __pyx_PyFloat_AsFloat(x) ((double) __pyx_PyFloat_AsDouble(x))
 #if PY_MAJOR_VERSION >= 3
 #define __Pyx_PyNumber_Int(x) (PyLong_CheckExact(x) ? __Pyx_NewRef(x) : PyNumber_Long(x))
 #else
@@ -846,12 +846,12 @@ struct __pyx_obj_13qtree_wrapper_PyQTree;
  *         bint justSplit()
  * 
  * cdef class PyVector:             # <<<<<<<<<<<<<<
- *     cdef vector[float]* thisptr
+ *     cdef vector[double]* thisptr
  * 
  */
 struct __pyx_obj_13qtree_wrapper_PyVector {
   PyObject_HEAD
-  std::vector<float>  *thisptr;
+  std::vector<double>  *thisptr;
 };
 
 
@@ -1302,7 +1302,7 @@ static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_value;
 static PyObject *__pyx_n_s_visit_decay;
 static int __pyx_pf_13qtree_wrapper_8PyVector___cinit__(struct __pyx_obj_13qtree_wrapper_PyVector *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_13qtree_wrapper_8PyVector_2add(struct __pyx_obj_13qtree_wrapper_PyVector *__pyx_v_self, float __pyx_v_f); /* proto */
+static PyObject *__pyx_pf_13qtree_wrapper_8PyVector_2add(struct __pyx_obj_13qtree_wrapper_PyVector *__pyx_v_self, double __pyx_v_f); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_8PyVector_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyVector *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_8PyVector_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyVector *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_13qtree_wrapper_5PyBox___cinit__(struct __pyx_obj_13qtree_wrapper_PyBox *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyVector *__pyx_v_low, struct __pyx_obj_13qtree_wrapper_PyVector *__pyx_v_high); /* proto */
@@ -1321,10 +1321,10 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyState_4__setstate_cython__(CYTHON_U
 static int __pyx_pf_13qtree_wrapper_8PyAction___cinit__(struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_self, int __pyx_v_value); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_8PyAction_2__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_8PyAction_4__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyBox *__pyx_v_state_space, struct __pyx_obj_13qtree_wrapper_PyDiscrete *__pyx_v_action_space, CYTHON_UNUSED PyObject *__pyx_v_None, float __pyx_v_gamma, float __pyx_v_alpha, float __pyx_v_visit_decay, float __pyx_v_split_thresh_max, float __pyx_v_split_thresh_decay, int __pyx_v_num_splits); /* proto */
+static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyBox *__pyx_v_state_space, struct __pyx_obj_13qtree_wrapper_PyDiscrete *__pyx_v_action_space, CYTHON_UNUSED PyObject *__pyx_v_None, double __pyx_v_gamma, double __pyx_v_alpha, double __pyx_v_visit_decay, double __pyx_v_split_thresh_max, double __pyx_v_split_thresh_decay, int __pyx_v_num_splits); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_2select_a(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s); /* proto */
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_4take_tuple(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, float __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done); /* proto */
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_6update(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, float __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done); /* proto */
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_4take_tuple(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, double __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done); /* proto */
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_6update(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, double __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_8num_nodes(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_10print_structure(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_12just_split(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self); /* proto */
@@ -1351,11 +1351,11 @@ static PyObject *__pyx_tuple__12;
 /* Late includes */
 
 /* "qtree_wrapper.pyx":67
- *     cdef vector[float]* thisptr
+ *     cdef vector[double]* thisptr
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
- *         self.thisptr = new vector[float]()
- *     def add(self, float f):
+ *         self.thisptr = new vector[double]()
+ *     def add(self, double f):
  */
 
 /* Python wrapper */
@@ -1377,18 +1377,18 @@ static int __pyx_pw_13qtree_wrapper_8PyVector_1__cinit__(PyObject *__pyx_v_self,
 static int __pyx_pf_13qtree_wrapper_8PyVector___cinit__(struct __pyx_obj_13qtree_wrapper_PyVector *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
-  std::vector<float>  *__pyx_t_1;
+  std::vector<double>  *__pyx_t_1;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
   /* "qtree_wrapper.pyx":68
  * 
  *     def __cinit__(self):
- *         self.thisptr = new vector[float]()             # <<<<<<<<<<<<<<
- *     def add(self, float f):
+ *         self.thisptr = new vector[double]()             # <<<<<<<<<<<<<<
+ *     def add(self, double f):
  *         self.thisptr.push_back(f)
  */
   try {
-    __pyx_t_1 = new std::vector<float> ();
+    __pyx_t_1 = new std::vector<double> ();
   } catch(...) {
     __Pyx_CppExn2PyErr();
     __PYX_ERR(1, 68, __pyx_L1_error)
@@ -1396,11 +1396,11 @@ static int __pyx_pf_13qtree_wrapper_8PyVector___cinit__(struct __pyx_obj_13qtree
   __pyx_v_self->thisptr = __pyx_t_1;
 
   /* "qtree_wrapper.pyx":67
- *     cdef vector[float]* thisptr
+ *     cdef vector[double]* thisptr
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
- *         self.thisptr = new vector[float]()
- *     def add(self, float f):
+ *         self.thisptr = new vector[double]()
+ *     def add(self, double f):
  */
 
   /* function exit code */
@@ -1416,8 +1416,8 @@ static int __pyx_pf_13qtree_wrapper_8PyVector___cinit__(struct __pyx_obj_13qtree
 
 /* "qtree_wrapper.pyx":69
  *     def __cinit__(self):
- *         self.thisptr = new vector[float]()
- *     def add(self, float f):             # <<<<<<<<<<<<<<
+ *         self.thisptr = new vector[double]()
+ *     def add(self, double f):             # <<<<<<<<<<<<<<
  *         self.thisptr.push_back(f)
  * 
  */
@@ -1425,12 +1425,12 @@ static int __pyx_pf_13qtree_wrapper_8PyVector___cinit__(struct __pyx_obj_13qtree
 /* Python wrapper */
 static PyObject *__pyx_pw_13qtree_wrapper_8PyVector_3add(PyObject *__pyx_v_self, PyObject *__pyx_arg_f); /*proto*/
 static PyObject *__pyx_pw_13qtree_wrapper_8PyVector_3add(PyObject *__pyx_v_self, PyObject *__pyx_arg_f) {
-  float __pyx_v_f;
+  double __pyx_v_f;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("add (wrapper)", 0);
   assert(__pyx_arg_f); {
-    __pyx_v_f = __pyx_PyFloat_AsFloat(__pyx_arg_f); if (unlikely((__pyx_v_f == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 69, __pyx_L3_error)
+    __pyx_v_f = __pyx_PyFloat_AsFloat(__pyx_arg_f); if (unlikely((__pyx_v_f == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 69, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -1438,21 +1438,21 @@ static PyObject *__pyx_pw_13qtree_wrapper_8PyVector_3add(PyObject *__pyx_v_self,
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_13qtree_wrapper_8PyVector_2add(((struct __pyx_obj_13qtree_wrapper_PyVector *)__pyx_v_self), ((float)__pyx_v_f));
+  __pyx_r = __pyx_pf_13qtree_wrapper_8PyVector_2add(((struct __pyx_obj_13qtree_wrapper_PyVector *)__pyx_v_self), ((double)__pyx_v_f));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_13qtree_wrapper_8PyVector_2add(struct __pyx_obj_13qtree_wrapper_PyVector *__pyx_v_self, float __pyx_v_f) {
+static PyObject *__pyx_pf_13qtree_wrapper_8PyVector_2add(struct __pyx_obj_13qtree_wrapper_PyVector *__pyx_v_self, double __pyx_v_f) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("add", 0);
 
   /* "qtree_wrapper.pyx":70
- *         self.thisptr = new vector[float]()
- *     def add(self, float f):
+ *         self.thisptr = new vector[double]()
+ *     def add(self, double f):
  *         self.thisptr.push_back(f)             # <<<<<<<<<<<<<<
  * 
  * cdef class PyBox:
@@ -1466,8 +1466,8 @@ static PyObject *__pyx_pf_13qtree_wrapper_8PyVector_2add(struct __pyx_obj_13qtre
 
   /* "qtree_wrapper.pyx":69
  *     def __cinit__(self):
- *         self.thisptr = new vector[float]()
- *     def add(self, float f):             # <<<<<<<<<<<<<<
+ *         self.thisptr = new vector[double]()
+ *     def add(self, double f):             # <<<<<<<<<<<<<<
  *         self.thisptr.push_back(f)
  * 
  */
@@ -2643,8 +2643,8 @@ static PyObject *__pyx_pf_13qtree_wrapper_8PyAction_4__setstate_cython__(CYTHON_
 /* "qtree_wrapper.pyx":107
  *     cdef QTree* thisptr
  * 
- *     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, float \             # <<<<<<<<<<<<<<
- *         gamma, float alpha, float visit_decay, float split_thresh_max, float \
+ *     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, double \             # <<<<<<<<<<<<<<
+ *         gamma, double alpha, double visit_decay, double split_thresh_max, double \
  *         split_thresh_decay, int num_splits):
  */
 
@@ -2654,11 +2654,11 @@ static int __pyx_pw_13qtree_wrapper_7PyQTree_1__cinit__(PyObject *__pyx_v_self, 
   struct __pyx_obj_13qtree_wrapper_PyBox *__pyx_v_state_space = 0;
   struct __pyx_obj_13qtree_wrapper_PyDiscrete *__pyx_v_action_space = 0;
   CYTHON_UNUSED PyObject *__pyx_v_None = 0;
-  float __pyx_v_gamma;
-  float __pyx_v_alpha;
-  float __pyx_v_visit_decay;
-  float __pyx_v_split_thresh_max;
-  float __pyx_v_split_thresh_decay;
+  double __pyx_v_gamma;
+  double __pyx_v_alpha;
+  double __pyx_v_visit_decay;
+  double __pyx_v_split_thresh_max;
+  double __pyx_v_split_thresh_decay;
   int __pyx_v_num_splits;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -2764,11 +2764,11 @@ static int __pyx_pw_13qtree_wrapper_7PyQTree_1__cinit__(PyObject *__pyx_v_self, 
     __pyx_v_state_space = ((struct __pyx_obj_13qtree_wrapper_PyBox *)values[0]);
     __pyx_v_action_space = ((struct __pyx_obj_13qtree_wrapper_PyDiscrete *)values[1]);
     __pyx_v_None = values[2];
-    __pyx_v_gamma = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_gamma == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 107, __pyx_L3_error)
-    __pyx_v_alpha = __pyx_PyFloat_AsFloat(values[4]); if (unlikely((__pyx_v_alpha == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
-    __pyx_v_visit_decay = __pyx_PyFloat_AsFloat(values[5]); if (unlikely((__pyx_v_visit_decay == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
-    __pyx_v_split_thresh_max = __pyx_PyFloat_AsFloat(values[6]); if (unlikely((__pyx_v_split_thresh_max == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
-    __pyx_v_split_thresh_decay = __pyx_PyFloat_AsFloat(values[7]); if (unlikely((__pyx_v_split_thresh_decay == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
+    __pyx_v_gamma = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_gamma == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 107, __pyx_L3_error)
+    __pyx_v_alpha = __pyx_PyFloat_AsFloat(values[4]); if (unlikely((__pyx_v_alpha == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
+    __pyx_v_visit_decay = __pyx_PyFloat_AsFloat(values[5]); if (unlikely((__pyx_v_visit_decay == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
+    __pyx_v_split_thresh_max = __pyx_PyFloat_AsFloat(values[6]); if (unlikely((__pyx_v_split_thresh_max == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
+    __pyx_v_split_thresh_decay = __pyx_PyFloat_AsFloat(values[7]); if (unlikely((__pyx_v_split_thresh_decay == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 108, __pyx_L3_error)
     __pyx_v_num_splits = __Pyx_PyInt_As_int(values[8]); if (unlikely((__pyx_v_num_splits == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 109, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
@@ -2792,13 +2792,13 @@ static int __pyx_pw_13qtree_wrapper_7PyQTree_1__cinit__(PyObject *__pyx_v_self, 
   return __pyx_r;
 }
 
-static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyBox *__pyx_v_state_space, struct __pyx_obj_13qtree_wrapper_PyDiscrete *__pyx_v_action_space, CYTHON_UNUSED PyObject *__pyx_v_None, float __pyx_v_gamma, float __pyx_v_alpha, float __pyx_v_visit_decay, float __pyx_v_split_thresh_max, float __pyx_v_split_thresh_decay, int __pyx_v_num_splits) {
+static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyBox *__pyx_v_state_space, struct __pyx_obj_13qtree_wrapper_PyDiscrete *__pyx_v_action_space, CYTHON_UNUSED PyObject *__pyx_v_None, double __pyx_v_gamma, double __pyx_v_alpha, double __pyx_v_visit_decay, double __pyx_v_split_thresh_max, double __pyx_v_split_thresh_decay, int __pyx_v_num_splits) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
   /* "qtree_wrapper.pyx":110
- *         gamma, float alpha, float visit_decay, float split_thresh_max, float \
+ *         gamma, double alpha, double visit_decay, double split_thresh_max, double \
  *         split_thresh_decay, int num_splits):
  *         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \             # <<<<<<<<<<<<<<
  *         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits)
@@ -2809,8 +2809,8 @@ static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_
   /* "qtree_wrapper.pyx":107
  *     cdef QTree* thisptr
  * 
- *     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, float \             # <<<<<<<<<<<<<<
- *         gamma, float alpha, float visit_decay, float split_thresh_max, float \
+ *     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, double \             # <<<<<<<<<<<<<<
+ *         gamma, double alpha, double visit_decay, double split_thresh_max, double \
  *         split_thresh_decay, int num_splits):
  */
 
@@ -2825,7 +2825,7 @@ static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_
  *         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits)
  *     def select_a(self, PyState s):             # <<<<<<<<<<<<<<
  *         return self.thisptr.selectA(s.thisptr)
- *     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):
  */
 
 /* Python wrapper */
@@ -2856,7 +2856,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_2select_a(struct __pyx_obj_13
  *         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits)
  *     def select_a(self, PyState s):
  *         return self.thisptr.selectA(s.thisptr)             # <<<<<<<<<<<<<<
- *     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
  */
   __Pyx_XDECREF(__pyx_r);
@@ -2871,7 +2871,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_2select_a(struct __pyx_obj_13
  *         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits)
  *     def select_a(self, PyState s):             # <<<<<<<<<<<<<<
  *         return self.thisptr.selectA(s.thisptr)
- *     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):
  */
 
   /* function exit code */
@@ -2888,9 +2888,9 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_2select_a(struct __pyx_obj_13
 /* "qtree_wrapper.pyx":114
  *     def select_a(self, PyState s):
  *         return self.thisptr.selectA(s.thisptr)
- *     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):             # <<<<<<<<<<<<<<
+ *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
- *     def update(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):
  */
 
 /* Python wrapper */
@@ -2898,7 +2898,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_5take_tuple(PyObject *__pyx_v
 static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_5take_tuple(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s = 0;
   struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a = 0;
-  float __pyx_v_r;
+  double __pyx_v_r;
   struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2 = 0;
   int __pyx_v_done;
   PyObject *__pyx_r = 0;
@@ -2968,7 +2968,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_5take_tuple(PyObject *__pyx_v
     }
     __pyx_v_s = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[0]);
     __pyx_v_a = ((struct __pyx_obj_13qtree_wrapper_PyAction *)values[1]);
-    __pyx_v_r = __pyx_PyFloat_AsFloat(values[2]); if (unlikely((__pyx_v_r == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 114, __pyx_L3_error)
+    __pyx_v_r = __pyx_PyFloat_AsFloat(values[2]); if (unlikely((__pyx_v_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 114, __pyx_L3_error)
     __pyx_v_s2 = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[3]);
     __pyx_v_done = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_done == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 114, __pyx_L3_error)
   }
@@ -2994,7 +2994,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_5take_tuple(PyObject *__pyx_v
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_4take_tuple(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, float __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done) {
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_4take_tuple(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, double __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3002,9 +3002,9 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_4take_tuple(struct __pyx_obj_
 
   /* "qtree_wrapper.pyx":115
  *         return self.thisptr.selectA(s.thisptr)
- *     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)             # <<<<<<<<<<<<<<
- *     def update(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)
  */
   __Pyx_XDECREF(__pyx_r);
@@ -3017,9 +3017,9 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_4take_tuple(struct __pyx_obj_
   /* "qtree_wrapper.pyx":114
  *     def select_a(self, PyState s):
  *         return self.thisptr.selectA(s.thisptr)
- *     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):             # <<<<<<<<<<<<<<
+ *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
- *     def update(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):
  */
 
   /* function exit code */
@@ -3034,9 +3034,9 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_4take_tuple(struct __pyx_obj_
 }
 
 /* "qtree_wrapper.pyx":116
- *     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
- *     def update(self, PyState s, PyAction a, float r, PyState s2, bint done):             # <<<<<<<<<<<<<<
+ *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
  *         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def num_nodes(self):
  */
@@ -3046,7 +3046,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_7update(PyObject *__pyx_v_sel
 static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_7update(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s = 0;
   struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a = 0;
-  float __pyx_v_r;
+  double __pyx_v_r;
   struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2 = 0;
   int __pyx_v_done;
   PyObject *__pyx_r = 0;
@@ -3116,7 +3116,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_7update(PyObject *__pyx_v_sel
     }
     __pyx_v_s = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[0]);
     __pyx_v_a = ((struct __pyx_obj_13qtree_wrapper_PyAction *)values[1]);
-    __pyx_v_r = __pyx_PyFloat_AsFloat(values[2]); if (unlikely((__pyx_v_r == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 116, __pyx_L3_error)
+    __pyx_v_r = __pyx_PyFloat_AsFloat(values[2]); if (unlikely((__pyx_v_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 116, __pyx_L3_error)
     __pyx_v_s2 = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[3]);
     __pyx_v_done = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_done == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 116, __pyx_L3_error)
   }
@@ -3142,7 +3142,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_7update(PyObject *__pyx_v_sel
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_6update(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, float __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done) {
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_6update(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, double __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3150,7 +3150,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_6update(struct __pyx_obj_13qt
 
   /* "qtree_wrapper.pyx":117
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
- *     def update(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)             # <<<<<<<<<<<<<<
  *     def num_nodes(self):
  *         return self.thisptr.numNodes()
@@ -3163,9 +3163,9 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_6update(struct __pyx_obj_13qt
   goto __pyx_L0;
 
   /* "qtree_wrapper.pyx":116
- *     def take_tuple(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
- *     def update(self, PyState s, PyAction a, float r, PyState s2, bint done):             # <<<<<<<<<<<<<<
+ *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
  *         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def num_nodes(self):
  */
@@ -3182,7 +3182,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_6update(struct __pyx_obj_13qt
 }
 
 /* "qtree_wrapper.pyx":118
- *     def update(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def num_nodes(self):             # <<<<<<<<<<<<<<
  *         return self.thisptr.numNodes()
@@ -3223,7 +3223,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_8num_nodes(struct __pyx_obj_1
   goto __pyx_L0;
 
   /* "qtree_wrapper.pyx":118
- *     def update(self, PyState s, PyAction a, float r, PyState s2, bint done):
+ *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def num_nodes(self):             # <<<<<<<<<<<<<<
  *         return self.thisptr.numNodes()
