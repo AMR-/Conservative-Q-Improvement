@@ -2,7 +2,7 @@
 #include <iostream>
 
 QTreeInternal::QTreeInternal(QTreeNode* leftChild, QTreeNode* rightChild, int feature, 
-    float value, float visits) : QTreeNode(visits) {
+    double value, double visits) : QTreeNode(visits) {
     
     this->leftChild = leftChild;
     this->rightChild = rightChild;
@@ -14,25 +14,24 @@ bool QTreeInternal::isLeaf() {
     return false;
 }
 
-vector<float>* QTreeInternal::getQS(State* s) {
-    return this->selectChild(s).first->getQS(s); 
+vector<double>* QTreeInternal::getQS(State* s) {
+    return get<0>(this->selectChild(s))->getQS(s); 
 }
 
-void QTreeInternal::update(State* s, Action* a, float target, unordered_map<string, float>* 
+void QTreeInternal::update(State* s, Action* a, double target, unordered_map<string, double>* 
     params) {
     
-    /* QTreeNode::update(s, a, target, params); */
-    
     this->visits = this->visits * params->at("visitDecay") + (1 - params->at("visitDecay"));
-    pair<QTreeNode*, QTreeNode*> selectPair = this->selectChild(s);
-    QTreeNode* it = selectPair.first;
-    QTreeNode* notIt = selectPair.second;
+    tuple<QTreeNode*, QTreeNode*> selectPair = this->selectChild(s);
+    QTreeNode* it = get<0>(selectPair);
+    QTreeNode* notIt = get<1>(selectPair);
+
     it->update(s, a, target, params);
     notIt->noVisitUpdate(params);
 }
 
-QTreeInternal* QTreeInternal::split(State* s, vector<float>* boxLow, vector<float>* 
-    boxHigh, unordered_map<string, float>* params) {
+QTreeInternal* QTreeInternal::split(State* s, vector<double>* boxLow, vector<double>* 
+    boxHigh, unordered_map<string, double>* params) {
     
     if (s->state->at(this->feature) < this->value) {
         boxHigh->at(this->feature) = this->value;
@@ -45,25 +44,20 @@ QTreeInternal* QTreeInternal::split(State* s, vector<float>* boxLow, vector<floa
     return this;
 }
 
-// This never runs
-void QTreeInternal::noVisitUpdate(unordered_map<string, float>* params) {
-   cout << "THIS RUNS" << endl; 
-        this->visits = this->visits * params->at("visitDecay");
+void QTreeInternal::noVisitUpdate(unordered_map<string, double>* params) {
+    this->visits = this->visits * params->at("visitDecay");
 }
 
-pair<QTreeNode*, QTreeNode*> QTreeInternal::selectChild(State* s) {
-    pair<QTreeNode*, QTreeNode*> selectPair(this->leftChild, this->rightChild); 
-            
-    if (s->state->at(this->feature) >= this->value) {
-        selectPair.first = this->rightChild;
-        selectPair.second = this->leftChild;
-    } 
-
-    return selectPair;
+tuple<QTreeNode*, QTreeNode*> QTreeInternal::selectChild(State* s) {
+    if (s->state->at(this->feature) < this->value) {
+        return tuple<QTreeNode*, QTreeNode*>(this->leftChild, this->rightChild);  
+    } else {
+        return tuple<QTreeNode*, QTreeNode*>(this->rightChild, this->leftChild);  
+    }
 }
 
-float QTreeInternal::maxSplitUtil(State* s) {
-    return this->visits * this->selectChild(s).first->maxSplitUtil(s);
+double QTreeInternal::maxSplitUtil(State* s) {
+    return this->visits * get<0>(this->selectChild(s))->maxSplitUtil(s);
 }
 
 int QTreeInternal::numNodes() {

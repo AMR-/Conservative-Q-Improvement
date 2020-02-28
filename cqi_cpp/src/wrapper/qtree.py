@@ -20,10 +20,7 @@ class QTree(QFunc):
             for f in range(len(low)):
                 for i in range(num_splits):
                     splits.append(LeafSplit(f,
-                        low[f] + (high[f] - low[f])/(num_splits+1)*(i+1), \
-                                        np.zeros(act_space.n), \
-                                        np.zeros(act_space.n), \
-                                        0.5, 0.5))
+                        low[f] + (high[f] - low[f])/(num_splits+1)*(i+1), np.zeros(act_space.n), np.zeros(act_space.n), 0.5, 0.5))
             self.root = QTreeLeaf(np.zeros(act_space.n), 1, splits)
         else:
             self.root = root
@@ -61,8 +58,7 @@ class QTree(QFunc):
         if done:
             target = r
         else:
-            target = r + (self.params.val('gamma')
-                          * np.max(self.root.get_qs(s2)))
+            target = r + (self.params.val('gamma') * np.max(self.root.get_qs(s2)))
         self.root.update(s, a, target, self.params)
 
     def num_nodes(self):
@@ -109,8 +105,7 @@ class QTreeNode(ABC):
         pass
 
 class LeafSplit():
-    def __init__(self, feature, value, left_qs, right_qs, \
-                 left_visits, right_visits):
+    def __init__(self, feature, value, left_qs, right_qs, left_visits, right_visits):
         self.feature = feature
         self.value = value
         self.left_qs = left_qs
@@ -122,24 +117,18 @@ class LeafSplit():
         self.left_visits = self.left_visits * params.val('visit_decay')
         self.right_visits = self.right_visits * params.val('visit_decay')
         if s[self.feature] < self.value:
-            self.left_qs[a] = (1 - params.val('alpha')) * self.left_qs[a] \
-                          + params.val('alpha') * target
-            self.left_visits = self.left_visits + \
-                               (1 - params.val('visit_decay'))
+            self.left_qs[a] = (1 - params.val('alpha')) * self.left_qs[a] + params.val('alpha') * target
+            self.left_visits = self.left_visits + (1 - params.val('visit_decay'))
         else:
-            self.right_qs[a] = (1 - params.val('alpha')) * self.right_qs[a] \
-                           + params.val('alpha') * target
-            self.right_visits = self.right_visits + \
-                                (1 - params.val('visit_decay'))
+            self.right_qs[a] = (1 - params.val('alpha')) * self.right_qs[a] + params.val('alpha') * target
+            self.right_visits = self.right_visits + (1 - params.val('visit_decay'))
 
     def eval_utility(self, pol_q_vals):
         action_chosen = np.argmax(pol_q_vals)
-        left_pot_util = np.max(self.left_qs) \
-                           - self.left_qs[action_chosen]
-        right_pot_util = np.max(self.right_qs) \
-                            - self.right_qs[action_chosen]
-        return left_pot_util*self.left_visits \
-            + right_pot_util*self.right_visits
+        left_pot_util = np.max(self.left_qs) - self.left_qs[action_chosen]
+        right_pot_util = np.max(self.right_qs) - self.right_qs[action_chosen]
+
+        return left_pot_util*self.left_visits + right_pot_util*self.right_visits
 
 
 class QTreeLeaf(QTreeNode):
@@ -162,33 +151,24 @@ class QTreeLeaf(QTreeNode):
             split.update(s, a, target, params)
 
     def split(self, s, box_low, box_high, params):
-        split_index = np.argmax([sp.eval_utility(self.qs) \
-                                   for sp in self.splits])
+        split_index = np.argmax([sp.eval_utility(self.qs) for sp in self.splits])
         sf_split = self.splits[split_index]
         split_feature = sf_split.feature
         l_splits = []
         r_splits = []
         for sp in self.splits:
             if sp.feature != split_feature:
-                l_splits.append(LeafSplit(sp.feature, sp.value, \
-                                          sf_split.left_qs.copy(), \
-                                          sf_split.left_qs.copy(), 0.5, 0.5))
-                r_splits.append(LeafSplit(sp.feature, sp.value, \
-                                          sf_split.right_qs.copy(), \
-                                          sf_split.right_qs.copy(), 0.5, 0.5))
+                l_splits.append(LeafSplit(sp.feature, sp.value, sf_split.left_qs.copy(), sf_split.left_qs.copy(), 0.5, 0.5))
+                r_splits.append(LeafSplit(sp.feature, sp.value, sf_split.right_qs.copy(), sf_split.right_qs.copy(), 0.5, 0.5))
         for i in range(params.val('num_splits')):
-            l_splits.append(LeafSplit(split_feature, \
-                                      box_low[split_feature] + (sf_split.value - box_low[split_feature])/(params.val('num_splits')+1)*(i+1), \
+            l_splits.append(LeafSplit(split_feature, box_low[split_feature] + (sf_split.value - box_low[split_feature])/(params.val('num_splits')+1)*(i+1), \
                                       sf_split.left_qs.copy(), \
                                       sf_split.left_qs.copy(), 0.5, 0.5))
-            r_splits.append(LeafSplit(split_feature, \
-                                      sf_split.value + (box_high[split_feature] - sf_split.value)/(params.val('num_splits')+1)*(i+1), \
+            r_splits.append(LeafSplit(split_feature, sf_split.value + (box_high[split_feature] - sf_split.value)/(params.val('num_splits')+1)*(i+1), \
                                       sf_split.right_qs.copy(), \
                                       sf_split.right_qs.copy(), 0.5, 0.5))
-        left_child = QTreeLeaf(sf_split.left_qs, \
-                               sf_split.left_visits, l_splits)
-        right_child = QTreeLeaf(sf_split.right_qs, \
-                               sf_split.right_visits, r_splits)
+        left_child = QTreeLeaf(sf_split.left_qs, sf_split.left_visits, l_splits)
+        right_child = QTreeLeaf(sf_split.right_qs, sf_split.right_visits, r_splits)
         val = (box_high[split_feature] + box_low[split_feature])/2
         visits = self.visits
 

@@ -9,7 +9,7 @@ from train import Train
 
 from utils import convert_to_pybox
 
-env = gym.make('CartPole-v0')
+env = gym.make('MountainCar-v0')
 
 box = convert_to_pybox(env.observation_space)
 
@@ -30,7 +30,7 @@ results, history2, avg_r_per_ep, _ = t.train(50000, lambda step: 0.05, \
         verbose=True, eval_only=True, penalty_check=lambda s, r: r <= -1000, \
         track_data_per=1, run_tag="some descriptive tag for logging")
 
-qfunc.print_structure()
+# qfunc.print_structure()
 print(f"Number of nodes: {qfunc.num_nodes()}") 
 print(f"Average reward per episode: {avg_r_per_ep}")
 

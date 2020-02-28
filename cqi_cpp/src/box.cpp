@@ -1,12 +1,12 @@
 #include "../include/box.hpp"
 
-Box::Box(vector<float>* low, vector<float>* high) : Space(new tuple<int, int>(low->size(), high->size())) {
+Box::Box(vector<double>* low, vector<double>* high) : Space(new tuple<int, int>(low->size(), high->size())) {
     this->low = low;
     this->high = high;
 }
 
-vector<float>* Box::sample() {
-	vector<float>* sample = new vector<float>();
+vector<double>* Box::sample() {
+	vector<double>* sample = new vector<double>();
 	random_device rd;
 	mt19937 gen(rd()); 
 
@@ -19,7 +19,7 @@ vector<float>* Box::sample() {
     return sample;
 }
 
-bool Box::contains(vector<float>* x) {
+bool Box::contains(vector<double>* x) {
     return Utils::all(x, this->low, true) and Utils::all(x, this->high, false);
 }
 

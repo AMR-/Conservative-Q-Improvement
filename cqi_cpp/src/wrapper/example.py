@@ -3,7 +3,7 @@ import gym
 from qtree import QTree
 from py_train import Train
 
-env = gym.make('CartPole-v0')
+env = gym.make('MountainCar-v0')
 
 qfunc = QTree(env.observation_space, env.action_space,
                   # Hyperparameters
@@ -24,7 +24,7 @@ history = t.train(train_steps, eps_func, verbose=True, qfunc_hist=None)
 # Evaluation:
 results, history2, avg_r_per_ep, _ = t.train(50000, lambda step: 0.05, verbose=True, eval_only=True, penalty_check=lambda s, r: r <= -1000, track_data_per=1, run_tag="some descriptive tag for logging")
 
-qfunc.print_structure()
+# qfunc.print_structure()
 nn = qfunc.num_nodes()
 print("Number of nodes: %d, %d" % (nn, qfunc.num_nodes()))
 print("Average reward per episode: %f" % avg_r_per_ep)

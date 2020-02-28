@@ -5,7 +5,7 @@ using namespace std;
 
 class State {
     public:
-        vector<float>* state; 
-        State(vector<float>*);
+        vector<double>* state; 
+        State(vector<double>*);
 };
 #endif

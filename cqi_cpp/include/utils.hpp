@@ -6,22 +6,31 @@ using namespace std;
 
 class Utils {
     public:
-        static int argmax(vector<float>* vec) {
-            float max = vec->at(0);
+        static int argmax(vector<double>* vec) {
+            double vmax = vec->at(0);
             int argmax = 0;
 
             for (size_t i = 1; i < vec->size(); i++) {
-                if (vec->at(i) > max) {
-                    max = vec->at(i);
+                if (vec->at(i) > vmax) {
+                    vmax = vec->at(i);
                     argmax = i;
                 }
             }
 
             return argmax;
         }
+        
+        static double max(vector<double>* vec) {
+            double vmax = vec->at(0);
 
-        static vector<float>* zeros(int length) {
-            vector<float>* zeros = new vector<float>();
+            for (size_t i = 1; i < vec->size(); i++)
+                if (vec->at(i) > vmax) vmax = vec->at(i);
+
+            return vmax;
+        }
+
+        static vector<double>* zeros(int length) {
+            vector<double>* zeros = new vector<double>();
 
             for (int i = 0; i < length; i++) 
                 zeros->push_back(0);
@@ -29,7 +38,16 @@ class Utils {
             return zeros;
         }
 
-        static bool all(vector<float>* first, vector<float>* second, bool atLeast) {
+        static vector<double>* copy(vector<double>* vec) {
+            vector<double>* vcopy = new vector<double>();
+
+            for (size_t i = 0; i < vec->size(); i++)
+                vcopy->push_back(vec->at(i));
+           
+            return vcopy;
+        }
+
+        static bool all(vector<double>* first, vector<double>* second, bool atLeast) {
             if (atLeast) {
                 for (size_t i = 0; i < first->size(); i++) {
                     if (first->at(i) < second->at(i))
@@ -45,13 +63,12 @@ class Utils {
             return true;
         }
 
-		static string vecToString(vector<float>* vec) {
+		static string vecToString(vector<double>* vec) {
 			stringstream ss;
 
 			ss << "[";
 			for (size_t i = 0; i < vec->size(); i++) {
-				if (i > 0)
-					ss << ", ";
+				if (i > 0) ss << ", ";
 
 				ss << vec->at(i);
 			}
