@@ -9,16 +9,16 @@
 class LeafSplit {
     public:
         int feature;
-        float value;
-        vector<float>* leftQS; 
-        vector<float>* rightQS; 
-        float leftVisits;
-        float rightVisits;
+        double value;
+        vector<double>* leftQS; 
+        vector<double>* rightQS; 
+        double leftVisits;
+        double rightVisits;
 
-        LeafSplit(int, float, vector<float>*, vector<float>*, float, float);
+        LeafSplit(int, double, vector<double>*, vector<double>*, double, double);
         ~LeafSplit();
 
-        void update(State*, Action*, int, unordered_map<string, float>*);
-        float evalUtility(vector<float>*);
+        void update(State*, Action*, int, unordered_map<string, double>*);
+        double evalUtility(vector<double>*);
 };
 #endif

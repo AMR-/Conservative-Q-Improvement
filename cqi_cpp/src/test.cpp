@@ -1,11 +1,11 @@
 #include "../include/qtree.hpp"
 
 int main() {
-	vector<float>* low = new vector<float>();
+	vector<double>* low = new vector<double>();
 	low->push_back(1.0);
 	low->push_back(5.0);
 
-	vector<float>* high = new vector<float>();
+	vector<double>* high = new vector<double>();
 	high->push_back(3.0);
 	high->push_back(6.0);
 
@@ -13,7 +13,7 @@ int main() {
 
 	Box* box = new Box(low, high);
 
-	vector<float>* res = new vector<float>();
+	vector<double>* res = new vector<double>();
 
 	res->push_back(1.0);
 	res->push_back(5.0);

@@ -2,22 +2,24 @@
 
 class QTreeLeaf : public QTreeNode { 
     public:
-        vector<float>* qs;
+        vector<double>* qs;
         vector<LeafSplit*>* splits;  
 
-        QTreeLeaf(vector<float>*, float, vector<LeafSplit*>*);
+        QTreeLeaf(vector<double>*, double, vector<LeafSplit*>*);
         
         ~QTreeLeaf();
         
         bool isLeaf();
 
-        vector<float>* getQS(State*); 
+        vector<double>* getQS(State*); 
         
-        void update(State*, Action*, int, unordered_map<string, float>*); 
+        void update(State*, Action*, double, unordered_map<string, double>*); 
         
-        QTreeInternal* split(State*, vector<float>*, vector<float>*, unordered_map<string, float>*); 
+        QTreeInternal* split(State*, vector<double>*, vector<double>*, unordered_map<string, double>*); 
 
-        float maxSplitUntil(State* s); 
+        void noVisitUpdate(unordered_map<string, double>*);
+        
+        double maxSplitUtil(State* s); 
 
         int numNodes(); 
 

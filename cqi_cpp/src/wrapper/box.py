@@ -11,15 +11,15 @@ class Box(Space):
     There are two common use cases:
 
     * Identical bound for each dimension::
-        >>> Box(low=-1.0, high=2.0, shape=(3, 4), dtype=np.float32)
+        >>> Box(low=-1.0, high=2.0, shape=(3, 4), dtype=np.double32)
         Box(3, 4)
 
     * Independent bound for each dimension::
-        >>> Box(low=np.array([-1.0, -2.0]), high=np.array([2.0, 4.0]), dtype=np.float32)
+        >>> Box(low=np.array([-1.0, -2.0]), high=np.array([2.0, 4.0]), dtype=np.double32)
         Box(2,)
 
     """
-    def __init__(self, low, high, shape=None, dtype=np.float32):
+    def __init__(self, low, high, shape=None, dtype=np.double32):
         assert dtype is not None, 'dtype must be explicitly provided. '
         self.dtype = np.dtype(dtype)
 
