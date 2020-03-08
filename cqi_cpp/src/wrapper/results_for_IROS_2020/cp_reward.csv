@@ -1,0 +1,11 @@
+Iterations,Average Reward per Episode,Version
+10,9.610,C++
+100,9.611,C++
+1000,9.649,C++
+10000,32.083,C++
+100000,43.909,C++
+10,9.615,Python
+100,9.606,Python
+1000,19.367,Python
+10000,19.651,Python
+100000,44.98,Python

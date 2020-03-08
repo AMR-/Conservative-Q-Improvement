@@ -1,0 +1,11 @@
+Iterations,Training time (seconds),Version
+10,3.064,C++
+100,3.009,C++
+1000,3.268,C++
+10000,3.686,C++
+100000,7.973,C++
+10,3.592,Python
+100,3.561,Python
+1000,3.529,Python
+10000,5.099,Python
+100000,22.115,Python
