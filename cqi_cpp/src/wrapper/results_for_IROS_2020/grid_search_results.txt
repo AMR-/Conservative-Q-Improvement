@@ -1,0 +1,21 @@
+
+Number of nodes: 15
+gamma=0.99, alpha=0.01, visit_decay=0.999, split_thresh_max=10.0, split_thresh_decay=0.99, num_splits=2
+Number of nodes: 15
+gamma=0.99, alpha=0.01, visit_decay=0.999, split_thresh_max=10.0, split_thresh_decay=0.99, num_splits=2
+Number of nodes: 13
+gamma=0.99, alpha=0.01, visit_decay=0.999, split_thresh_max=10.0, split_thresh_decay=0.99, num_splits=2
+Number of nodes: 15
+gamma=0.99, alpha=0.01, visit_decay=0.999, split_thresh_max=10.0, split_thresh_decay=0.99, num_splits=2
+Number of nodes: 15
+gamma=0.99, alpha=0.01, visit_decay=0.999, split_thresh_max=10.0, split_thresh_decay=0.99, num_splits=2
+Number of nodes: 15
+gamma=0.99, alpha=0.01, visit_decay=0.999, split_thresh_max=10.0, split_thresh_decay=0.99, num_splits=2
+Number of nodes: 15
+gamma=0.99, alpha=0.01, visit_decay=0.999, split_thresh_max=10.0, split_thresh_decay=0.99, num_splits=2
+Number of nodes: 15
+gamma=0.99, alpha=0.01, visit_decay=0.999, split_thresh_max=10.0, split_thresh_decay=0.99, num_splits=2
+Number of nodes: 13
+gamma=0.99, alpha=0.01, visit_decay=0.999, split_thresh_max=10.0, split_thresh_decay=0.99, num_splits=2
+Number of nodes: 15
+gamma=0.99, alpha=0.01, visit_decay=0.999, split_thresh_max=10.0, split_thresh_decay=0.99, num_splits=2
