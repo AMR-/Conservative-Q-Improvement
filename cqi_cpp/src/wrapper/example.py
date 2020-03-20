@@ -1,11 +1,11 @@
-import argparse 
+import argparse
 import gym
 import math
 
 from qtree import QTree
 from py_train import Train
 
-env = gym.make('LunarLander-v2')
+env = gym.make('CartPole-v0')
 
 def truncate(number, digits):
     stepper = 10.0 ** digits
@@ -13,7 +13,7 @@ def truncate(number, digits):
 
 # Optional command line args
 parser = argparse.ArgumentParser()
-parser.add_argument("--gamma") 
+parser.add_argument("--gamma")
 parser.add_argument("--alpha")
 parser.add_argument("--visit_decay")
 parser.add_argument("--split_thresh_max")
@@ -43,7 +43,7 @@ t = Train(qfunc, env)
 
 eps_func = (lambda step: max(0.05, 1 - step/1e5))
 
-train_steps = int(args.steps) if args.steps else int(5e5)
+train_steps = int(args.steps) if args.steps else int(5e4)
 
 # normal execution:
 # Training
@@ -53,10 +53,10 @@ history = t.train(train_steps, eps_func, verbose=True, qfunc_hist=None)
 results, history2, avg_r_per_ep, _ = t.train(50000, lambda step: 0.05, verbose=True, eval_only=True, penalty_check=lambda s, r: r <= -1000, track_data_per=1, run_tag="some descriptive tag for logging")
 
 # qfunc.print_structure()
-nodes = f"\nNumber of nodes: {qfunc.num_nodes()}\n" 
+nodes = f"\nNumber of nodes: {qfunc.num_nodes()}\n"
 reward = f"\nAverage reward per episode: {truncate(avg_r_per_ep, 3)}\n"
-hparams_str = f"gamma={gamma}, alpha={alpha}, visit_decay={visit_decay}," 
-hparams_str += f"split_thresh_max={split_thresh_max}," 
+hparams_str = f"gamma={gamma}, alpha={alpha}, visit_decay={visit_decay},"
+hparams_str += f"split_thresh_max={split_thresh_max},"
 hparams_str += f"split_thresh_decay={split_thresh_decay}, num_splits={num_splits}"
 
 if grid_search:
