@@ -6,7 +6,7 @@ import numpy as np
 
 # TODO: add more flags for environment and hparams, rewrite grid_search.sh 
 
-def evaluate(model, env, num_steps=1000):
+def evaluate(model, num_steps=1000):
   """
   Evaluate a RL agent
   :param model: (BaseRLModel object) the RL Agent
@@ -83,3 +83,37 @@ def main():
 if __name__ == '__main__': 
     main()
 
+  print(f"Mean reward: {mean_100ep_reward}, Num episodes: {len(episode_rewards)}")
+  
+  return mean_100ep_reward
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--algorithm") 
+args = parser.parse_args()
+
+algorithm = args.algorithm 
+
+env = gym.make('CartPole-v0')
+
+if algorithm == "ppo1":
+    from stable_baselines import PPO1
+    from stable_baselines.common.policies import MlpPolicy
+    
+    model = PPO1(MlpPolicy, env, verbose=1)
+else:
+    from stable_baselines import DQN
+    from stable_baselines.deepq.policies import MlpPolicy
+
+    model = DQN(MlpPolicy, env, verbose=1)
+
+model.learn(total_timesteps=int(2e4), log_interval=10)
+model.save(f"{algorithm}_cartpole")
+
+del model # remove to demonstrate saving and loading
+
+if algorithm == "ppo1":
+    model = PPO1.load(f"{algorithm}_cartpole")
+else:
+    model = DQN.load(f"{algorithm}_cartpole")
+
+mean_reward = evaluate(model, num_steps=10000)

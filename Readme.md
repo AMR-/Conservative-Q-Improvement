@@ -11,4 +11,4 @@ TODO
 
 ## More Information
 
-For a detailed explanation of CQI, please see TODO-insert-reference-to-paper
+For a detailed explanation of CQI, please see [this paper](https://arxiv.org/abs/1907.01180)

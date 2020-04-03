@@ -6,6 +6,7 @@ from qtree import QTree
 from py_train import Train
 
 env = gym.make('LunarLander-v2')
+env = gym.make('CartPole-v0')
 
 def truncate(number, digits):
     stepper = 10.0 ** digits
@@ -43,7 +44,7 @@ t = Train(qfunc, env)
 
 eps_func = (lambda step: max(0.05, 1 - step/1e5))
 
-train_steps = int(args.steps) if args.steps else int(5e5)
+train_steps = int(args.steps) if args.steps else int(5e4)
 
 # normal execution:
 # Training
@@ -57,6 +58,11 @@ nodes = f"\nNumber of nodes: {qfunc.num_nodes()}\n"
 reward = f"\nAverage reward per episode: {truncate(avg_r_per_ep, 3)}\n"
 hparams_str = f"gamma={gamma}, alpha={alpha}, visit_decay={visit_decay}," 
 hparams_str += f"split_thresh_max={split_thresh_max}," 
+
+nodes = f"\nNumber of nodes: {qfunc.num_nodes()}\n"
+reward = f"\nAverage reward per episode: {truncate(avg_r_per_ep, 3)}\n"
+hparams_str = f"gamma={gamma}, alpha={alpha}, visit_decay={visit_decay},"
+hparams_str += f"split_thresh_max={split_thresh_max},"
 hparams_str += f"split_thresh_decay={split_thresh_decay}, num_splits={num_splits}"
 
 if grid_search:
