@@ -1,0 +1,5 @@
+Cython
+gym
+stable-baselines[mpi]
+tensorflow==1.14
+numpy
