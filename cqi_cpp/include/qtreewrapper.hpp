@@ -3,9 +3,9 @@
 class QTreeWrapper {
     public:
         // Mapping of discrete actions to representative actions
-        unordered_map<int, float>* action_map;
+        unordered_map<int, double>* action_map;
 
-        QTreeWrapper(unordered_map<int, float>*); // Reads mapping from file
-        void put(int, float);
-        float get(float);
+        QTreeWrapper(unordered_map<int, double>*); // Reads mapping from file
+        void put(int, double);
+        double get(double);
 };
