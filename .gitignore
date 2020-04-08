@@ -1,7 +1,9 @@
 venv
 .idea
 n
-*.swp
-*.un
+**/**/*.swp
+**/*.swp
+**/**/*.un
+**/*.un
 **/__pycache__/*
 **/build/*
