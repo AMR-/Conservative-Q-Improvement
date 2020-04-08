@@ -5,7 +5,7 @@ import math
 from qtree import QTree
 from py_train import Train
 
-env = gym.make('CartPole-v0')
+env = gym.make('LunarLander-v2')
 
 def truncate(number, digits):
     stepper = 10.0 ** digits
@@ -24,7 +24,7 @@ parser.add_argument("--steps")
 args = parser.parse_args()
 
 gamma = float(args.gamma) if args.gamma else 0.99
-alpha = float(args.alpha) if args.alpha else 0.01
+alpha = float(args.alpha) if args.alpha else 0.001
 visit_decay = float(args.visit_decay) if args.visit_decay else 0.999
 split_thresh_max = float(args.split_thresh_max) if args.split_thresh_max else 0.1
 split_thresh_decay = float(args.split_thresh_decay) if args.split_thresh_decay else 0.99
@@ -43,7 +43,7 @@ t = Train(qfunc, env)
 
 eps_func = (lambda step: max(0.05, 1 - step/1e5))
 
-train_steps = int(args.steps) if args.steps else int(5e4)
+train_steps = int(args.steps) if args.steps else int(5e7)
 
 # normal execution:
 # Training

@@ -3,3 +3,5 @@ venv
 n
 *.swp
 *.un
+**/__pycache__/*
+**/build/*

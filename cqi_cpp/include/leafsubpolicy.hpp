@@ -6,5 +6,5 @@ class LeafSubpolicy {
         Action* action;
 
         LeafSubpolicy(Action*);
-        void train(); // train using neural network
+        void update(); // train using neural network
 };
