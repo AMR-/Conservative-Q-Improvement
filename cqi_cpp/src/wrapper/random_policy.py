@@ -1,7 +1,7 @@
 import gym
 import numpy as np
 
-env = gym.make('LunarLander-v2')
+env = gym.make('LunarLanderContinuous-v2')
 env.reset()
 train_steps = int(1e4)
 reward_per_ep = []

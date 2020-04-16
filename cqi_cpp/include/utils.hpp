@@ -78,5 +78,15 @@ class Utils {
 			
 			return res;
 		}
+
+        static void reverseVec(vector<vector<double>*>* vec) {
+            int len = vec->size();
+
+            for (size_t i = 0; i < len / 2; i++) {
+                vector<double>* temp = vec->at(i);
+                vec->at(i) = vec->at(len - 1 - i);
+                vec->at(len - 1 - i) = temp;
+            }
+        }
 };
 #endif

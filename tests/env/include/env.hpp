@@ -25,6 +25,3 @@ class Env {
         void close();
 };
 
-/*  TODO: write sample env class in C++, indicate its location
-          write implementation of OpenAI Gym env
-          write tests */

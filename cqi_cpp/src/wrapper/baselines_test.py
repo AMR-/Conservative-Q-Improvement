@@ -4,11 +4,9 @@ import numpy as np
 
 # from stable_baselines.common.vec_env import DummyVecEnv # Needed for PPO2
 
-# TODO: add more flags for environment and hparams, rewrite grid_search.sh 
-
 def evaluate(model, num_steps=1000):
   """
-  Evaluate a RL agent
+  Evaluate an RL agent
   :param model: (BaseRLModel object) the RL Agent
   :param num_steps: (int) number of timesteps to evaluate it
   :return: (float) Mean reward for the last 100 episodes
@@ -39,7 +37,8 @@ args = parser.parse_args()
 
 algorithm = args.algorithm 
 
-env = gym.make('CartPole-v0')
+# PPO1 gets mean reward = 206.6 with 42 episodes and 1e7 total_timesteps on LLC-v2
+env = gym.make('LunarLanderContinuous-v2')
 
 if algorithm == "ppo1":
     from stable_baselines import PPO1
@@ -52,7 +51,7 @@ else:
 
     model = DQN(MlpPolicy, env, verbose=1)
 
-model.learn(total_timesteps=int(2e4), log_interval=10)
+model.learn(total_timesteps=int(1e7), log_interval=10)
 model.save(f"{algorithm}_cartpole")
 
 del model # remove to demonstrate saving and loading

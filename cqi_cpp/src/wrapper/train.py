@@ -8,6 +8,8 @@ from utils import convert_to_pystate
 
 from qtree_wrapper import PyAction
 
+from env_wrapper import EnvWrapper
+
 class StateChangeTracker(object):
     def __init__(self, init_states):
         self.init_states = init_states
@@ -16,18 +18,21 @@ class StateChangeTracker(object):
 
     def new_states(self, s):
         # Capture First Change True, Second+ Change False, No change - keep same
-        self.single_change = [((i[0] != i[2] and i[1] == i[2]) or (i[0] == i[1] and i[3]))
-                              for i in zip(s, self.final_states, self.init_states, self.single_change)]
+        self.single_change = \
+        [((i[0] != i[2] and i[1] == i[2]) or (i[0] == i[1] and i[3])) \
+            for i in zip(s, self.final_states, self.init_states, self.single_change)]
         self.final_states = s
 
 
 class Train(object):
-    def __init__(self, qfunc, gym_env, expl_data_filename="explain_data.csv"):
+    def __init__(self, qfunc, gym_env, continuous, expl_data_filename="explain_data.csv"):
         self.qfunc = qfunc
         self.env = gym_env
         self.expl_data_filename = expl_data_filename
         self._self_tree_ct = 0
         self._pickle_filename = "qfunc_copy_%d.pkl"
+        self.continuous = continuous
+        self.env_wrapper = EnvWrapper()
 
     def note_expla_data(self, tag, nodes, reward):
         with open(self.expl_data_filename, "a") as myfile:
@@ -61,8 +66,8 @@ class Train(object):
                         print(sct.init_states)
                         print(sct.final_states)
                 if while_watch and step > 0:
-                    single_change_features = (single_change_features and
-                                              sct.single_change) if single_change_features else sct.single_change
+                    single_change_features = (single_change_features and \
+                        sct.single_change) if single_change_features else sct.single_change
                     istates = sct.init_states
                     fstates = sct.final_states
                 if eval_only and step > 0:
@@ -85,15 +90,26 @@ class Train(object):
                     print("--------------------A NEW EP BEGINS------------------------------")
             # Ɛ-greedy action selection 
             if np.random.random() < eps_func(step):
-                a = self.env.action_space.sample()
+                if self.continuous:                 # Use hand-crafted mapping
+                    a = self.env_wrapper.sample()
+                else:
+                    a = self.env.action_space.sample()
             else:
                 s = convert_to_pystate(s)
                 a = self.qfunc.select_a(s)
+                
+                if self.continuous:                 # Use hand-crafted mapping
+                   a = self.env_wrapper.get_by_key(a) 
+
             s2, r, done, _ = self.env.step(a)
             if while_watch:
                 sct.new_states(s2)
             if not eval_only:
                 s, s2 = convert_to_pystate(s), convert_to_pystate(s2)
+                
+                if self.continuous:
+                    a = self.env_wrapper.get_by_value(a)
+               
                 a = PyAction(a)
 
                 self.qfunc.take_tuple(s, a, r, s2, done)

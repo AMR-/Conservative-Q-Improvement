@@ -1,21 +1,20 @@
 #include <vector>
 #include <math.h>
 #include <iostream>
-#include <random>
+#include <algorithm>
+#include "../include/neuronlayer.hpp"
+#include "../../include/utils.hpp"
 
 using namespace std;
 
 class NeuralNet {
     public:
         double learning_rate;
-        /* vector<double> X; */
-        /* vector<double> y; */
-        /* vector<double> W; */
-        int layers;
-        int nodes_per_layer;
+        int num_layers;
+        vector<NeuronLayer*>* layers;
 
-        NeuralNet(double, int, int); // weights are randomly initialized here
-        vector<double>* dot(vector<double>*, vector<double>*, int, int, int);
+        NeuralNet(double, int); // weights are randomly initialized here
+        vector<double>* mat_mult(vector<double>*, vector<double>*, int, int, int);
         vector<double>* sigmoid(vector<double>*);
         vector<double>* sigmoid_d(vector<double>*); // derivative of sigmoid
         vector<double>* transpose(vector<double>*, int, int); 
@@ -23,5 +22,8 @@ class NeuralNet {
         vector<double>* sub(vector<double>*, vector<double>*);
         vector<double>* add(vector<double>*, vector<double>*);
         vector<double>* elem_mult(vector<double>*, vector<double>*);
-        vector<double>* random_matrix(int, int);  
+        vector<double>* layer(int, int);  
+        vector<double>* train_network(vector<double>*, vector<double>*, int);
+        vector<vector<double>*>* think(vector<double>*);
+        vector<double>* scalar_mult(int, vector<double>*);
 };

@@ -11,7 +11,7 @@ from train import Train
 
 from utils import convert_to_pybox
 
-env = gym.make('CartPole-v0')
+env = gym.make('LunarLanderContinuous-v2')
 
 def truncate(number, digits):
     stepper = 10.0 ** digits
@@ -19,7 +19,9 @@ def truncate(number, digits):
 
 box = convert_to_pybox(env.observation_space)
 
-discrete = Discrete(env.action_space.n)
+# Change if not testing LunarLanderContinuous-v2
+# discrete = Discrete(env.action_space.n)
+discrete = Discrete(4)
 
 # Optional command line args
 parser = argparse.ArgumentParser()
@@ -50,7 +52,7 @@ qfunc = QTree(box, discrete, None,
     split_thresh_decay,
     num_splits)
 
-t = Train(qfunc, env)
+t = Train(qfunc, env, True) # Added continuous flag
 
 eps_func = (lambda step: max(0.05, 1 - step/1e5))
 train_steps = int(args.steps) if args.steps else int(5e5)

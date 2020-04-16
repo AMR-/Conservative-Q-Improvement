@@ -1,13 +1,29 @@
 #include "../include/neuralnet.hpp"
 
-NeuralNet::NeuralNet(double learning_rate, int layers, int nodes_per_layer) {
+NeuralNet::NeuralNet(double learning_rate, int num_layers) {
     this->learning_rate = learning_rate;
-    this->layers = layers;
-    this->nodes_per_layer = nodes_per_layer;
+    this->num_layers = num_layers;
+
+    this->layers = new vector<NeuronLayer*>();
+
+    if (num_layers == 1) {
+        this->layers->push_back(new NeuronLayer(4, 1));
+    } else {
+        // Input layer    
+        this->layers->push_back(new NeuronLayer(4, 2));
+
+        // Hidden layers
+        for (int i = 0; i < this->num_layers - 2; i++) {
+            this->layers->push_back(new NeuronLayer(2, 2));
+        }
+
+        // Output layer
+        this->layers->push_back(new NeuronLayer(2, 1));
+    }
 }
 
 vector<double>* 
-NeuralNet::dot(vector<double>* m1, vector<double>* m2, int m1_rows, int m1_cols, int m2_cols) {
+NeuralNet::mat_mult(vector<double>* m1, vector<double>* m2, int m1_rows, int m1_cols, int m2_cols) {
     vector<double>* res = new vector<double>();
     int row, col, k;
 
@@ -19,9 +35,9 @@ NeuralNet::dot(vector<double>* m1, vector<double>* m2, int m1_rows, int m1_cols,
 
     for (row = 0; row < m1_rows; row++) {
         for (col = 0; col < m2_cols; col++) {
-            res->at(row * m2_cols + col) = 0.0;
             for (k = 0; k < m1_cols; k++) {
-                res->at(row * m2_cols + col) += m1->at(row * m1_cols + k) * m2->at(k * m2_cols + col);
+                res->at(row * m2_cols + col) += 
+                        m1->at(row * m1_cols + k) * m2->at(k * m2_cols + col);
             }
         }
     }
@@ -53,6 +69,8 @@ vector<double>* NeuralNet::sub(vector<double>* m1, vector<double>* m2) {
     return res;
 }
 
+
+
 vector<double>* NeuralNet::add(vector<double>* m1, vector<double>* m2) {
     int len = m1->size();
     
@@ -76,6 +94,17 @@ vector<double>* NeuralNet::elem_mult(vector<double>* m1, vector<double>* m2) {
 
     return res;
 }
+
+vector<double>* NeuralNet::scalar_mult(int s, vector<double>* m) {
+    vector<double>* res = new vector<double>();
+
+    for (int i = 0; i < m->size(); i++) {
+        res->push_back(s * m->at(i));
+    }
+
+    return res;
+}
+
 
 vector<double>* NeuralNet::sigmoid_d(vector<double>* vec) {
     int len = vec->size();
@@ -119,71 +148,105 @@ void NeuralNet::print_matrix(vector<double>* m, int rows, int cols) {
     cout << endl;
 }
 
-vector<double>* NeuralNet::random_matrix(int rows, int cols) {
-    vector<double>* res = new vector<double>();
+vector<vector<double>*>* NeuralNet::think(vector<double>* X) {
+    int i, inputs_per_node, nodes;
 
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_real_distribution<> dis(-1.0, 1.0);
+    vector<vector<double>*>* outputs;
+    vector<double>* curr_output; 
+    vector<double>* prev_output; 
+    vector<double>* weights;
+    vector<double>* prod;
+    NeuronLayer* curr_layer;
 
-    for (int i = 0; i < rows * cols; i++) {
-       res->push_back(dis(gen));
+    outputs = new vector<vector<double>*>();
+
+    for (i = 0; i < this->num_layers; i++) {
+        if (i > 0) {
+            prev_output = outputs->at(i - 1);
+        } else {
+            prev_output = X;
+        }
+
+        curr_layer = this->layers->at(i);
+        inputs_per_node = curr_layer->inputs_per_node;
+        nodes = curr_layer->nodes;
+        weights = curr_layer->weights;
+
+        prod = mat_mult(prev_output, weights, 4, inputs_per_node, nodes); 
+        curr_output = sigmoid(prod);
+        outputs->push_back(curr_output);
     }
-
-    return res;
+    
+    return outputs;
 }
 
 
-int main() {
-    vector<double>* X;
-    vector<double>* y;
-    vector<double>* W;
-    int i;
+vector<double>*
+NeuralNet::train_network(vector<double>* X, vector<double>* y, int epochs) {
+    int i, epoch;
 
-    vector<double> X_vals {
-        5.1, 3.5, 1.4, 0.2,
-        4.9, 3.0, 1.4, 0.2, 
-        6.2, 3.4, 5.4, 2.3,
-        5.9, 3.0, 5.1, 1.8
-    };
-
-    X = &X_vals;
-
-    vector<double> y_vals {
-        0,
-        0,
-        1,
-        1
-    };
-
-    y = &y_vals;
-
+    vector<vector<double>*>* outputs;
+    vector<vector<double>*>* layer_errors;
+    vector<vector<double>*>* layer_deltas;
+    
+    vector<double>* lr_vec;
     vector<double>* pred;
-    vector<double>* pred_error;
-    vector<double>* pred_delta;
+    vector<double>* layer_error; 
+    vector<double>* layer_delta;
+    vector<double>* prev_delta;
+    vector<double>* prev_weights;
     vector<double>* W_delta;
-    vector<double>* lr_vec = new vector<double>();
 
-    NeuralNet *nn = new NeuralNet(0.01, 1, 1);
+    NeuronLayer* layer; 
+    NeuronLayer* prev_layer;
 
-    for (i = 0; i < 4 * nn->layers; i++) {
-        lr_vec->push_back(nn->learning_rate);
+    pred = new vector<double>();
+
+    for (epoch = 0; epoch < epochs; epoch++) {
+        outputs = think(X);
+        layer_deltas = new vector<vector<double>*>();
+        
+        // Calculating errors and deltas for every layer
+        for (i = this->num_layers - 1; i > -1; i--) {
+            if (i == this->num_layers - 1) {          // Output layer
+                layer_error = sub(y, outputs->at(i));
+            } else {
+                prev_layer = this->layers->at(i + 1);
+                prev_delta = layer_deltas->back();
+                prev_weights = transpose(prev_layer->weights, 
+                                prev_layer->inputs_per_node, prev_layer->nodes);
+                layer_error = mat_mult(prev_delta, prev_weights, 
+                               4, prev_layer->nodes, prev_layer->inputs_per_node); 
+            }
+
+            layer_delta = elem_mult(layer_error, sigmoid_d(outputs->at(i)));
+            layer_deltas->push_back(layer_delta);
+        }
+
+        Utils::reverseVec(layer_deltas);
+
+        // Adjust the weights
+        for (i = 0; i < this->num_layers; i++) {
+            layer = this->layers->at(i);
+            layer_delta = layer_deltas->at(i);
+
+            if (i == 0) { // Input layer
+                W_delta = mat_mult(transpose(X, 4, 4), layer_delta, 4, 
+                                layer->inputs_per_node, layer->nodes);
+            } else if (i == this->num_layers - 1) { // Output layer
+                W_delta = mat_mult(transpose(outputs->at(i - 1), 4, 2), layer_delta, 2, 4, 1);
+            } else { // Hidden layer
+                W_delta = mat_mult(transpose(outputs->at(i - 1), 4, 2), layer_delta, 2, 4, 2);
+            }
+
+            
+            W_delta = scalar_mult(this->learning_rate, W_delta);
+            layer->weights = add(layer->weights, W_delta);            
+        }
     }
 
-    W = nn->random_matrix(4, nn->layers);
+    pred = think(X)->back();    
 
-    for (i = 0; i < 5000; i++) {
-        pred = nn->sigmoid(nn->dot(X, W, 4, 4, nn->layers));
-        pred_error = nn->sub(y, pred);
-        pred_delta = nn->elem_mult(pred_error, nn->sigmoid_d(pred));
-        W_delta = nn->dot(nn->transpose(X, 4, 4), pred_delta, 4, 4, 1);
-        W_delta = nn->elem_mult(lr_vec, W_delta);
-        W = nn->add(W, W_delta);
-    }
-
-    nn->print_matrix(pred, 4, 1);
-
-    return 0;
+    return pred;
 }
-
 
