@@ -10,7 +10,7 @@ class EnvWrapper(object):
         for elem in content:
             lst = elem.split(",")
 
-            lst = list(map(lambda x: int(x), lst))
+            lst = list(map(lambda x: float(x), lst))
 
             self.mapping[lst[0]] = lst[1:]
 

@@ -45,7 +45,7 @@ NeuralNet::mat_mult(vector<double>* m1, vector<double>* m2, int m1_rows, int m1_
     return res;
 }
 
-vector<double>* NeuralNet::sigmoid(vector<double>* vec) {
+vector<double>* NeuralNet::loss(vector<double>* vec) {
     int len = vec->size();
 
     vector<double>* res = new vector<double>();
@@ -106,7 +106,7 @@ vector<double>* NeuralNet::scalar_mult(int s, vector<double>* m) {
 }
 
 
-vector<double>* NeuralNet::sigmoid_d(vector<double>* vec) {
+vector<double>* NeuralNet::loss_d(vector<double>* vec) {
     int len = vec->size();
 
     vector<double>* res = new vector<double>();
@@ -136,18 +136,6 @@ vector<double>* NeuralNet::transpose(vector<double>* m, int cols, int rows) {
     return res;
 }
 
-void NeuralNet::print_matrix(vector<double>* m, int rows, int cols) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            cout << m->at(i * cols + j) << " ";
-        }
-
-        cout << "\n";
-    }
-
-    cout << endl;
-}
-
 vector<vector<double>*>* NeuralNet::think(vector<double>* X) {
     int i, inputs_per_node, nodes;
 
@@ -173,7 +161,7 @@ vector<vector<double>*>* NeuralNet::think(vector<double>* X) {
         weights = curr_layer->weights;
 
         prod = mat_mult(prev_output, weights, 4, inputs_per_node, nodes); 
-        curr_output = sigmoid(prod);
+        curr_output = loss(prod);
         outputs->push_back(curr_output);
     }
     
@@ -181,8 +169,7 @@ vector<vector<double>*>* NeuralNet::think(vector<double>* X) {
 }
 
 
-vector<double>*
-NeuralNet::train_network(vector<double>* X, vector<double>* y, int epochs) {
+void NeuralNet::train_network(vector<double>* X, vector<double>* y, int epochs) {
     int i, epoch;
 
     vector<vector<double>*>* outputs;
@@ -190,7 +177,6 @@ NeuralNet::train_network(vector<double>* X, vector<double>* y, int epochs) {
     vector<vector<double>*>* layer_deltas;
     
     vector<double>* lr_vec;
-    vector<double>* pred;
     vector<double>* layer_error; 
     vector<double>* layer_delta;
     vector<double>* prev_delta;
@@ -199,8 +185,6 @@ NeuralNet::train_network(vector<double>* X, vector<double>* y, int epochs) {
 
     NeuronLayer* layer; 
     NeuronLayer* prev_layer;
-
-    pred = new vector<double>();
 
     for (epoch = 0; epoch < epochs; epoch++) {
         outputs = think(X);
@@ -219,7 +203,7 @@ NeuralNet::train_network(vector<double>* X, vector<double>* y, int epochs) {
                                4, prev_layer->nodes, prev_layer->inputs_per_node); 
             }
 
-            layer_delta = elem_mult(layer_error, sigmoid_d(outputs->at(i)));
+            layer_delta = elem_mult(layer_error, loss_d(outputs->at(i)));
             layer_deltas->push_back(layer_delta);
         }
 
@@ -244,9 +228,5 @@ NeuralNet::train_network(vector<double>* X, vector<double>* y, int epochs) {
             layer->weights = add(layer->weights, W_delta);            
         }
     }
-
-    pred = think(X)->back();    
-
-    return pred;
 }
 

@@ -15,15 +15,15 @@ class NeuralNet {
 
         NeuralNet(double, int); // weights are randomly initialized here
         vector<double>* mat_mult(vector<double>*, vector<double>*, int, int, int);
-        vector<double>* sigmoid(vector<double>*);
-        vector<double>* sigmoid_d(vector<double>*); // derivative of sigmoid
+        vector<double>* loss(vector<double>*);
+        vector<double>* loss_d(vector<double>*); // derivative of loss
         vector<double>* transpose(vector<double>*, int, int); 
         void print_matrix(vector<double>*, int, int);
         vector<double>* sub(vector<double>*, vector<double>*);
         vector<double>* add(vector<double>*, vector<double>*);
         vector<double>* elem_mult(vector<double>*, vector<double>*);
         vector<double>* layer(int, int);  
-        vector<double>* train_network(vector<double>*, vector<double>*, int);
+        void train_network(vector<double>*, vector<double>*, int);
         vector<vector<double>*>* think(vector<double>*);
         vector<double>* scalar_mult(int, vector<double>*);
 };

@@ -2,6 +2,7 @@
 #define UTILS_H
 #include <vector>
 #include <sstream>
+#include <iostream>
 using namespace std;
 
 class Utils {
@@ -80,13 +81,24 @@ class Utils {
 		}
 
         static void reverseVec(vector<vector<double>*>* vec) {
-            int len = vec->size();
+            size_t len = vec->size();
 
             for (size_t i = 0; i < len / 2; i++) {
                 vector<double>* temp = vec->at(i);
                 vec->at(i) = vec->at(len - 1 - i);
                 vec->at(len - 1 - i) = temp;
             }
+        }
+        
+        static void print_matrix(vector<double>* m, int rows, int cols) {
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    cout << m->at(i * cols + j) << " ";
+                }
+
+                cout << "\n";
+            }
+            cout << endl;
         }
 };
 #endif

@@ -2,6 +2,7 @@
 #include "box.hpp"
 #include "discrete.hpp"
 #include <stdexcept>
+#include <math.h>
 
 class QFunc {
     public:
@@ -19,9 +20,11 @@ class QFunc {
         }
 
         virtual int selectA(State*) = 0;
+        virtual int selectAWithUCB(State*) = 0;
         virtual void takeTuple(State*, Action*, double, State*, bool) = 0;
         virtual bool justSplit() = 0;
-        
+        virtual void incrementVals(Action*) = 0;
+
         QFunc* getPreSplit() {
             if (this->selfCopy != nullptr) {
                 return this->selfCopy;

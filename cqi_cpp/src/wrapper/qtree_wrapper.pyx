@@ -37,7 +37,11 @@ cdef extern from "../../include/qtreenode.hpp":
         QTreeNode(double visits)
         bint isLeaf()
         vector[double]* getQS(State*)
+        vector[double]* getQAS(State*)
+        vector[double]* getQBS(State*)
         void update(State* s, Action* a, int target, unordered_map[string, double]* params)
+        void updateA(State* s, Action* a, int target, unordered_map[string, double]* params)
+        void updateB(State* s, Action* a, int target, unordered_map[string, double]* params)
         void noVisitUpdate(unordered_map[string, double]* params)
         QTreeNode* split(State*, vector[double]*, vector[double]*, unordered_map[string, double]*)
         double maxSplitUtil(State*)
@@ -52,11 +56,19 @@ cdef extern from "../../include/qtree.hpp":
         QTreeNode* root
         bint _justSplit
         unordered_map[string, double]* params
+        int c
+        int timesteps
+        vector[double]* frequencies
 
-        QTree(Box*, Discrete*, QTreeNode*, double, double, double, double, double, int)
+        QTree(Box*, Discrete*, QTreeNode*, double, double, double, double, double, int, int, int)
         int selectA(State*)
+        int selectAWithUCB(State*)
+        int selectAWithMQL(State*)
+        void incrementVals(Action*)
         void takeTuple(State*, Action*, double, State*, bint)
         void update(State*, Action*, double, State*, bint)
+        void updateA(State*, Action*, double, State*, bint)
+        void updateB(State*, Action*, double, State*, bint)
         int numNodes()
         void printStructure()
         bint justSplit()
@@ -106,15 +118,25 @@ cdef class PyQTree:
 
     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, double \
         gamma, double alpha, double visit_decay, double split_thresh_max, double \
-        split_thresh_decay, int num_splits):
+        split_thresh_decay, int num_splits, int c, int mql):
         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \
-        gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits)
+        gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits, c, mql)
     def select_a(self, PyState s):
         return self.thisptr.selectA(s.thisptr)
+    def select_a_with_ucb(self, PyState s):
+        return self.thisptr.selectAWithUCB(s.thisptr)
+    def select_a_with_mql(self, PyState s):
+        return self.thisptr.selectAWithMQL(s.thisptr)
     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):
         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
+    def increment_vals(self, PyAction a):
+        return self.thisptr.incrementVals(a.thisptr)
     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):
         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)
+    def update_a(self, PyState s, PyAction a, double r, PyState s2, bint done):
+        return self.thisptr.updateA(s.thisptr, a.thisptr, r, s2.thisptr, done)
+    def update_b(self, PyState s, PyAction a, double r, PyState s2, bint done):
+        return self.thisptr.updateB(s.thisptr, a.thisptr, r, s2.thisptr, done)
     def num_nodes(self):
         return self.thisptr.numNodes()
     def print_structure(self):

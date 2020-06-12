@@ -5,7 +5,7 @@ import math
 from qtree import QTree
 from py_train import Train
 
-env = gym.make('LunarLander-v2')
+env = gym.make('CartPole-v0')
 
 def truncate(number, digits):
     stepper = 10.0 ** digits

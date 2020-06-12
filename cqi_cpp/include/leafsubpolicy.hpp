@@ -1,11 +1,12 @@
-#include "action.hpp"
+#include "state.hpp"
 #include "neuralnet.hpp"
 
 class LeafSubpolicy {
     public:
-        Action* action;
         NeuralNet* nn;
+        State *state;
 
-        LeafSubpolicy(Action*);
+        LeafSubpolicy();
         void update(); // train using neural network
+        selectAction(State*);
 };

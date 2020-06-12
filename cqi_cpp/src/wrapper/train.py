@@ -25,13 +25,15 @@ class StateChangeTracker(object):
 
 
 class Train(object):
-    def __init__(self, qfunc, gym_env, continuous, expl_data_filename="explain_data.csv"):
+    def __init__(self, qfunc, gym_env, continuous, ucb, mql, expl_data_filename="explain_data.csv"):
         self.qfunc = qfunc
         self.env = gym_env
         self.expl_data_filename = expl_data_filename
         self._self_tree_ct = 0
         self._pickle_filename = "qfunc_copy_%d.pkl"
         self.continuous = continuous
+        self.ucb = ucb
+        self.mql = mql
         self.env_wrapper = EnvWrapper()
 
     def note_expla_data(self, tag, nodes, reward):
@@ -88,18 +90,44 @@ class Train(object):
                 if while_watch:
                     sct = StateChangeTracker(s)
                     print("--------------------A NEW EP BEGINS------------------------------")
-            # Ɛ-greedy action selection 
-            if np.random.random() < eps_func(step):
-                if self.continuous:                 # Use hand-crafted mapping
-                    a = self.env_wrapper.sample()
+
+            # Ɛ-greedy action selection
+            if not self.ucb and not self.mql:
+                if np.random.random() < eps_func(step):
+                    if self.continuous:                 # Use hand-crafted mapping
+                        a = self.env_wrapper.sample()
+                    else:
+                        a = self.env.action_space.sample()
                 else:
-                    a = self.env.action_space.sample()
-            else:
-                s = convert_to_pystate(s)
-                a = self.qfunc.select_a(s)
+                    s = convert_to_pystate(s)
+                    a = self.qfunc.select_a(s)
                 
-                if self.continuous:                 # Use hand-crafted mapping
-                   a = self.env_wrapper.get_by_key(a) 
+                    if self.continuous:                     # Use hand-crafted mapping
+                        a = self.env_wrapper.get_by_key(a) 
+            elif self.ucb:
+                # UCB action selection
+                s = convert_to_pystate(s)
+                a = self.qfunc.select_a_with_ucb(s)
+
+                if self.continuous:
+                    a = self.env_wrapper.get_by_key(a)
+                    self.qfunc.increment_vals(PyAction(self.env_wrapper.get_by_value(a)))
+                else:
+                    self.qfunc.increment_vals(PyAction(a))
+            else:
+                if np.random.random() < eps_func(step):
+                    if self.continuous:                 # Use hand-crafted mapping
+                        a = self.env_wrapper.sample()
+                    else:
+                        a = self.env.action_space.sample()
+                else:
+                    # MQL action selection
+                    s = convert_to_pystate(s)
+                    a = self.qfunc.select_a_with_mql(s)
+                    # print(a)
+                   
+                    if self.continuous:                     # Use hand-crafted mapping
+                        a = self.env_wrapper.get_by_key(a)
 
             s2, r, done, _ = self.env.step(a)
             if while_watch:
@@ -109,9 +137,9 @@ class Train(object):
                 
                 if self.continuous:
                     a = self.env_wrapper.get_by_value(a)
-               
+              
                 a = PyAction(a)
-
+                
                 self.qfunc.take_tuple(s, a, r, s2, done)
                 if qfunc_hist is not None and self.qfunc.just_split():
                     qfunc_hist.append(self.qfunc.get_pre_split())

@@ -6,8 +6,6 @@
  */
 
 int main() {
-    vector<double>* pred;
-    
     int i;
 
     // Classifying flower data
@@ -27,9 +25,7 @@ int main() {
 
     NeuralNet *nn = new NeuralNet(1, 1); // learning rate is 1, nnet has 1 layers
 
-    pred = nn->train_network(&X, &y, 30000);
-
-    nn->print_matrix(pred, 4, 1);
-
+    nn->train_network(&X, &y, 30000);
+    
     return 0;
 }
