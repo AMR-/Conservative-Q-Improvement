@@ -124,7 +124,6 @@ class Train(object):
                     # MQL action selection
                     s = convert_to_pystate(s)
                     a = self.qfunc.select_a_with_mql(s)
-                    # print(a)
                    
                     if self.continuous:                     # Use hand-crafted mapping
                         a = self.env_wrapper.get_by_key(a)

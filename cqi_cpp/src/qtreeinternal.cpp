@@ -26,6 +26,10 @@ vector<double>* QTreeInternal::getQBS(State* s) {
     return get<0>(this->selectChild(s))->getQBS(s); 
 }
 
+vector<double>* QTreeInternal::getQCS(State* s) {
+    return get<0>(this->selectChild(s))->getQCS(s); 
+}
+
 void QTreeInternal::update(State* s, Action* a, double target, unordered_map<string, double>* 
     params) {
     
@@ -59,6 +63,18 @@ void QTreeInternal::updateB(State* s, Action* a, double target, unordered_map<st
     QTreeNode* notIt = get<1>(selectPair);
 
     it->updateB(s, a, target, params);
+    notIt->noVisitUpdate(params);
+}
+
+void QTreeInternal::updateC(State* s, Action* a, double target, unordered_map<string, double>* 
+    params) {
+    
+    this->visits = this->visits * params->at("visitDecay") + (1 - params->at("visitDecay"));
+    tuple<QTreeNode*, QTreeNode*> selectPair = this->selectChild(s);
+    QTreeNode* it = get<0>(selectPair);
+    QTreeNode* notIt = get<1>(selectPair);
+
+    it->updateC(s, a, target, params);
     notIt->noVisitUpdate(params);
 }
 
@@ -98,6 +114,10 @@ double QTreeInternal::maxSplitUtilA(State* s) {
 
 double QTreeInternal::maxSplitUtilB(State* s) {
     return this->visits * get<0>(this->selectChild(s))->maxSplitUtilB(s);
+}
+
+double QTreeInternal::maxSplitUtilC(State* s) {
+    return this->visits * get<0>(this->selectChild(s))->maxSplitUtilC(s);
 }
 
 int QTreeInternal::numNodes() {

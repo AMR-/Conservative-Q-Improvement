@@ -2,12 +2,13 @@
 #include <iostream>
 typedef vector<double> vec;
 
-QTreeLeaf::QTreeLeaf(vec* qs, vec* qas, vec* qbs, double visits, vector<LeafSplit*>* splits) 
+QTreeLeaf::QTreeLeaf(vec* qs, vec* qas, vec* qbs, vec* qcs, double visits, vector<LeafSplit*>* splits) 
     : QTreeNode(visits) {
     
     this->qs = qs;
     this->qas = qas;
     this->qbs = qbs;
+    this->qcs = qcs;
     this->splits = splits;
 }
 
@@ -25,6 +26,10 @@ vec* QTreeLeaf::getQAS(State* s) {
 
 vec* QTreeLeaf::getQBS(State* s) {
     return this->qbs;
+}
+
+vec* QTreeLeaf::getQCS(State* s) {
+    return this->qcs;
 }
 
 void QTreeLeaf::update(State* s, Action* a, double target, unordered_map<string, double>* params) {
@@ -60,6 +65,17 @@ void QTreeLeaf::updateB(State* s, Action* a, double target, unordered_map<string
         split->updateB(s, a, target, params);
 }
 
+void QTreeLeaf::updateC(State* s, Action* a, double target, unordered_map<string, double>* params) {
+    double vd = params->at("visitDecay");
+    double alpha = params->at("alpha");
+
+    this->visits = this->visits * vd + (1 - vd);
+    this->qcs->at(a->value) = (1 - alpha) * this->qcs->at(a->value) + alpha * target;
+    
+    for (auto& split : *(this->splits))
+        split->updateC(s, a, target, params);
+}
+
 QTreeInternal* QTreeLeaf::split(State* s, vec* boxLow, vec* 
     boxHigh, unordered_map<string, double>* params) {
     
@@ -81,11 +97,13 @@ QTreeInternal* QTreeLeaf::split(State* s, vec* boxLow, vec*
                 Utils::copy(sfSplit->leftQS), Utils::copy(sfSplit->leftQS), 
                 Utils::copy(sfSplit->leftQAS), Utils::copy(sfSplit->leftQAS), 
                 Utils::copy(sfSplit->leftQBS), Utils::copy(sfSplit->leftQBS), 
+                Utils::copy(sfSplit->leftQCS), Utils::copy(sfSplit->leftQCS), 
                 0.5, 0.5));
             RSplits->push_back(new LeafSplit(sp->feature, sp->value, 
                 Utils::copy(sfSplit->rightQS), Utils::copy(sfSplit->rightQS), 
                 Utils::copy(sfSplit->rightQAS), Utils::copy(sfSplit->rightQAS), 
                 Utils::copy(sfSplit->rightQBS), Utils::copy(sfSplit->rightQBS), 
+                Utils::copy(sfSplit->rightQCS), Utils::copy(sfSplit->rightQCS), 
                 0.5, 0.5));
         }
     }
@@ -99,19 +117,23 @@ QTreeInternal* QTreeLeaf::split(State* s, vec* boxLow, vec*
                                 lowSF + (sfSplit->value - lowSF)/(ns + 1) * (i + 1), 
         Utils::copy(sfSplit->leftQS), Utils::copy(sfSplit->leftQS), 
         Utils::copy(sfSplit->leftQAS), Utils::copy(sfSplit->leftQAS), 
-        Utils::copy(sfSplit->leftQBS), Utils::copy(sfSplit->leftQBS), 0.5, 0.5));
+        Utils::copy(sfSplit->leftQBS), Utils::copy(sfSplit->leftQBS), 
+        Utils::copy(sfSplit->leftQCS), Utils::copy(sfSplit->leftQCS), 
+        0.5, 0.5));
 
         RSplits->push_back(new LeafSplit(splitFeature, 
                                 sfSplit->value + (highSF - sfSplit->value)/(ns + 1) * (i + 1), 
         Utils::copy(sfSplit->rightQS), Utils::copy(sfSplit->rightQS), 
         Utils::copy(sfSplit->rightQAS), Utils::copy(sfSplit->rightQAS), 
-        Utils::copy(sfSplit->rightQBS), Utils::copy(sfSplit->rightQBS), 0.5, 0.5));
+        Utils::copy(sfSplit->rightQBS), Utils::copy(sfSplit->rightQBS), 
+        Utils::copy(sfSplit->rightQCS), Utils::copy(sfSplit->rightQCS), 
+        0.5, 0.5));
     }
 
     QTreeLeaf* leftChild = new QTreeLeaf(sfSplit->leftQS, sfSplit->leftQAS, sfSplit->leftQBS, 
-                    sfSplit->leftVisits, LSplits);
-    QTreeLeaf* rightChild = new QTreeLeaf(sfSplit->rightQS, sfSplit->rightQAS, sfSplit->rightQBS,
-                    sfSplit->rightVisits, RSplits);
+                    sfSplit->leftQCS, sfSplit->leftVisits, LSplits);
+    QTreeLeaf* rightChild = new QTreeLeaf(sfSplit->rightQS, sfSplit->rightQAS, sfSplit->rightQBS, 
+                    sfSplit->rightQCS, sfSplit->rightVisits, RSplits);
             
     double val = (highSF + lowSF) / 2;
     double visits = this->visits;
@@ -152,6 +174,16 @@ double QTreeLeaf::maxSplitUtilB(State* s) {
     return this->visits * vectorMax; 
 }
 
+double QTreeLeaf::maxSplitUtilC(State* s) {
+    vec* evalUtilities = new vec();
+
+    for (auto& sp: *(this->splits))
+        evalUtilities->push_back(sp->evalUtilityC(this->qbs));
+
+    double vectorMax = Utils::max(evalUtilities);
+    
+    return this->visits * vectorMax; 
+}
 void QTreeLeaf::noVisitUpdate(unordered_map<string, double>* params) {
     this->visits = this->visits * params->at("visitDecay");
 }

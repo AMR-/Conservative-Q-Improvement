@@ -16,14 +16,15 @@ QTree::QTree(Box* stateSpace, Discrete* actionSpace, QTreeNode* root=nullptr,
                 vector<double>* zeros = Utils::zeros(actionSpace->size());
                 int value = low->at(f) + (high->at(f) - low->at(f))/(numSplits + 1) * (i + 1);
                 LeafSplit* toAdd = new LeafSplit(f, value, zeros, zeros, 
-                                zeros, zeros, zeros, zeros, 0.5, 0.5);
+                                zeros, zeros, zeros, zeros, zeros, zeros, 0.5, 0.5);
                 
                 splits->push_back(toAdd);
             }
         }
 
         this->root = new QTreeLeaf(Utils::zeros(actionSpace->size()), 
-            Utils::zeros(actionSpace->size()), Utils::zeros(actionSpace->size()), 1, splits);
+            Utils::zeros(actionSpace->size()), Utils::zeros(actionSpace->size()), 
+            Utils::zeros(actionSpace->size()), 1, splits);
     } else {
         this->root = root;
     }
@@ -68,15 +69,18 @@ int QTree::selectAWithUCB(State* s) {
 int QTree::selectAWithMQL(State* s) {
     srand(time(NULL));
 
-    int r = rand() % 2;
+    int r = rand() % 3;
     int a = 0;
 
     if (r == 0) {
         a = Utils::argmax(this->root->getQAS(s)); 
         this->params->at("mql_action") = 0;
-    } else {
+    } else if (r == 1) {
         a = Utils::argmax(this->root->getQBS(s)); 
         this->params->at("mql_action") = 1;
+    } else {
+        a = Utils::argmax(this->root->getQCS(s)); 
+        this->params->at("mql_action") = 2;
     }
     
     return a;
@@ -91,15 +95,19 @@ void QTree::takeTuple(State* s, Action* a, double r, State* s2, bool done) {
     this->_justSplit = false;
     this->selfCopy = NULL;
     double msu = 0;
+    double mql_action = this->params->at("mql_action");
 
     // update a leaf directly
     if (this->mql) {
-        if (this->params->at("mql_action") == 0) {
+        if (mql_action == 0) {
             this->updateA(s, a, r, s2, done);
             msu = this->root->maxSplitUtilA(s);
-        } else {
+        } else if (mql_action == 1) {
             this->updateB(s, a, r, s2, done);
             msu = this->root->maxSplitUtilB(s);
+        } else {
+            this->updateC(s, a, r, s2, done);
+            msu = this->root->maxSplitUtilC(s);
         }
     } else {
         this->update(s, a, r, s2, done);
@@ -163,13 +171,28 @@ void QTree::updateB(State* s, Action* a, double r, State* s2, bool done) {
     if (done) {
         target = r;
     } else {
-        vector<double>* QVals = this->root->getQAS(s2);
+        vector<double>* QVals = this->root->getQCS(s2);
         double QValsMax = Utils::max(QVals);
 
         target = r + this->params->at("gamma") * QValsMax;
     }
 
     this->root->updateB(s, a, target, this->params);
+}
+
+void QTree::updateC(State* s, Action* a, double r, State* s2, bool done) {
+    double target = 0;
+
+    if (done) {
+        target = r;
+    } else {
+        vector<double>* QVals = this->root->getQAS(s2);
+        double QValsMax = Utils::max(QVals);
+
+        target = r + this->params->at("gamma") * QValsMax;
+    }
+
+    this->root->updateC(s, a, target, this->params);
 }
 
 int QTree::numNodes() {

@@ -19,6 +19,7 @@ class QTree: public QFunc {
         void update(State*, Action*, double, State*, bool);
         void updateA(State*, Action*, double, State*, bool);
         void updateB(State*, Action*, double, State*, bool);
+        void updateC(State*, Action*, double, State*, bool);
         int numNodes();
         void printStructure();
         bool justSplit();

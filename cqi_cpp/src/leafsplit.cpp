@@ -2,7 +2,8 @@
 
 LeafSplit::LeafSplit(int feature, double value, vector<double>* leftQS, 
     vector<double>* rightQS, vector<double>* leftQAS, vector<double>* rightQAS, 
-    vector<double>* leftQBS, vector<double>* rightQBS, double leftVisits, double rightVisits) {
+    vector<double>* leftQBS, vector<double>* rightQBS, vector<double>* leftQCS, vector<double>* rightQCS, 
+    double leftVisits, double rightVisits) {
     this->feature = feature;
     this->value = value;
 
@@ -12,6 +13,8 @@ LeafSplit::LeafSplit(int feature, double value, vector<double>* leftQS,
     this->rightQAS = rightQAS;
     this->leftQBS = leftQBS;
     this->rightQBS = rightQBS;
+    this->leftQCS = leftQCS;
+    this->rightQCS = rightQCS;
 
     this->leftVisits = leftVisits;
     this->rightVisits = rightVisits;
@@ -71,6 +74,24 @@ void LeafSplit::updateB(State* s, Action* a, int target, unordered_map<string,
     }
 }
 
+void LeafSplit::updateC(State* s, Action* a, int target, unordered_map<string, 
+    double>* params) {
+
+    double visitDecay = params->at("visitDecay");
+    double alpha = params->at("alpha");
+    
+    this->leftVisits = this->leftVisits * visitDecay;
+    this->rightVisits = this->rightVisits * visitDecay;
+
+    if (s->state->at(this->feature) < this->value) {
+        this->leftQCS->at(a->value) = (1 - alpha) * this->leftQCS->at(a->value) + alpha * target;
+        this->leftVisits = this->leftVisits + (1 - visitDecay);
+    } else {
+        this->rightQCS->at(a->value) = (1 - alpha) * this->rightQCS->at(a->value) + alpha * target;
+        this->rightVisits = this->rightVisits + (1 - visitDecay);
+    }
+}
+
 double LeafSplit::evalUtility(vector<double>* polQVals) {
     int actionChosen = Utils::argmax(polQVals);
 
@@ -103,6 +124,18 @@ double LeafSplit::evalUtilityB(vector<double>* polQVals) {
     
     double leftPotUtil = leftQBSMax - this->leftQBS->at(actionChosen);
     double rightPotUtil = rightQBSMax - this->rightQBS->at(actionChosen);
+    
+    return leftPotUtil * this->leftVisits + rightPotUtil * this->rightVisits;
+}
+
+double LeafSplit::evalUtilityC(vector<double>* polQVals) {
+    int actionChosen = Utils::argmax(polQVals);
+
+    double leftQCSMax = Utils::max(this->leftQCS);
+    double rightQCSMax = Utils::max(this->rightQCS);
+    
+    double leftPotUtil = leftQCSMax - this->leftQBS->at(actionChosen);
+    double rightPotUtil = rightQCSMax - this->rightQBS->at(actionChosen);
     
     return leftPotUtil * this->leftVisits + rightPotUtil * this->rightVisits;
 }

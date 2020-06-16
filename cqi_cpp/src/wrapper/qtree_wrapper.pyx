@@ -39,9 +39,11 @@ cdef extern from "../../include/qtreenode.hpp":
         vector[double]* getQS(State*)
         vector[double]* getQAS(State*)
         vector[double]* getQBS(State*)
+        vector[double]* getQCS(State*)
         void update(State* s, Action* a, int target, unordered_map[string, double]* params)
         void updateA(State* s, Action* a, int target, unordered_map[string, double]* params)
         void updateB(State* s, Action* a, int target, unordered_map[string, double]* params)
+        void updateC(State* s, Action* a, int target, unordered_map[string, double]* params)
         void noVisitUpdate(unordered_map[string, double]* params)
         QTreeNode* split(State*, vector[double]*, vector[double]*, unordered_map[string, double]*)
         double maxSplitUtil(State*)
@@ -69,6 +71,7 @@ cdef extern from "../../include/qtree.hpp":
         void update(State*, Action*, double, State*, bint)
         void updateA(State*, Action*, double, State*, bint)
         void updateB(State*, Action*, double, State*, bint)
+        void updateC(State*, Action*, double, State*, bint)
         int numNodes()
         void printStructure()
         bint justSplit()
@@ -137,6 +140,8 @@ cdef class PyQTree:
         return self.thisptr.updateA(s.thisptr, a.thisptr, r, s2.thisptr, done)
     def update_b(self, PyState s, PyAction a, double r, PyState s2, bint done):
         return self.thisptr.updateB(s.thisptr, a.thisptr, r, s2.thisptr, done)
+    def update_c(self, PyState s, PyAction a, double r, PyState s2, bint done):
+        return self.thisptr.updateC(s.thisptr, a.thisptr, r, s2.thisptr, done)
     def num_nodes(self):
         return self.thisptr.numNodes()
     def print_structure(self):

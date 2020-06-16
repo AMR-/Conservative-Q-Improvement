@@ -70,7 +70,7 @@ qfunc = QTree(box, discrete, None,
 t = Train(qfunc, env, continuous, ucb, mql) # Added continuous, ucb, mql flags
 
 eps_func = (lambda step: max(epsilon, 1 - step/1e5)) 
-train_steps = int(args.steps) if args.steps else int(1e7)
+train_steps = int(args.steps) if args.steps else int(5e7)
 
 # Training
 history = t.train(train_steps, eps_func, verbose=True, qfunc_hist=None)

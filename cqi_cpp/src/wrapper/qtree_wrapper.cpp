@@ -842,7 +842,7 @@ struct __pyx_obj_13qtree_wrapper_PyState;
 struct __pyx_obj_13qtree_wrapper_PyAction;
 struct __pyx_obj_13qtree_wrapper_PyQTree;
 
-/* "qtree_wrapper.pyx":76
+/* "qtree_wrapper.pyx":79
  *         bint justSplit()
  * 
  * cdef class PyVector:             # <<<<<<<<<<<<<<
@@ -855,7 +855,7 @@ struct __pyx_obj_13qtree_wrapper_PyVector {
 };
 
 
-/* "qtree_wrapper.pyx":84
+/* "qtree_wrapper.pyx":87
  *         self.thisptr.push_back(f)
  * 
  * cdef class PyBox:             # <<<<<<<<<<<<<<
@@ -868,7 +868,7 @@ struct __pyx_obj_13qtree_wrapper_PyBox {
 };
 
 
-/* "qtree_wrapper.pyx":92
+/* "qtree_wrapper.pyx":95
  *         return self.thisptr.contains(vec.thisptr)
  * 
  * cdef class PyDiscrete:             # <<<<<<<<<<<<<<
@@ -881,7 +881,7 @@ struct __pyx_obj_13qtree_wrapper_PyDiscrete {
 };
 
 
-/* "qtree_wrapper.pyx":104
+/* "qtree_wrapper.pyx":107
  *         return self.thisptr.contains(x)
  * 
  * cdef class PyState:             # <<<<<<<<<<<<<<
@@ -894,7 +894,7 @@ struct __pyx_obj_13qtree_wrapper_PyState {
 };
 
 
-/* "qtree_wrapper.pyx":110
+/* "qtree_wrapper.pyx":113
  *         self.thisptr = new State(state.thisptr)
  * 
  * cdef class PyAction:             # <<<<<<<<<<<<<<
@@ -907,7 +907,7 @@ struct __pyx_obj_13qtree_wrapper_PyAction {
 };
 
 
-/* "qtree_wrapper.pyx":116
+/* "qtree_wrapper.pyx":119
  *         self.thisptr = new Action(value)
  * 
  * cdef class PyQTree:             # <<<<<<<<<<<<<<
@@ -1334,11 +1334,12 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_10increment_vals(struct __pyx
 static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_12update(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, double __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_14update_a(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, double __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done); /* proto */
 static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_16update_b(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, double __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done); /* proto */
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_18num_nodes(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_20print_structure(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_22just_split(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_24__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_26__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_18update_c(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, double __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done); /* proto */
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_20num_nodes(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_22print_structure(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_24just_split(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_26__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_28__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_tp_new_13qtree_wrapper_PyVector(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_13qtree_wrapper_PyBox(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_13qtree_wrapper_PyDiscrete(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -1359,7 +1360,7 @@ static PyObject *__pyx_tuple__11;
 static PyObject *__pyx_tuple__12;
 /* Late includes */
 
-/* "qtree_wrapper.pyx":79
+/* "qtree_wrapper.pyx":82
  *     cdef vector[double]* thisptr
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1389,7 +1390,7 @@ static int __pyx_pf_13qtree_wrapper_8PyVector___cinit__(struct __pyx_obj_13qtree
   std::vector<double>  *__pyx_t_1;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "qtree_wrapper.pyx":80
+  /* "qtree_wrapper.pyx":83
  * 
  *     def __cinit__(self):
  *         self.thisptr = new vector[double]()             # <<<<<<<<<<<<<<
@@ -1400,11 +1401,11 @@ static int __pyx_pf_13qtree_wrapper_8PyVector___cinit__(struct __pyx_obj_13qtree
     __pyx_t_1 = new std::vector<double> ();
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(1, 80, __pyx_L1_error)
+    __PYX_ERR(1, 83, __pyx_L1_error)
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "qtree_wrapper.pyx":79
+  /* "qtree_wrapper.pyx":82
  *     cdef vector[double]* thisptr
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1423,7 +1424,7 @@ static int __pyx_pf_13qtree_wrapper_8PyVector___cinit__(struct __pyx_obj_13qtree
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":81
+/* "qtree_wrapper.pyx":84
  *     def __cinit__(self):
  *         self.thisptr = new vector[double]()
  *     def add(self, double f):             # <<<<<<<<<<<<<<
@@ -1439,7 +1440,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_8PyVector_3add(PyObject *__pyx_v_self,
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("add (wrapper)", 0);
   assert(__pyx_arg_f); {
-    __pyx_v_f = __pyx_PyFloat_AsDouble(__pyx_arg_f); if (unlikely((__pyx_v_f == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 81, __pyx_L3_error)
+    __pyx_v_f = __pyx_PyFloat_AsDouble(__pyx_arg_f); if (unlikely((__pyx_v_f == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 84, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -1459,7 +1460,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_8PyVector_2add(struct __pyx_obj_13qtre
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("add", 0);
 
-  /* "qtree_wrapper.pyx":82
+  /* "qtree_wrapper.pyx":85
  *         self.thisptr = new vector[double]()
  *     def add(self, double f):
  *         self.thisptr.push_back(f)             # <<<<<<<<<<<<<<
@@ -1470,10 +1471,10 @@ static PyObject *__pyx_pf_13qtree_wrapper_8PyVector_2add(struct __pyx_obj_13qtre
     __pyx_v_self->thisptr->push_back(__pyx_v_f);
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(1, 82, __pyx_L1_error)
+    __PYX_ERR(1, 85, __pyx_L1_error)
   }
 
-  /* "qtree_wrapper.pyx":81
+  /* "qtree_wrapper.pyx":84
  *     def __cinit__(self):
  *         self.thisptr = new vector[double]()
  *     def add(self, double f):             # <<<<<<<<<<<<<<
@@ -1600,7 +1601,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_8PyVector_6__setstate_cython__(CYTHON_
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":87
+/* "qtree_wrapper.pyx":90
  *     cdef Box* thisptr
  * 
  *     def __cinit__(self, PyVector low, PyVector high):             # <<<<<<<<<<<<<<
@@ -1639,11 +1640,11 @@ static int __pyx_pw_13qtree_wrapper_5PyBox_1__cinit__(PyObject *__pyx_v_self, Py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_high)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, 1); __PYX_ERR(1, 87, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, 1); __PYX_ERR(1, 90, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 87, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 90, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1656,14 +1657,14 @@ static int __pyx_pw_13qtree_wrapper_5PyBox_1__cinit__(PyObject *__pyx_v_self, Py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 87, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 90, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("qtree_wrapper.PyBox.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_low), __pyx_ptype_13qtree_wrapper_PyVector, 1, "low", 0))) __PYX_ERR(1, 87, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_high), __pyx_ptype_13qtree_wrapper_PyVector, 1, "high", 0))) __PYX_ERR(1, 87, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_low), __pyx_ptype_13qtree_wrapper_PyVector, 1, "low", 0))) __PYX_ERR(1, 90, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_high), __pyx_ptype_13qtree_wrapper_PyVector, 1, "high", 0))) __PYX_ERR(1, 90, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_5PyBox___cinit__(((struct __pyx_obj_13qtree_wrapper_PyBox *)__pyx_v_self), __pyx_v_low, __pyx_v_high);
 
   /* function exit code */
@@ -1680,7 +1681,7 @@ static int __pyx_pf_13qtree_wrapper_5PyBox___cinit__(struct __pyx_obj_13qtree_wr
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "qtree_wrapper.pyx":88
+  /* "qtree_wrapper.pyx":91
  * 
  *     def __cinit__(self, PyVector low, PyVector high):
  *         self.thisptr = new Box(low.thisptr, high.thisptr)             # <<<<<<<<<<<<<<
@@ -1689,7 +1690,7 @@ static int __pyx_pf_13qtree_wrapper_5PyBox___cinit__(struct __pyx_obj_13qtree_wr
  */
   __pyx_v_self->thisptr = new Box(__pyx_v_low->thisptr, __pyx_v_high->thisptr);
 
-  /* "qtree_wrapper.pyx":87
+  /* "qtree_wrapper.pyx":90
  *     cdef Box* thisptr
  * 
  *     def __cinit__(self, PyVector low, PyVector high):             # <<<<<<<<<<<<<<
@@ -1703,7 +1704,7 @@ static int __pyx_pf_13qtree_wrapper_5PyBox___cinit__(struct __pyx_obj_13qtree_wr
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":89
+/* "qtree_wrapper.pyx":92
  *     def __cinit__(self, PyVector low, PyVector high):
  *         self.thisptr = new Box(low.thisptr, high.thisptr)
  *     def contains(self, PyVector vec):             # <<<<<<<<<<<<<<
@@ -1717,7 +1718,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_5PyBox_3contains(PyObject *__pyx_v_sel
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("contains (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_vec), __pyx_ptype_13qtree_wrapper_PyVector, 1, "vec", 0))) __PYX_ERR(1, 89, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_vec), __pyx_ptype_13qtree_wrapper_PyVector, 1, "vec", 0))) __PYX_ERR(1, 92, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_5PyBox_2contains(((struct __pyx_obj_13qtree_wrapper_PyBox *)__pyx_v_self), ((struct __pyx_obj_13qtree_wrapper_PyVector *)__pyx_v_vec));
 
   /* function exit code */
@@ -1735,7 +1736,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_5PyBox_2contains(struct __pyx_obj_13qt
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("contains", 0);
 
-  /* "qtree_wrapper.pyx":90
+  /* "qtree_wrapper.pyx":93
  *         self.thisptr = new Box(low.thisptr, high.thisptr)
  *     def contains(self, PyVector vec):
  *         return self.thisptr.contains(vec.thisptr)             # <<<<<<<<<<<<<<
@@ -1743,13 +1744,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_5PyBox_2contains(struct __pyx_obj_13qt
  * cdef class PyDiscrete:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->thisptr->contains(__pyx_v_vec->thisptr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 90, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->thisptr->contains(__pyx_v_vec->thisptr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":89
+  /* "qtree_wrapper.pyx":92
  *     def __cinit__(self, PyVector low, PyVector high):
  *         self.thisptr = new Box(low.thisptr, high.thisptr)
  *     def contains(self, PyVector vec):             # <<<<<<<<<<<<<<
@@ -1875,7 +1876,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_5PyBox_6__setstate_cython__(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":95
+/* "qtree_wrapper.pyx":98
  *     cdef Discrete* thisptr
  * 
  *     def __cinit__(self, int n):             # <<<<<<<<<<<<<<
@@ -1909,18 +1910,18 @@ static int __pyx_pw_13qtree_wrapper_10PyDiscrete_1__cinit__(PyObject *__pyx_v_se
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 95, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 98, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
     }
-    __pyx_v_n = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 95, __pyx_L3_error)
+    __pyx_v_n = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 98, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 95, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 98, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("qtree_wrapper.PyDiscrete.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1938,7 +1939,7 @@ static int __pyx_pf_13qtree_wrapper_10PyDiscrete___cinit__(struct __pyx_obj_13qt
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "qtree_wrapper.pyx":96
+  /* "qtree_wrapper.pyx":99
  * 
  *     def __cinit__(self, int n):
  *         self.thisptr = new Discrete(n)             # <<<<<<<<<<<<<<
@@ -1947,7 +1948,7 @@ static int __pyx_pf_13qtree_wrapper_10PyDiscrete___cinit__(struct __pyx_obj_13qt
  */
   __pyx_v_self->thisptr = new Discrete(__pyx_v_n);
 
-  /* "qtree_wrapper.pyx":95
+  /* "qtree_wrapper.pyx":98
  *     cdef Discrete* thisptr
  * 
  *     def __cinit__(self, int n):             # <<<<<<<<<<<<<<
@@ -1961,7 +1962,7 @@ static int __pyx_pf_13qtree_wrapper_10PyDiscrete___cinit__(struct __pyx_obj_13qt
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":97
+/* "qtree_wrapper.pyx":100
  *     def __cinit__(self, int n):
  *         self.thisptr = new Discrete(n)
  *     def sample(self):             # <<<<<<<<<<<<<<
@@ -1988,7 +1989,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_10PyDiscrete_2sample(struct __pyx_obj_
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("sample", 0);
 
-  /* "qtree_wrapper.pyx":98
+  /* "qtree_wrapper.pyx":101
  *         self.thisptr = new Discrete(n)
  *     def sample(self):
  *         return self.thisptr.sample()             # <<<<<<<<<<<<<<
@@ -1996,13 +1997,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_10PyDiscrete_2sample(struct __pyx_obj_
  *         return self.thisptr.size()
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->sample()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 98, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->sample()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":97
+  /* "qtree_wrapper.pyx":100
  *     def __cinit__(self, int n):
  *         self.thisptr = new Discrete(n)
  *     def sample(self):             # <<<<<<<<<<<<<<
@@ -2021,7 +2022,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_10PyDiscrete_2sample(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":99
+/* "qtree_wrapper.pyx":102
  *     def sample(self):
  *         return self.thisptr.sample()
  *     def size(self):             # <<<<<<<<<<<<<<
@@ -2048,7 +2049,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_10PyDiscrete_4size(struct __pyx_obj_13
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("size", 0);
 
-  /* "qtree_wrapper.pyx":100
+  /* "qtree_wrapper.pyx":103
  *         return self.thisptr.sample()
  *     def size(self):
  *         return self.thisptr.size()             # <<<<<<<<<<<<<<
@@ -2056,13 +2057,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_10PyDiscrete_4size(struct __pyx_obj_13
  *         return self.thisptr.contains(x)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 100, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 103, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":99
+  /* "qtree_wrapper.pyx":102
  *     def sample(self):
  *         return self.thisptr.sample()
  *     def size(self):             # <<<<<<<<<<<<<<
@@ -2081,7 +2082,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_10PyDiscrete_4size(struct __pyx_obj_13
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":101
+/* "qtree_wrapper.pyx":104
  *     def size(self):
  *         return self.thisptr.size()
  *     def contains(self, int x):             # <<<<<<<<<<<<<<
@@ -2097,7 +2098,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_10PyDiscrete_7contains(PyObject *__pyx
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("contains (wrapper)", 0);
   assert(__pyx_arg_x); {
-    __pyx_v_x = __Pyx_PyInt_As_int(__pyx_arg_x); if (unlikely((__pyx_v_x == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 101, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyInt_As_int(__pyx_arg_x); if (unlikely((__pyx_v_x == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 104, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2118,7 +2119,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_10PyDiscrete_6contains(struct __pyx_ob
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("contains", 0);
 
-  /* "qtree_wrapper.pyx":102
+  /* "qtree_wrapper.pyx":105
  *         return self.thisptr.size()
  *     def contains(self, int x):
  *         return self.thisptr.contains(x)             # <<<<<<<<<<<<<<
@@ -2126,13 +2127,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_10PyDiscrete_6contains(struct __pyx_ob
  * cdef class PyState:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->thisptr->contains(__pyx_v_x)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 102, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->thisptr->contains(__pyx_v_x)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":101
+  /* "qtree_wrapper.pyx":104
  *     def size(self):
  *         return self.thisptr.size()
  *     def contains(self, int x):             # <<<<<<<<<<<<<<
@@ -2258,7 +2259,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_10PyDiscrete_10__setstate_cython__(CYT
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":107
+/* "qtree_wrapper.pyx":110
  *     cdef State* thisptr
  * 
  *     def __cinit__(self, PyVector state):             # <<<<<<<<<<<<<<
@@ -2292,7 +2293,7 @@ static int __pyx_pw_13qtree_wrapper_7PyState_1__cinit__(PyObject *__pyx_v_self, 
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 107, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 110, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2303,13 +2304,13 @@ static int __pyx_pw_13qtree_wrapper_7PyState_1__cinit__(PyObject *__pyx_v_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 107, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 110, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("qtree_wrapper.PyState.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_state), __pyx_ptype_13qtree_wrapper_PyVector, 1, "state", 0))) __PYX_ERR(1, 107, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_state), __pyx_ptype_13qtree_wrapper_PyVector, 1, "state", 0))) __PYX_ERR(1, 110, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_7PyState___cinit__(((struct __pyx_obj_13qtree_wrapper_PyState *)__pyx_v_self), __pyx_v_state);
 
   /* function exit code */
@@ -2326,7 +2327,7 @@ static int __pyx_pf_13qtree_wrapper_7PyState___cinit__(struct __pyx_obj_13qtree_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "qtree_wrapper.pyx":108
+  /* "qtree_wrapper.pyx":111
  * 
  *     def __cinit__(self, PyVector state):
  *         self.thisptr = new State(state.thisptr)             # <<<<<<<<<<<<<<
@@ -2335,7 +2336,7 @@ static int __pyx_pf_13qtree_wrapper_7PyState___cinit__(struct __pyx_obj_13qtree_
  */
   __pyx_v_self->thisptr = new State(__pyx_v_state->thisptr);
 
-  /* "qtree_wrapper.pyx":107
+  /* "qtree_wrapper.pyx":110
  *     cdef State* thisptr
  * 
  *     def __cinit__(self, PyVector state):             # <<<<<<<<<<<<<<
@@ -2456,7 +2457,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyState_4__setstate_cython__(CYTHON_U
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":113
+/* "qtree_wrapper.pyx":116
  *     cdef Action* thisptr
  * 
  *     def __cinit__(self, int value):             # <<<<<<<<<<<<<<
@@ -2490,18 +2491,18 @@ static int __pyx_pw_13qtree_wrapper_8PyAction_1__cinit__(PyObject *__pyx_v_self,
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 113, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 116, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
     }
-    __pyx_v_value = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_value == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 113, __pyx_L3_error)
+    __pyx_v_value = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_value == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 116, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 113, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 116, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("qtree_wrapper.PyAction.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2519,7 +2520,7 @@ static int __pyx_pf_13qtree_wrapper_8PyAction___cinit__(struct __pyx_obj_13qtree
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "qtree_wrapper.pyx":114
+  /* "qtree_wrapper.pyx":117
  * 
  *     def __cinit__(self, int value):
  *         self.thisptr = new Action(value)             # <<<<<<<<<<<<<<
@@ -2528,7 +2529,7 @@ static int __pyx_pf_13qtree_wrapper_8PyAction___cinit__(struct __pyx_obj_13qtree
  */
   __pyx_v_self->thisptr = new Action(__pyx_v_value);
 
-  /* "qtree_wrapper.pyx":113
+  /* "qtree_wrapper.pyx":116
  *     cdef Action* thisptr
  * 
  *     def __cinit__(self, int value):             # <<<<<<<<<<<<<<
@@ -2649,7 +2650,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_8PyAction_4__setstate_cython__(CYTHON_
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":119
+/* "qtree_wrapper.pyx":122
  *     cdef QTree* thisptr
  * 
  *     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, double \             # <<<<<<<<<<<<<<
@@ -2715,65 +2716,65 @@ static int __pyx_pw_13qtree_wrapper_7PyQTree_1__cinit__(PyObject *__pyx_v_self, 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_action_space)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 1); __PYX_ERR(1, 119, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 1); __PYX_ERR(1, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_None)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 2); __PYX_ERR(1, 119, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 2); __PYX_ERR(1, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_gamma)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 3); __PYX_ERR(1, 119, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 3); __PYX_ERR(1, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_alpha)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 4); __PYX_ERR(1, 119, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 4); __PYX_ERR(1, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_visit_decay)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 5); __PYX_ERR(1, 119, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 5); __PYX_ERR(1, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_split_thresh_max)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 6); __PYX_ERR(1, 119, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 6); __PYX_ERR(1, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_split_thresh_decay)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 7); __PYX_ERR(1, 119, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 7); __PYX_ERR(1, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  8:
         if (likely((values[8] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_num_splits)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 8); __PYX_ERR(1, 119, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 8); __PYX_ERR(1, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  9:
         if (likely((values[9] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_c)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 9); __PYX_ERR(1, 119, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 9); __PYX_ERR(1, 122, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 10:
         if (likely((values[10] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_mql)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 10); __PYX_ERR(1, 119, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, 10); __PYX_ERR(1, 122, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 119, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(1, 122, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 11) {
       goto __pyx_L5_argtuple_error;
@@ -2793,25 +2794,25 @@ static int __pyx_pw_13qtree_wrapper_7PyQTree_1__cinit__(PyObject *__pyx_v_self, 
     __pyx_v_state_space = ((struct __pyx_obj_13qtree_wrapper_PyBox *)values[0]);
     __pyx_v_action_space = ((struct __pyx_obj_13qtree_wrapper_PyDiscrete *)values[1]);
     __pyx_v_None = values[2];
-    __pyx_v_gamma = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_gamma == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 119, __pyx_L3_error)
-    __pyx_v_alpha = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_alpha == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 120, __pyx_L3_error)
-    __pyx_v_visit_decay = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_visit_decay == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 120, __pyx_L3_error)
-    __pyx_v_split_thresh_max = __pyx_PyFloat_AsDouble(values[6]); if (unlikely((__pyx_v_split_thresh_max == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 120, __pyx_L3_error)
-    __pyx_v_split_thresh_decay = __pyx_PyFloat_AsDouble(values[7]); if (unlikely((__pyx_v_split_thresh_decay == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 120, __pyx_L3_error)
-    __pyx_v_num_splits = __Pyx_PyInt_As_int(values[8]); if (unlikely((__pyx_v_num_splits == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 121, __pyx_L3_error)
-    __pyx_v_c = __Pyx_PyInt_As_int(values[9]); if (unlikely((__pyx_v_c == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 121, __pyx_L3_error)
-    __pyx_v_mql = __Pyx_PyInt_As_int(values[10]); if (unlikely((__pyx_v_mql == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 121, __pyx_L3_error)
+    __pyx_v_gamma = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_gamma == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 122, __pyx_L3_error)
+    __pyx_v_alpha = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_alpha == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 123, __pyx_L3_error)
+    __pyx_v_visit_decay = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_visit_decay == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 123, __pyx_L3_error)
+    __pyx_v_split_thresh_max = __pyx_PyFloat_AsDouble(values[6]); if (unlikely((__pyx_v_split_thresh_max == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 123, __pyx_L3_error)
+    __pyx_v_split_thresh_decay = __pyx_PyFloat_AsDouble(values[7]); if (unlikely((__pyx_v_split_thresh_decay == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 123, __pyx_L3_error)
+    __pyx_v_num_splits = __Pyx_PyInt_As_int(values[8]); if (unlikely((__pyx_v_num_splits == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 124, __pyx_L3_error)
+    __pyx_v_c = __Pyx_PyInt_As_int(values[9]); if (unlikely((__pyx_v_c == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 124, __pyx_L3_error)
+    __pyx_v_mql = __Pyx_PyInt_As_int(values[10]); if (unlikely((__pyx_v_mql == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 124, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 119, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 11, 11, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 122, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("qtree_wrapper.PyQTree.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_state_space), __pyx_ptype_13qtree_wrapper_PyBox, 1, "state_space", 0))) __PYX_ERR(1, 119, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_action_space), __pyx_ptype_13qtree_wrapper_PyDiscrete, 1, "action_space", 0))) __PYX_ERR(1, 119, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_state_space), __pyx_ptype_13qtree_wrapper_PyBox, 1, "state_space", 0))) __PYX_ERR(1, 122, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_action_space), __pyx_ptype_13qtree_wrapper_PyDiscrete, 1, "action_space", 0))) __PYX_ERR(1, 122, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), __pyx_v_state_space, __pyx_v_action_space, __pyx_v_None, __pyx_v_gamma, __pyx_v_alpha, __pyx_v_visit_decay, __pyx_v_split_thresh_max, __pyx_v_split_thresh_decay, __pyx_v_num_splits, __pyx_v_c, __pyx_v_mql);
 
   /* function exit code */
@@ -2828,7 +2829,7 @@ static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "qtree_wrapper.pyx":122
+  /* "qtree_wrapper.pyx":125
  *         gamma, double alpha, double visit_decay, double split_thresh_max, double \
  *         split_thresh_decay, int num_splits, int c, int mql):
  *         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \             # <<<<<<<<<<<<<<
@@ -2837,7 +2838,7 @@ static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_
  */
   __pyx_v_self->thisptr = new QTree(__pyx_v_state_space->thisptr, __pyx_v_action_space->thisptr, NULL, __pyx_v_gamma, __pyx_v_alpha, __pyx_v_visit_decay, __pyx_v_split_thresh_max, __pyx_v_split_thresh_decay, __pyx_v_num_splits, __pyx_v_c, __pyx_v_mql);
 
-  /* "qtree_wrapper.pyx":119
+  /* "qtree_wrapper.pyx":122
  *     cdef QTree* thisptr
  * 
  *     def __cinit__(self, PyBox state_space, PyDiscrete action_space, None, double \             # <<<<<<<<<<<<<<
@@ -2851,7 +2852,7 @@ static int __pyx_pf_13qtree_wrapper_7PyQTree___cinit__(struct __pyx_obj_13qtree_
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":124
+/* "qtree_wrapper.pyx":127
  *         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \
  *         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits, c, mql)
  *     def select_a(self, PyState s):             # <<<<<<<<<<<<<<
@@ -2865,7 +2866,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_3select_a(PyObject *__pyx_v_s
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("select_a (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 124, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 127, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_2select_a(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), ((struct __pyx_obj_13qtree_wrapper_PyState *)__pyx_v_s));
 
   /* function exit code */
@@ -2883,7 +2884,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_2select_a(struct __pyx_obj_13
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("select_a", 0);
 
-  /* "qtree_wrapper.pyx":125
+  /* "qtree_wrapper.pyx":128
  *         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits, c, mql)
  *     def select_a(self, PyState s):
  *         return self.thisptr.selectA(s.thisptr)             # <<<<<<<<<<<<<<
@@ -2891,13 +2892,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_2select_a(struct __pyx_obj_13
  *         return self.thisptr.selectAWithUCB(s.thisptr)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->selectA(__pyx_v_s->thisptr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 125, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->selectA(__pyx_v_s->thisptr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 128, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":124
+  /* "qtree_wrapper.pyx":127
  *         self.thisptr = new QTree(state_space.thisptr, action_space.thisptr, NULL, \
  *         gamma, alpha, visit_decay, split_thresh_max, split_thresh_decay, num_splits, c, mql)
  *     def select_a(self, PyState s):             # <<<<<<<<<<<<<<
@@ -2916,7 +2917,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_2select_a(struct __pyx_obj_13
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":126
+/* "qtree_wrapper.pyx":129
  *     def select_a(self, PyState s):
  *         return self.thisptr.selectA(s.thisptr)
  *     def select_a_with_ucb(self, PyState s):             # <<<<<<<<<<<<<<
@@ -2930,7 +2931,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_5select_a_with_ucb(PyObject *
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("select_a_with_ucb (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 126, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 129, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_4select_a_with_ucb(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), ((struct __pyx_obj_13qtree_wrapper_PyState *)__pyx_v_s));
 
   /* function exit code */
@@ -2948,7 +2949,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_4select_a_with_ucb(struct __p
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("select_a_with_ucb", 0);
 
-  /* "qtree_wrapper.pyx":127
+  /* "qtree_wrapper.pyx":130
  *         return self.thisptr.selectA(s.thisptr)
  *     def select_a_with_ucb(self, PyState s):
  *         return self.thisptr.selectAWithUCB(s.thisptr)             # <<<<<<<<<<<<<<
@@ -2956,13 +2957,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_4select_a_with_ucb(struct __p
  *         return self.thisptr.selectAWithMQL(s.thisptr)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->selectAWithUCB(__pyx_v_s->thisptr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 127, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->selectAWithUCB(__pyx_v_s->thisptr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":126
+  /* "qtree_wrapper.pyx":129
  *     def select_a(self, PyState s):
  *         return self.thisptr.selectA(s.thisptr)
  *     def select_a_with_ucb(self, PyState s):             # <<<<<<<<<<<<<<
@@ -2981,7 +2982,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_4select_a_with_ucb(struct __p
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":128
+/* "qtree_wrapper.pyx":131
  *     def select_a_with_ucb(self, PyState s):
  *         return self.thisptr.selectAWithUCB(s.thisptr)
  *     def select_a_with_mql(self, PyState s):             # <<<<<<<<<<<<<<
@@ -2995,7 +2996,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_7select_a_with_mql(PyObject *
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("select_a_with_mql (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 128, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 131, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_6select_a_with_mql(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), ((struct __pyx_obj_13qtree_wrapper_PyState *)__pyx_v_s));
 
   /* function exit code */
@@ -3013,7 +3014,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_6select_a_with_mql(struct __p
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("select_a_with_mql", 0);
 
-  /* "qtree_wrapper.pyx":129
+  /* "qtree_wrapper.pyx":132
  *         return self.thisptr.selectAWithUCB(s.thisptr)
  *     def select_a_with_mql(self, PyState s):
  *         return self.thisptr.selectAWithMQL(s.thisptr)             # <<<<<<<<<<<<<<
@@ -3021,13 +3022,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_6select_a_with_mql(struct __p
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->selectAWithMQL(__pyx_v_s->thisptr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 129, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->selectAWithMQL(__pyx_v_s->thisptr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":128
+  /* "qtree_wrapper.pyx":131
  *     def select_a_with_ucb(self, PyState s):
  *         return self.thisptr.selectAWithUCB(s.thisptr)
  *     def select_a_with_mql(self, PyState s):             # <<<<<<<<<<<<<<
@@ -3046,7 +3047,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_6select_a_with_mql(struct __p
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":130
+/* "qtree_wrapper.pyx":133
  *     def select_a_with_mql(self, PyState s):
  *         return self.thisptr.selectAWithMQL(s.thisptr)
  *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
@@ -3094,29 +3095,29 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_9take_tuple(PyObject *__pyx_v
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_a)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("take_tuple", 1, 5, 5, 1); __PYX_ERR(1, 130, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("take_tuple", 1, 5, 5, 1); __PYX_ERR(1, 133, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_r)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("take_tuple", 1, 5, 5, 2); __PYX_ERR(1, 130, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("take_tuple", 1, 5, 5, 2); __PYX_ERR(1, 133, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_s2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("take_tuple", 1, 5, 5, 3); __PYX_ERR(1, 130, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("take_tuple", 1, 5, 5, 3); __PYX_ERR(1, 133, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_done)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("take_tuple", 1, 5, 5, 4); __PYX_ERR(1, 130, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("take_tuple", 1, 5, 5, 4); __PYX_ERR(1, 133, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "take_tuple") < 0)) __PYX_ERR(1, 130, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "take_tuple") < 0)) __PYX_ERR(1, 133, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -3129,21 +3130,21 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_9take_tuple(PyObject *__pyx_v
     }
     __pyx_v_s = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[0]);
     __pyx_v_a = ((struct __pyx_obj_13qtree_wrapper_PyAction *)values[1]);
-    __pyx_v_r = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 130, __pyx_L3_error)
+    __pyx_v_r = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 133, __pyx_L3_error)
     __pyx_v_s2 = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[3]);
-    __pyx_v_done = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_done == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 130, __pyx_L3_error)
+    __pyx_v_done = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_done == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 133, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("take_tuple", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 130, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("take_tuple", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 133, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("qtree_wrapper.PyQTree.take_tuple", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 130, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_13qtree_wrapper_PyAction, 1, "a", 0))) __PYX_ERR(1, 130, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s2), __pyx_ptype_13qtree_wrapper_PyState, 1, "s2", 0))) __PYX_ERR(1, 130, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 133, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_13qtree_wrapper_PyAction, 1, "a", 0))) __PYX_ERR(1, 133, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s2), __pyx_ptype_13qtree_wrapper_PyState, 1, "s2", 0))) __PYX_ERR(1, 133, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_8take_tuple(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), __pyx_v_s, __pyx_v_a, __pyx_v_r, __pyx_v_s2, __pyx_v_done);
 
   /* function exit code */
@@ -3161,7 +3162,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_8take_tuple(struct __pyx_obj_
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("take_tuple", 0);
 
-  /* "qtree_wrapper.pyx":131
+  /* "qtree_wrapper.pyx":134
  *         return self.thisptr.selectAWithMQL(s.thisptr)
  *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)             # <<<<<<<<<<<<<<
@@ -3169,13 +3170,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_8take_tuple(struct __pyx_obj_
  *         return self.thisptr.incrementVals(a.thisptr)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->takeTuple(__pyx_v_s->thisptr, __pyx_v_a->thisptr, __pyx_v_r, __pyx_v_s2->thisptr, __pyx_v_done)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 131, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->takeTuple(__pyx_v_s->thisptr, __pyx_v_a->thisptr, __pyx_v_r, __pyx_v_s2->thisptr, __pyx_v_done)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 134, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":130
+  /* "qtree_wrapper.pyx":133
  *     def select_a_with_mql(self, PyState s):
  *         return self.thisptr.selectAWithMQL(s.thisptr)
  *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
@@ -3194,7 +3195,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_8take_tuple(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":132
+/* "qtree_wrapper.pyx":135
  *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def increment_vals(self, PyAction a):             # <<<<<<<<<<<<<<
@@ -3208,7 +3209,7 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_11increment_vals(PyObject *__
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("increment_vals (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_13qtree_wrapper_PyAction, 1, "a", 0))) __PYX_ERR(1, 132, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_13qtree_wrapper_PyAction, 1, "a", 0))) __PYX_ERR(1, 135, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_10increment_vals(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), ((struct __pyx_obj_13qtree_wrapper_PyAction *)__pyx_v_a));
 
   /* function exit code */
@@ -3226,7 +3227,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_10increment_vals(struct __pyx
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("increment_vals", 0);
 
-  /* "qtree_wrapper.pyx":133
+  /* "qtree_wrapper.pyx":136
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def increment_vals(self, PyAction a):
  *         return self.thisptr.incrementVals(a.thisptr)             # <<<<<<<<<<<<<<
@@ -3234,13 +3235,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_10increment_vals(struct __pyx
  *         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->incrementVals(__pyx_v_a->thisptr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 133, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->incrementVals(__pyx_v_a->thisptr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":132
+  /* "qtree_wrapper.pyx":135
  *     def take_tuple(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.takeTuple(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def increment_vals(self, PyAction a):             # <<<<<<<<<<<<<<
@@ -3259,7 +3260,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_10increment_vals(struct __pyx
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":134
+/* "qtree_wrapper.pyx":137
  *     def increment_vals(self, PyAction a):
  *         return self.thisptr.incrementVals(a.thisptr)
  *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
@@ -3307,29 +3308,29 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_13update(PyObject *__pyx_v_se
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_a)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update", 1, 5, 5, 1); __PYX_ERR(1, 134, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update", 1, 5, 5, 1); __PYX_ERR(1, 137, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_r)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update", 1, 5, 5, 2); __PYX_ERR(1, 134, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update", 1, 5, 5, 2); __PYX_ERR(1, 137, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_s2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update", 1, 5, 5, 3); __PYX_ERR(1, 134, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update", 1, 5, 5, 3); __PYX_ERR(1, 137, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_done)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update", 1, 5, 5, 4); __PYX_ERR(1, 134, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update", 1, 5, 5, 4); __PYX_ERR(1, 137, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update") < 0)) __PYX_ERR(1, 134, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update") < 0)) __PYX_ERR(1, 137, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -3342,21 +3343,21 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_13update(PyObject *__pyx_v_se
     }
     __pyx_v_s = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[0]);
     __pyx_v_a = ((struct __pyx_obj_13qtree_wrapper_PyAction *)values[1]);
-    __pyx_v_r = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 134, __pyx_L3_error)
+    __pyx_v_r = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 137, __pyx_L3_error)
     __pyx_v_s2 = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[3]);
-    __pyx_v_done = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_done == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 134, __pyx_L3_error)
+    __pyx_v_done = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_done == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 137, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("update", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 134, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("update", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 137, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("qtree_wrapper.PyQTree.update", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 134, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_13qtree_wrapper_PyAction, 1, "a", 0))) __PYX_ERR(1, 134, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s2), __pyx_ptype_13qtree_wrapper_PyState, 1, "s2", 0))) __PYX_ERR(1, 134, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 137, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_13qtree_wrapper_PyAction, 1, "a", 0))) __PYX_ERR(1, 137, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s2), __pyx_ptype_13qtree_wrapper_PyState, 1, "s2", 0))) __PYX_ERR(1, 137, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_12update(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), __pyx_v_s, __pyx_v_a, __pyx_v_r, __pyx_v_s2, __pyx_v_done);
 
   /* function exit code */
@@ -3374,7 +3375,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_12update(struct __pyx_obj_13q
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("update", 0);
 
-  /* "qtree_wrapper.pyx":135
+  /* "qtree_wrapper.pyx":138
  *         return self.thisptr.incrementVals(a.thisptr)
  *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)             # <<<<<<<<<<<<<<
@@ -3382,13 +3383,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_12update(struct __pyx_obj_13q
  *         return self.thisptr.updateA(s.thisptr, a.thisptr, r, s2.thisptr, done)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->update(__pyx_v_s->thisptr, __pyx_v_a->thisptr, __pyx_v_r, __pyx_v_s2->thisptr, __pyx_v_done)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 135, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->update(__pyx_v_s->thisptr, __pyx_v_a->thisptr, __pyx_v_r, __pyx_v_s2->thisptr, __pyx_v_done)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 138, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":134
+  /* "qtree_wrapper.pyx":137
  *     def increment_vals(self, PyAction a):
  *         return self.thisptr.incrementVals(a.thisptr)
  *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
@@ -3407,7 +3408,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_12update(struct __pyx_obj_13q
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":136
+/* "qtree_wrapper.pyx":139
  *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def update_a(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
@@ -3455,29 +3456,29 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_15update_a(PyObject *__pyx_v_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_a)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_a", 1, 5, 5, 1); __PYX_ERR(1, 136, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update_a", 1, 5, 5, 1); __PYX_ERR(1, 139, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_r)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_a", 1, 5, 5, 2); __PYX_ERR(1, 136, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update_a", 1, 5, 5, 2); __PYX_ERR(1, 139, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_s2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_a", 1, 5, 5, 3); __PYX_ERR(1, 136, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update_a", 1, 5, 5, 3); __PYX_ERR(1, 139, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_done)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_a", 1, 5, 5, 4); __PYX_ERR(1, 136, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update_a", 1, 5, 5, 4); __PYX_ERR(1, 139, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update_a") < 0)) __PYX_ERR(1, 136, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update_a") < 0)) __PYX_ERR(1, 139, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -3490,21 +3491,21 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_15update_a(PyObject *__pyx_v_
     }
     __pyx_v_s = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[0]);
     __pyx_v_a = ((struct __pyx_obj_13qtree_wrapper_PyAction *)values[1]);
-    __pyx_v_r = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 136, __pyx_L3_error)
+    __pyx_v_r = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 139, __pyx_L3_error)
     __pyx_v_s2 = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[3]);
-    __pyx_v_done = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_done == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 136, __pyx_L3_error)
+    __pyx_v_done = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_done == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 139, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("update_a", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 136, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("update_a", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 139, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("qtree_wrapper.PyQTree.update_a", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 136, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_13qtree_wrapper_PyAction, 1, "a", 0))) __PYX_ERR(1, 136, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s2), __pyx_ptype_13qtree_wrapper_PyState, 1, "s2", 0))) __PYX_ERR(1, 136, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 139, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_13qtree_wrapper_PyAction, 1, "a", 0))) __PYX_ERR(1, 139, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s2), __pyx_ptype_13qtree_wrapper_PyState, 1, "s2", 0))) __PYX_ERR(1, 139, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_14update_a(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), __pyx_v_s, __pyx_v_a, __pyx_v_r, __pyx_v_s2, __pyx_v_done);
 
   /* function exit code */
@@ -3522,7 +3523,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_14update_a(struct __pyx_obj_1
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("update_a", 0);
 
-  /* "qtree_wrapper.pyx":137
+  /* "qtree_wrapper.pyx":140
  *         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def update_a(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.updateA(s.thisptr, a.thisptr, r, s2.thisptr, done)             # <<<<<<<<<<<<<<
@@ -3530,13 +3531,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_14update_a(struct __pyx_obj_1
  *         return self.thisptr.updateB(s.thisptr, a.thisptr, r, s2.thisptr, done)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->updateA(__pyx_v_s->thisptr, __pyx_v_a->thisptr, __pyx_v_r, __pyx_v_s2->thisptr, __pyx_v_done)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 137, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->updateA(__pyx_v_s->thisptr, __pyx_v_a->thisptr, __pyx_v_r, __pyx_v_s2->thisptr, __pyx_v_done)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":136
+  /* "qtree_wrapper.pyx":139
  *     def update(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.update(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def update_a(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
@@ -3555,12 +3556,12 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_14update_a(struct __pyx_obj_1
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":138
+/* "qtree_wrapper.pyx":141
  *     def update_a(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.updateA(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def update_b(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
  *         return self.thisptr.updateB(s.thisptr, a.thisptr, r, s2.thisptr, done)
- *     def num_nodes(self):
+ *     def update_c(self, PyState s, PyAction a, double r, PyState s2, bint done):
  */
 
 /* Python wrapper */
@@ -3603,29 +3604,29 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_17update_b(PyObject *__pyx_v_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_a)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_b", 1, 5, 5, 1); __PYX_ERR(1, 138, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update_b", 1, 5, 5, 1); __PYX_ERR(1, 141, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_r)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_b", 1, 5, 5, 2); __PYX_ERR(1, 138, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update_b", 1, 5, 5, 2); __PYX_ERR(1, 141, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_s2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_b", 1, 5, 5, 3); __PYX_ERR(1, 138, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update_b", 1, 5, 5, 3); __PYX_ERR(1, 141, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_done)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_b", 1, 5, 5, 4); __PYX_ERR(1, 138, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update_b", 1, 5, 5, 4); __PYX_ERR(1, 141, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update_b") < 0)) __PYX_ERR(1, 138, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update_b") < 0)) __PYX_ERR(1, 141, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -3638,21 +3639,21 @@ static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_17update_b(PyObject *__pyx_v_
     }
     __pyx_v_s = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[0]);
     __pyx_v_a = ((struct __pyx_obj_13qtree_wrapper_PyAction *)values[1]);
-    __pyx_v_r = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 138, __pyx_L3_error)
+    __pyx_v_r = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 141, __pyx_L3_error)
     __pyx_v_s2 = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[3]);
-    __pyx_v_done = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_done == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 138, __pyx_L3_error)
+    __pyx_v_done = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_done == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 141, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("update_b", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 138, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("update_b", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 141, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("qtree_wrapper.PyQTree.update_b", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 138, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_13qtree_wrapper_PyAction, 1, "a", 0))) __PYX_ERR(1, 138, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s2), __pyx_ptype_13qtree_wrapper_PyState, 1, "s2", 0))) __PYX_ERR(1, 138, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 141, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_13qtree_wrapper_PyAction, 1, "a", 0))) __PYX_ERR(1, 141, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s2), __pyx_ptype_13qtree_wrapper_PyState, 1, "s2", 0))) __PYX_ERR(1, 141, __pyx_L1_error)
   __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_16update_b(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), __pyx_v_s, __pyx_v_a, __pyx_v_r, __pyx_v_s2, __pyx_v_done);
 
   /* function exit code */
@@ -3670,26 +3671,26 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_16update_b(struct __pyx_obj_1
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("update_b", 0);
 
-  /* "qtree_wrapper.pyx":139
+  /* "qtree_wrapper.pyx":142
  *         return self.thisptr.updateA(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def update_b(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.updateB(s.thisptr, a.thisptr, r, s2.thisptr, done)             # <<<<<<<<<<<<<<
- *     def num_nodes(self):
- *         return self.thisptr.numNodes()
+ *     def update_c(self, PyState s, PyAction a, double r, PyState s2, bint done):
+ *         return self.thisptr.updateC(s.thisptr, a.thisptr, r, s2.thisptr, done)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->updateB(__pyx_v_s->thisptr, __pyx_v_a->thisptr, __pyx_v_r, __pyx_v_s2->thisptr, __pyx_v_done)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 139, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->updateB(__pyx_v_s->thisptr, __pyx_v_a->thisptr, __pyx_v_r, __pyx_v_s2->thisptr, __pyx_v_done)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":138
+  /* "qtree_wrapper.pyx":141
  *     def update_a(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.updateA(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def update_b(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
  *         return self.thisptr.updateB(s.thisptr, a.thisptr, r, s2.thisptr, done)
- *     def num_nodes(self):
+ *     def update_c(self, PyState s, PyAction a, double r, PyState s2, bint done):
  */
 
   /* function exit code */
@@ -3703,50 +3704,198 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_16update_b(struct __pyx_obj_1
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":140
+/* "qtree_wrapper.pyx":143
  *     def update_b(self, PyState s, PyAction a, double r, PyState s2, bint done):
  *         return self.thisptr.updateB(s.thisptr, a.thisptr, r, s2.thisptr, done)
+ *     def update_c(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
+ *         return self.thisptr.updateC(s.thisptr, a.thisptr, r, s2.thisptr, done)
+ *     def num_nodes(self):
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_19update_c(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_19update_c(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s = 0;
+  struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a = 0;
+  double __pyx_v_r;
+  struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2 = 0;
+  int __pyx_v_done;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("update_c (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_s,&__pyx_n_s_a,&__pyx_n_s_r,&__pyx_n_s_s2,&__pyx_n_s_done,0};
+    PyObject* values[5] = {0,0,0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_s)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_a)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("update_c", 1, 5, 5, 1); __PYX_ERR(1, 143, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_r)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("update_c", 1, 5, 5, 2); __PYX_ERR(1, 143, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_s2)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("update_c", 1, 5, 5, 3); __PYX_ERR(1, 143, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
+        if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_done)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("update_c", 1, 5, 5, 4); __PYX_ERR(1, 143, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update_c") < 0)) __PYX_ERR(1, 143, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+      values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+      values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+    }
+    __pyx_v_s = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[0]);
+    __pyx_v_a = ((struct __pyx_obj_13qtree_wrapper_PyAction *)values[1]);
+    __pyx_v_r = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 143, __pyx_L3_error)
+    __pyx_v_s2 = ((struct __pyx_obj_13qtree_wrapper_PyState *)values[3]);
+    __pyx_v_done = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_done == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 143, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("update_c", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 143, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("qtree_wrapper.PyQTree.update_c", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s), __pyx_ptype_13qtree_wrapper_PyState, 1, "s", 0))) __PYX_ERR(1, 143, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_ptype_13qtree_wrapper_PyAction, 1, "a", 0))) __PYX_ERR(1, 143, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_s2), __pyx_ptype_13qtree_wrapper_PyState, 1, "s2", 0))) __PYX_ERR(1, 143, __pyx_L1_error)
+  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_18update_c(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), __pyx_v_s, __pyx_v_a, __pyx_v_r, __pyx_v_s2, __pyx_v_done);
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_18update_c(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s, struct __pyx_obj_13qtree_wrapper_PyAction *__pyx_v_a, double __pyx_v_r, struct __pyx_obj_13qtree_wrapper_PyState *__pyx_v_s2, int __pyx_v_done) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("update_c", 0);
+
+  /* "qtree_wrapper.pyx":144
+ *         return self.thisptr.updateB(s.thisptr, a.thisptr, r, s2.thisptr, done)
+ *     def update_c(self, PyState s, PyAction a, double r, PyState s2, bint done):
+ *         return self.thisptr.updateC(s.thisptr, a.thisptr, r, s2.thisptr, done)             # <<<<<<<<<<<<<<
+ *     def num_nodes(self):
+ *         return self.thisptr.numNodes()
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->updateC(__pyx_v_s->thisptr, __pyx_v_a->thisptr, __pyx_v_r, __pyx_v_s2->thisptr, __pyx_v_done)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 144, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "qtree_wrapper.pyx":143
+ *     def update_b(self, PyState s, PyAction a, double r, PyState s2, bint done):
+ *         return self.thisptr.updateB(s.thisptr, a.thisptr, r, s2.thisptr, done)
+ *     def update_c(self, PyState s, PyAction a, double r, PyState s2, bint done):             # <<<<<<<<<<<<<<
+ *         return self.thisptr.updateC(s.thisptr, a.thisptr, r, s2.thisptr, done)
+ *     def num_nodes(self):
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("qtree_wrapper.PyQTree.update_c", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "qtree_wrapper.pyx":145
+ *     def update_c(self, PyState s, PyAction a, double r, PyState s2, bint done):
+ *         return self.thisptr.updateC(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def num_nodes(self):             # <<<<<<<<<<<<<<
  *         return self.thisptr.numNodes()
  *     def print_structure(self):
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_19num_nodes(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_19num_nodes(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_21num_nodes(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_21num_nodes(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("num_nodes (wrapper)", 0);
-  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_18num_nodes(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self));
+  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_20num_nodes(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_18num_nodes(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self) {
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_20num_nodes(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("num_nodes", 0);
 
-  /* "qtree_wrapper.pyx":141
- *         return self.thisptr.updateB(s.thisptr, a.thisptr, r, s2.thisptr, done)
+  /* "qtree_wrapper.pyx":146
+ *         return self.thisptr.updateC(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def num_nodes(self):
  *         return self.thisptr.numNodes()             # <<<<<<<<<<<<<<
  *     def print_structure(self):
  *         return self.thisptr.printStructure()
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->numNodes()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 141, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->numNodes()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 146, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":140
- *     def update_b(self, PyState s, PyAction a, double r, PyState s2, bint done):
- *         return self.thisptr.updateB(s.thisptr, a.thisptr, r, s2.thisptr, done)
+  /* "qtree_wrapper.pyx":145
+ *     def update_c(self, PyState s, PyAction a, double r, PyState s2, bint done):
+ *         return self.thisptr.updateC(s.thisptr, a.thisptr, r, s2.thisptr, done)
  *     def num_nodes(self):             # <<<<<<<<<<<<<<
  *         return self.thisptr.numNodes()
  *     def print_structure(self):
@@ -3763,7 +3912,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_18num_nodes(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":142
+/* "qtree_wrapper.pyx":147
  *     def num_nodes(self):
  *         return self.thisptr.numNodes()
  *     def print_structure(self):             # <<<<<<<<<<<<<<
@@ -3772,25 +3921,25 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_18num_nodes(struct __pyx_obj_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_21print_structure(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_21print_structure(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_23print_structure(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_23print_structure(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("print_structure (wrapper)", 0);
-  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_20print_structure(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self));
+  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_22print_structure(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_20print_structure(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self) {
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_22print_structure(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("print_structure", 0);
 
-  /* "qtree_wrapper.pyx":143
+  /* "qtree_wrapper.pyx":148
  *         return self.thisptr.numNodes()
  *     def print_structure(self):
  *         return self.thisptr.printStructure()             # <<<<<<<<<<<<<<
@@ -3798,13 +3947,13 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_20print_structure(struct __py
  *         return self.thisptr.justSplit()
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->printStructure()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 143, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->thisptr->printStructure()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":142
+  /* "qtree_wrapper.pyx":147
  *     def num_nodes(self):
  *         return self.thisptr.numNodes()
  *     def print_structure(self):             # <<<<<<<<<<<<<<
@@ -3823,7 +3972,7 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_20print_structure(struct __py
   return __pyx_r;
 }
 
-/* "qtree_wrapper.pyx":144
+/* "qtree_wrapper.pyx":149
  *     def print_structure(self):
  *         return self.thisptr.printStructure()
  *     def just_split(self):             # <<<<<<<<<<<<<<
@@ -3831,37 +3980,37 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_20print_structure(struct __py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_23just_split(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_23just_split(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_25just_split(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_25just_split(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("just_split (wrapper)", 0);
-  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_22just_split(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self));
+  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_24just_split(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_22just_split(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self) {
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_24just_split(struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("just_split", 0);
 
-  /* "qtree_wrapper.pyx":145
+  /* "qtree_wrapper.pyx":150
  *         return self.thisptr.printStructure()
  *     def just_split(self):
  *         return self.thisptr.justSplit()             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->thisptr->justSplit()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 145, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->thisptr->justSplit()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "qtree_wrapper.pyx":144
+  /* "qtree_wrapper.pyx":149
  *     def print_structure(self):
  *         return self.thisptr.printStructure()
  *     def just_split(self):             # <<<<<<<<<<<<<<
@@ -3886,19 +4035,19 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_22just_split(struct __pyx_obj
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_25__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_25__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_27__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_27__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_24__reduce_cython__(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self));
+  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_26__reduce_cython__(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_24__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self) {
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_26__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3940,19 +4089,19 @@ static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_24__reduce_cython__(CYTHON_UN
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_27__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_27__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_29__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_13qtree_wrapper_7PyQTree_29__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_26__setstate_cython__(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_13qtree_wrapper_7PyQTree_28__setstate_cython__(((struct __pyx_obj_13qtree_wrapper_PyQTree *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_26__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_13qtree_wrapper_7PyQTree_28__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_13qtree_wrapper_PyQTree *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4519,11 +4668,12 @@ static PyMethodDef __pyx_methods_13qtree_wrapper_PyQTree[] = {
   {"update", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_13qtree_wrapper_7PyQTree_13update, METH_VARARGS|METH_KEYWORDS, 0},
   {"update_a", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_13qtree_wrapper_7PyQTree_15update_a, METH_VARARGS|METH_KEYWORDS, 0},
   {"update_b", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_13qtree_wrapper_7PyQTree_17update_b, METH_VARARGS|METH_KEYWORDS, 0},
-  {"num_nodes", (PyCFunction)__pyx_pw_13qtree_wrapper_7PyQTree_19num_nodes, METH_NOARGS, 0},
-  {"print_structure", (PyCFunction)__pyx_pw_13qtree_wrapper_7PyQTree_21print_structure, METH_NOARGS, 0},
-  {"just_split", (PyCFunction)__pyx_pw_13qtree_wrapper_7PyQTree_23just_split, METH_NOARGS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_13qtree_wrapper_7PyQTree_25__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_13qtree_wrapper_7PyQTree_27__setstate_cython__, METH_O, 0},
+  {"update_c", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_13qtree_wrapper_7PyQTree_19update_c, METH_VARARGS|METH_KEYWORDS, 0},
+  {"num_nodes", (PyCFunction)__pyx_pw_13qtree_wrapper_7PyQTree_21num_nodes, METH_NOARGS, 0},
+  {"print_structure", (PyCFunction)__pyx_pw_13qtree_wrapper_7PyQTree_23print_structure, METH_NOARGS, 0},
+  {"just_split", (PyCFunction)__pyx_pw_13qtree_wrapper_7PyQTree_25just_split, METH_NOARGS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_13qtree_wrapper_7PyQTree_27__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_13qtree_wrapper_7PyQTree_29__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -4857,65 +5007,65 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyVector) < 0) __PYX_ERR(1, 76, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyVector) < 0) __PYX_ERR(1, 79, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_13qtree_wrapper_PyVector.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_13qtree_wrapper_PyVector.tp_dictoffset && __pyx_type_13qtree_wrapper_PyVector.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_13qtree_wrapper_PyVector.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyVector, (PyObject *)&__pyx_type_13qtree_wrapper_PyVector) < 0) __PYX_ERR(1, 76, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyVector) < 0) __PYX_ERR(1, 76, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyVector, (PyObject *)&__pyx_type_13qtree_wrapper_PyVector) < 0) __PYX_ERR(1, 79, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyVector) < 0) __PYX_ERR(1, 79, __pyx_L1_error)
   __pyx_ptype_13qtree_wrapper_PyVector = &__pyx_type_13qtree_wrapper_PyVector;
-  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyBox) < 0) __PYX_ERR(1, 84, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyBox) < 0) __PYX_ERR(1, 87, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_13qtree_wrapper_PyBox.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_13qtree_wrapper_PyBox.tp_dictoffset && __pyx_type_13qtree_wrapper_PyBox.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_13qtree_wrapper_PyBox.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyBox, (PyObject *)&__pyx_type_13qtree_wrapper_PyBox) < 0) __PYX_ERR(1, 84, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyBox) < 0) __PYX_ERR(1, 84, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyBox, (PyObject *)&__pyx_type_13qtree_wrapper_PyBox) < 0) __PYX_ERR(1, 87, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyBox) < 0) __PYX_ERR(1, 87, __pyx_L1_error)
   __pyx_ptype_13qtree_wrapper_PyBox = &__pyx_type_13qtree_wrapper_PyBox;
-  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyDiscrete) < 0) __PYX_ERR(1, 92, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyDiscrete) < 0) __PYX_ERR(1, 95, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_13qtree_wrapper_PyDiscrete.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_13qtree_wrapper_PyDiscrete.tp_dictoffset && __pyx_type_13qtree_wrapper_PyDiscrete.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_13qtree_wrapper_PyDiscrete.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyDiscrete, (PyObject *)&__pyx_type_13qtree_wrapper_PyDiscrete) < 0) __PYX_ERR(1, 92, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyDiscrete) < 0) __PYX_ERR(1, 92, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyDiscrete, (PyObject *)&__pyx_type_13qtree_wrapper_PyDiscrete) < 0) __PYX_ERR(1, 95, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyDiscrete) < 0) __PYX_ERR(1, 95, __pyx_L1_error)
   __pyx_ptype_13qtree_wrapper_PyDiscrete = &__pyx_type_13qtree_wrapper_PyDiscrete;
-  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyState) < 0) __PYX_ERR(1, 104, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyState) < 0) __PYX_ERR(1, 107, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_13qtree_wrapper_PyState.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_13qtree_wrapper_PyState.tp_dictoffset && __pyx_type_13qtree_wrapper_PyState.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_13qtree_wrapper_PyState.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyState, (PyObject *)&__pyx_type_13qtree_wrapper_PyState) < 0) __PYX_ERR(1, 104, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyState) < 0) __PYX_ERR(1, 104, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyState, (PyObject *)&__pyx_type_13qtree_wrapper_PyState) < 0) __PYX_ERR(1, 107, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyState) < 0) __PYX_ERR(1, 107, __pyx_L1_error)
   __pyx_ptype_13qtree_wrapper_PyState = &__pyx_type_13qtree_wrapper_PyState;
-  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyAction) < 0) __PYX_ERR(1, 110, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyAction) < 0) __PYX_ERR(1, 113, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_13qtree_wrapper_PyAction.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_13qtree_wrapper_PyAction.tp_dictoffset && __pyx_type_13qtree_wrapper_PyAction.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_13qtree_wrapper_PyAction.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyAction, (PyObject *)&__pyx_type_13qtree_wrapper_PyAction) < 0) __PYX_ERR(1, 110, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyAction) < 0) __PYX_ERR(1, 110, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyAction, (PyObject *)&__pyx_type_13qtree_wrapper_PyAction) < 0) __PYX_ERR(1, 113, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyAction) < 0) __PYX_ERR(1, 113, __pyx_L1_error)
   __pyx_ptype_13qtree_wrapper_PyAction = &__pyx_type_13qtree_wrapper_PyAction;
-  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyQTree) < 0) __PYX_ERR(1, 116, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_13qtree_wrapper_PyQTree) < 0) __PYX_ERR(1, 119, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_13qtree_wrapper_PyQTree.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_13qtree_wrapper_PyQTree.tp_dictoffset && __pyx_type_13qtree_wrapper_PyQTree.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_13qtree_wrapper_PyQTree.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyQTree, (PyObject *)&__pyx_type_13qtree_wrapper_PyQTree) < 0) __PYX_ERR(1, 116, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyQTree) < 0) __PYX_ERR(1, 116, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyQTree, (PyObject *)&__pyx_type_13qtree_wrapper_PyQTree) < 0) __PYX_ERR(1, 119, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_13qtree_wrapper_PyQTree) < 0) __PYX_ERR(1, 119, __pyx_L1_error)
   __pyx_ptype_13qtree_wrapper_PyQTree = &__pyx_type_13qtree_wrapper_PyQTree;
   __Pyx_RefNannyFinishContext();
   return 0;
