@@ -36,7 +36,14 @@ CQI is designed for environments that are written according to [OpenAI Gym](http
     
     box = convert_to_pybox(env.observation_space)
     
-    qfunc = QTree(box, discrete, None, gamma=0.99, alpha=0.01, visit_decay=0.999, split_thresh_max=10, split_thresh_decay=0.99, num_splits=3, cql=0)
+    qfunc = QTree(box, discrete, None, 
+            gamma=0.99, 
+            alpha=0.01, 
+            visit_decay=0.999, 
+            split_thresh_max=10, 
+            split_thresh_decay=0.99, 
+            num_splits=3, 
+            cql=0)
     
     t = Train(qfunc, env, continuous=False, cql=0)
     
