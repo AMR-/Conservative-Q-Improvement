@@ -2,15 +2,15 @@
 
 Conservative Q-Improvement is a reinforcement learning method that builds a decision tree as the policy.  Nodes represent abstract states, with leaves corresponding to actions to execute.
 
-#### C++ Dependencies and other information:
-To build the C++ wrapper and import it as a Python module, you will need to run `./cython_build_wrapper.sh` in the `cqi_cpp/src/wrapper` directory. You will need to install the system package Cython to build the module.
+## Dependencies
 
-Run `python cqi_test.py` to see CQI try to solve the environment specified in the file. You can pass in command line
-arguments as well to try different hyperparameters. You will need to install the Python package box2d to run the given LunarLander example.
+• Cython
+• gym
+These can be installed with pip.
 
-#### Python Dependencies:
+## Installation
 
-* [Ray](https://github.com/ray-project/ray)
+To build the C++ wrapper and import it as a Python module, you will need to run `./cython_build_wrapper.sh` in the `cqi_cpp/src/wrapper` directory. 
 
 ## More Information
 
