@@ -5,7 +5,9 @@ Conservative Q-Improvement is a reinforcement learning method that builds a deci
 ## Dependencies
 
 • Cython
+
 • gym
+
 These can be installed with pip.
 
 ## Installation
