@@ -2,8 +2,9 @@
 
 Conservative Q-Improvement is a reinforcement learning method that builds a decision tree as the policy.  Nodes represent abstract states, with leaves corresponding to actions to execute.
 
-
 ## Installation
+
+TODO pip
 
 ## More Information
 
@@ -64,6 +65,10 @@ Note that you need to build the library in the right directory as explained earl
 ## Building From Repo
 
 #### Python Dependencies:
+
+* Cython
+
+* gym
 
 * [Ray](https://github.com/ray-project/ray)
 
