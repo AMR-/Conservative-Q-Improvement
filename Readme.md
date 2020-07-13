@@ -2,15 +2,8 @@
 
 Conservative Q-Improvement is a reinforcement learning method that builds a decision tree as the policy.  Nodes represent abstract states, with leaves corresponding to actions to execute.
 
-#### C++ Dependencies and other information:
-To build the C++ wrapper and import it as a Python module, you will need to run `./cython_build_wrapper.sh` in the `cqi_cpp/src/wrapper` directory. You will need to install the system package Cython to build the module.
 
-Run `python cqi_test.py` to see CQI try to solve the environment specified in the file. You can pass in command line
-arguments as well to try different hyperparameters. You will need to install the Python package box2d to run the given LunarLander example.
-
-#### Python Dependencies:
-
-* [Ray](https://github.com/ray-project/ray)
+## Installation
 
 ## More Information
 
@@ -67,3 +60,31 @@ CQI is designed for environments that are written according to [OpenAI Gym](http
     print(nodes, reward)
     
 Note that you need to build the library in the right directory as explained earlier in this Readme. 
+
+## Building From Repo
+
+#### Python Dependencies:
+
+* [Ray](https://github.com/ray-project/ray)
+
+#### C++ Dependencies and other information:
+To build the C++ wrapper and import it as a Python module, you will need to run `./cython_build_wrapper.sh` in the `cqi_cpp/src/wrapper` directory. You will need to install the system package Cython to build the module.
+
+Run `python cqi_test.py` to see CQI try to solve the environment specified in the file. You can pass in command line
+arguments as well to try different hyperparameters. You will need to install the Python package box2d to run the given LunarLander example.
+
+## Citation Information
+
+Please cite using the following bibtex:
+
+```
+@inproceedings(roth19cqi,
+    title={Conservative Q-Improvement: Reinforcement Learning for an
+Interpretable Decision-Tree Policy},
+    author="Aaron M. Roth and Nicholay Topin and Pooyan Jamshidi and Manuela Veloso",
+    year={2019},
+    booktitle={arXiv 1907.01180}
+}
+```
+
+<!-- > Aaron M. Roth, Nicholay Topin, Pooyan Jamshidi, and Manuela Veloso.  Conservative Q-improvement:  Reinforcement Learning for an Interpretable Decision-Tree Policy.  In _arXiv 1907.01180_, 2019. -->
