@@ -3,3 +3,7 @@ venv
 n
 cqi_cpp/src/wrapper/__pycache__/
 notes.txt
+dist
+.pypirc
+
+
