@@ -1,5 +1,7 @@
 import pathlib
 from setuptools import setup
+from setuptools.extension import Extension
+from Cython.Build import cythonize
 # from cysetuptools import setup
 
 # The directory containing this file
@@ -8,7 +10,13 @@ HERE = pathlib.Path(__file__).parent
 # The text of the README file
 README = (HERE / "Readme.md").read_text()
 
-# This call to setup() does all the work
+extensions = [
+    Extension(
+        "cqi_cpp.src.wrapper.qtree_wrapper",
+        ["cqi_cpp/src/wrapper/qtree_wrapper.pyx"],
+    )
+]
+
 setup(
     name="cqi-rl",
     version="0.0.1",
@@ -37,8 +45,8 @@ setup(
     include_package_data=True,
     install_requires=["cython", "ray"],
     # entry_points={
-    #     # "console_scripts": [
-    #     #     "realpython=reader.__main__:main",
-    #     # ]
     # },
+    # ext_modules=cythonize('cqi_cpp/src/wrapper/qtree_wrapper.pyx'),
+    ext_modules=cythonize(extensions),
+    zip_safe=False,
 )
