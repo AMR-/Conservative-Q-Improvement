@@ -1,7 +1,9 @@
-from collections import defaultdict
 import numpy as np
+from collections import defaultdict
+# from copy import deepcopy
 import os
 import pickle
+
 
 class StateChangeTracker(object):
     def __init__(self, init_states):

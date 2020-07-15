@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class QFunc(ABC):
     def __init__(self, state_space, act_space):
         self.state_space = state_space

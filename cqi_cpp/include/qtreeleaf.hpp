@@ -3,27 +3,19 @@
 class QTreeLeaf : public QTreeNode { 
     public:
         vector<double>* qs;
-        vector<double>* qas;
-        vector<double>* qbs;
-        vector<double>* qcs;
+        vector<vector<double>*>* qvs;
         vector<LeafSplit*>* splits;  
 
-        QTreeLeaf(vector<double>*, vector<double>*, vector<double>*, vector<double>*, double, vector<LeafSplit*>*);
+        QTreeLeaf(vector<double>*, vector<vector<double>*>*, double, vector<LeafSplit*>*); 
         bool isLeaf();
         vector<double>* getQS(State*); 
-        vector<double>* getQAS(State*); 
-        vector<double>* getQBS(State*); 
-        vector<double>* getQCS(State*); 
+        vector<double>* getQS(State*, int index); 
         void update(State*, Action*, double, unordered_map<string, double>*); 
-        void updateA(State*, Action*, double, unordered_map<string, double>*); 
-        void updateB(State*, Action*, double, unordered_map<string, double>*); 
-        void updateC(State*, Action*, double, unordered_map<string, double>*); 
+        void update(State*, Action*, double, unordered_map<string, double>*, int index); 
         QTreeInternal* split(State*, vector<double>*, vector<double>*, unordered_map<string, double>*); 
         void noVisitUpdate(unordered_map<string, double>*);
         double maxSplitUtil(State* s); 
-        double maxSplitUtilA(State* s); 
-        double maxSplitUtilB(State* s); 
-        double maxSplitUtilC(State* s); 
+        double maxSplitUtil(State* s, int index); 
         int numNodes(); 
         void printStructure(string, string); 
 };

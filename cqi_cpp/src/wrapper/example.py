@@ -2,10 +2,14 @@ import argparse
 import gym
 import math
 
+from RobotNavigation import RobotNavEnv
+from VehicleIntersection import VehicleIntersection
 from qtree import QTree
 from py_train import Train
 
-env = gym.make('CartPole-v0')
+env = RobotNavEnv()
+
+# env = VehicleIntersection()
 
 def truncate(number, digits):
     stepper = 10.0 ** digits
@@ -23,12 +27,12 @@ parser.add_argument("--grid_search")
 parser.add_argument("--steps")
 args = parser.parse_args()
 
-gamma = float(args.gamma) if args.gamma else 0.99
-alpha = float(args.alpha) if args.alpha else 0.001
+gamma = float(args.gamma) if args.gamma else 0.8
+alpha = float(args.alpha) if args.alpha else 0.005
 visit_decay = float(args.visit_decay) if args.visit_decay else 0.999
-split_thresh_max = float(args.split_thresh_max) if args.split_thresh_max else 0.1
-split_thresh_decay = float(args.split_thresh_decay) if args.split_thresh_decay else 0.99
-num_splits = int(args.num_splits) if args.num_splits else 2
+split_thresh_max = float(args.split_thresh_max) if args.split_thresh_max else 1000
+split_thresh_decay = float(args.split_thresh_decay) if args.split_thresh_decay else 0.9999
+num_splits = int(args.num_splits) if args.num_splits else 4
 grid_search = bool(args.grid_search) if args.grid_search else False
 
 qfunc = QTree(env.observation_space, env.action_space, None,
@@ -41,9 +45,9 @@ qfunc = QTree(env.observation_space, env.action_space, None,
                   num_splits)
 t = Train(qfunc, env)
 
-eps_func = (lambda step: max(0.05, 1 - step/1e5))
+eps_func = (lambda step: max(0.05, 1 - step/4e5))
 
-train_steps = int(args.steps) if args.steps else int(5e7)
+train_steps = int(args.steps) if args.steps else int(3e6)
 
 # normal execution:
 # Training

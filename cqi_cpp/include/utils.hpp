@@ -48,6 +48,15 @@ class Utils {
             return vcopy;
         }
 
+        static vector<vector<double>*>* copy(vector<vector<double>*>* vec) {
+            vector<vector<double>*>* vcopy = new vector<vector<double>*>();
+
+            for (size_t i = 0; i < vec->size(); i++)
+                vcopy->push_back(copy(vec->at(i)));
+           
+            return vcopy;
+        }
+
         static bool all(vector<double>* first, vector<double>* second, bool atLeast) {
             if (atLeast) {
                 for (size_t i = 0; i < first->size(); i++) {
@@ -99,6 +108,19 @@ class Utils {
                 cout << "\n";
             }
             cout << endl;
+        }
+
+        static vector<vector<double>*>* twoDZeros(int len_of_two_d, int len) {
+            vector<double>* zeros;
+            vector<vector<double>*>* res = new vector<vector<double>*>();
+
+            for (int i = 0; i < len_of_two_d; i++) {
+                zeros = Utils::zeros(len);
+
+                res->push_back(zeros);
+            }
+
+            return res;
         }
 };
 #endif

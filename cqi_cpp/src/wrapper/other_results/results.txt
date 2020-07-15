@@ -1,0 +1,10 @@
+Average reward per episode: -60.197
+Average reward per episode: -45.69
+Average reward per episode: -2214.136
+Average reward per episode: -44.828
+Average reward per episode: -3416.2
+Average reward per episode: -352.216
+Average reward per episode: -168.682
+Average reward per episode: -217.067
+Average reward per episode: -102.133
+Average reward per episode: -74.91
