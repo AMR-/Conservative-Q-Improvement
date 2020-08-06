@@ -18,14 +18,14 @@ extensions = [
 ]
 
 setup(
-    name="cqi-rl",
-    version="0.0.1",
+    name="cqi_rl",
+    version="0.0.3",
     description="A C++ implementation of Conservative Q-Improvement",
     # long_description=README,
     long_description="TODO",
     long_description_content_type="text/markdown",
     url="https://github.com/AMR-/Conservative-Q-Improvement",
-    author="Aaron M. Roth, Nicholay Topin, Saadiq Shah",
+    author="Aaron M. Roth, Nicholay Topin, Saadiq K. Shaik",
     author_email="amroth@umd.edu",
     license="MIT",
     classifiers=[
