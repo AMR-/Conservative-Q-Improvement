@@ -6,5 +6,5 @@ notes.txt
 notes.txt*
 dist
 .pypirc
-
-
+build
+cqi_rl.egg-info
