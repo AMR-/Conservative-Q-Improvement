@@ -10,16 +10,19 @@ HERE = pathlib.Path(__file__).parent
 # The text of the README file
 README = (HERE / "Readme.md").read_text()
 
+file_list = ["cqi_cpp/src/wrapper/qtree_wrapper.pyx", "cqi_cpp/src/discrete.cpp", "cqi_cpp/src/box.cpp", "cqi_cpp/src/leafsplit.cpp", "cqi_cpp/src/qtreeleaf.cpp", "cqi_cpp/src/qtreeinternal.cpp", "cqi_cpp/src/qtree.cpp", "cqi_cpp/src/state.cpp", "cqi_cpp/src/action.cpp"]
+
 extensions = [
     Extension(
         "cqi_cpp.src.wrapper.qtree_wrapper",
-        ["cqi_cpp/src/wrapper/qtree_wrapper.pyx"],
+        file_list,
+	language="c++"
     )
 ]
 
 setup(
     name="cqi_rl",
-    version="0.0.3",
+    version="0.0.8",
     description="A C++ implementation of Conservative Q-Improvement",
     # long_description=README,
     long_description="TODO",
