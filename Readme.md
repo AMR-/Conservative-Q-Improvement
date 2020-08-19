@@ -15,7 +15,7 @@ For a detailed explanation of CQI, please see [this paper](https://arxiv.org/abs
 ## Usage
 
 CQI is designed for environments that are written according to [OpenAI Gym](https://gym.openai.com/) specifications. 
-Here is a small example of initializing a QTree for training on CartPole.
+Here is a small example of initializing a QTree for training on CartPole. Note that you must have `gym` installed to run the example.
 
     import gym
     
