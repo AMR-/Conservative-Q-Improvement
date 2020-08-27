@@ -33,27 +33,20 @@ Here is a small example of initializing a QTree for training on CartPole. Note t
             self.qfunc = qfunc
             self.env = gym_env
 
-        def train(self, num_steps, eps_func, eval_only=False, penalty_check=lambda s, r: 0,
-                  track_data_per=0, qfunc_hist=None, qfunc_hist_directory=None,
-                  qfunc_hist_per_every_nn=1):
+        def train(self, num_steps, eps_func, eval_only=False, track_data_per=0):
             if eval_only:
                 self.qfunc.print_structure()
             hist = defaultdict(list)   # number of nodes, reward per ep
             ep_r = 0
             done = True
-            sct = None
             r_per_ep = []
-            pen_per_ep = []
             ts_per_ep = []
             num_eps = 0
             last_step_ep = -1
-            single_change_features = None
-            istates, fstates = None, None
             for step in range(num_steps):
                 if done:
                     if eval_only and step > 0:
                         r_per_ep.append(ep_r)
-                        pen_per_ep.append(penalty_check(s, ep_r))
                         ts = step - last_step_ep
                         ts_per_ep.append(ts)
                         last_step_ep = step
@@ -75,13 +68,11 @@ Here is a small example of initializing a QTree for training on CartPole. Note t
                     a = Action(a)
 
                     self.qfunc.take_tuple(s, a, r, s2, done)
-                    if qfunc_hist is not None and self.qfunc.just_split():
-                        qfunc_hist.append(self.qfunc.get_pre_split())
                 s = s2
                 ep_r += r
             if eval_only:
                 avg_r_per_ep = np.mean(r_per_ep)
-                return hist, avg_r_per_ep, (single_change_features, istates, fstates)
+                return hist, avg_r_per_ep
             else:
                 return hist
 
@@ -109,12 +100,12 @@ Here is a small example of initializing a QTree for training on CartPole. Note t
 
     box = convert_to_pybox(env.observation_space)
 
-    qfunc = QTree(box, discrete, None,
-            gamma=0.99,
-            alpha=0.01,
-            visit_decay=0.999,
-            split_thresh_max=10,
-            split_thresh_decay=0.99,
+    qfunc = QTree(box, discrete, None, 
+            gamma=0.99, 
+            alpha=0.01, 
+            visit_decay=0.999, 
+            split_thresh_max=10, 
+            split_thresh_decay=0.99, 
             num_splits=3)
 
     t = Train(qfunc, env)
@@ -122,13 +113,13 @@ Here is a small example of initializing a QTree for training on CartPole. Note t
     eps_func = (lambda step: max(0.05, 1 - step/1e5))
 
     # Training
-    t.train(1000, eps_func, qfunc_hist=None)
+    t.train(1000, eps_func)
 
     # Evaluation:
-    t.train(500, lambda step: 0.05, eval_only=True, penalty_check=lambda s, r: r <= -1000, track_data_per=1)
+    t.train(500, lambda step: 0.05, eval_only=True, track_data_per=1)
 
     qfunc.print_structure()
-   
+
 You should see this as the final tree.
     
     └ (vis: 0.30) if f[3] ? 0.000000:
