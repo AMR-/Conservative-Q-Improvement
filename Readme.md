@@ -113,19 +113,24 @@ Here is a small example of initializing a QTree for training on CartPole. Note t
     eps_func = (lambda step: max(0.05, 1 - step/1e5))
 
     # Training
-    t.train(1000, eps_func)
+    t.train(2000, eps_func)
 
     # Evaluation:
-    t.train(500, lambda step: 0.05, eval_only=True, track_data_per=1)
+    t.train(1000, lambda step: 0.05, eval_only=True, track_data_per=1)
 
     qfunc.print_structure()
 
 You should see this as the final tree.
     
-    └ (vis: 0.30) if f[3] ? 0.000000:
-      ├< (vis: 0.51) qvals: [3.98075, 4.19054]
-      └> (vis: 0.49) qvals: [3.98075, 4.19054]
-      
+     └ (vis: 0.73) if f[0] ? 0.000000:
+      ├< (vis: 0.07) if f[1] ? 0.000000:
+      │ ├< (vis: 0.58) qvals: [5.14032, 5.26714]
+      │ └> (vis: 0.42) qvals: [4.68586, 4.37377]
+      └> (vis: 0.28) if f[3] ? 0.000000:
+        ├< (vis: 0.59) qvals: [4.74022, 4.84136]
+        └> (vis: 0.41) qvals: [4.09998, 4.48871]
+
+The `vis` value is the visit frequency for that node and for every leaf node there is an array containing the Q-values for the two actions available in the CartPole environment. This tree has three branch nodes and four leaf nodes.     
 ## Building From Repo
 To build the C++ wrapper and import it as a Python module, you will need to run `./cython_build_wrapper.sh` in the `cqi_cpp/src/wrapper` directory. You will need to install the system package Cython to build the module.
 
