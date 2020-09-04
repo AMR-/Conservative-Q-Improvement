@@ -53,7 +53,7 @@ qfunc = QTree(box, discrete, None,
 t = Train(qfunc, env)
 
 eps_func = (lambda step: max(0.05, 1 - step/1e5))
-train_steps = int(args.steps) if args.steps else int(5e5)
+train_steps = int(args.steps) if args.steps else int(3e7)
 
 # Training
 history = t.train(train_steps, eps_func, verbose=True, qfunc_hist=None)
