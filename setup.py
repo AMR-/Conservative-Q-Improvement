@@ -22,7 +22,7 @@ extensions = [
 
 setup(
     name="cqi_rl",
-    version="1.0.0",
+    version="1.0.1",
     description="A C++ implementation of Conservative Q-Improvement",
     # long_description=README,
     long_description="TODO",
@@ -46,7 +46,7 @@ setup(
     ],
     packages=["cqi_python"],
     include_package_data=True,
-    install_requires=["cython", "ray"],
+    install_requires=["Cython", "ray"],
     # entry_points={
     # },
     # ext_modules=cythonize('cqi_cpp/src/wrapper/qtree_wrapper.pyx'),

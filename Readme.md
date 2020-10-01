@@ -4,9 +4,9 @@ Conservative Q-Improvement is a reinforcement learning method that builds a deci
 
 ## Installation
 
-CQI currently only works with Python 3.6 and is hosted on TestPyPI. To install it, first install `ray` and `Cython` using `pip` and then run
+CQI currently only works with Python 3.6 and is hosted on PyPI. To install it, first install `ray` and `Cython` using `pip` and then run
 
-    pip install -i https://test.pypi.org/simple/ cqi-rl
+    pip install cqi-rl
 
 ## More Information
 
