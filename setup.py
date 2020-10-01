@@ -22,7 +22,7 @@ extensions = [
 
 setup(
     name="cqi_rl",
-    version="0.0.8",
+    version="1.0.0",
     description="A C++ implementation of Conservative Q-Improvement",
     # long_description=README,
     long_description="TODO",
@@ -35,8 +35,8 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
         # "Programming Language :: Python :: 3.5",
-        # "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.6",
+        # "Programming Language :: Python :: 3.7",
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
