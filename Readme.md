@@ -17,7 +17,7 @@ Then run
 
 ## More Information
 
-For a detailed explanation of CQI, please see [this paper](https://arxiv.org/abs/1907.01180)
+For a detailed explanation of CQI, please see [the paper "Conservative Q-Improvement: Reinforcement Learning for an Interpretable Decision-Tree Policy"](https://arxiv.org/abs/1907.01180)
 
 ## Usage
 
