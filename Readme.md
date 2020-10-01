@@ -152,6 +152,17 @@ arguments as well to try different hyperparameters. You will need to install the
 
 * [Ray](https://github.com/ray-project/ray)
 
+
+## Credits
+
+This library has been created by
+
+* Aaron M. Roth
+
+* Nicholay Topin
+
+* Saadiq Shah
+
 ## Citation Information
 
 Please cite using the following bibtex:
