@@ -161,7 +161,7 @@ This library has been created by
 
 * Nicholay Topin
 
-* Saadiq Shah
+* Saadiq Shaik
 
 ## Citation Information
 
